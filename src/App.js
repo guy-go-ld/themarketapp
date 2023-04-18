@@ -3,6 +3,7 @@ import './App.css';
 import {render} from "@testing-library/react";
 import SearchBar from "./Components/search-bar/search-bar.component";
 import BusinessList from "./Components/business-list/buisness-list.component";
+// Hello
 class App extends Component{
   constructor(){
     super();
