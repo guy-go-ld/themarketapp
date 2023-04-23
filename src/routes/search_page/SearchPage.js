@@ -1,33 +1,57 @@
-import React from 'react';
-import {useLocation} from 'react-router-dom';
-import data from "../../Components/databases/ListData.json"
+import {Component} from 'react';
+import data from "../../databases/ListData.json"
+import BusinessList from "../../Components/business-list/buisness-list.component";
+import SearchBar from "../../Components/search-bar/search-bar.component";
 
-const SearchPage = () => {
-    const location = useLocation();
-
-    const newFilter = data.filter((value) => {
-        return value.title.toLowerCase() === (location.state.id);
-    });
-
-    function sayBye() {
-        alert('Bye!');
+class SearchPage extends Component{
+    constructor(){
+        super();
+        this.state={
+            businesses:[],
+            searchField : ''
+        };
     }
-    return (
-        <div>
+    componentDidMount(){
+        fetch("https://jsonplaceholder.typicode.com/users")
+            .then((response) => response.json())
+            .then((users) => this.setState(()=> {
+                    return{businesses: users}
+                }
+            ));
+    }
+
+    onSearchChange = (event) => {
+        const searchField = event.target.value.toLocaleLowerCase();
+        this.setState(()=>{
+            return {searchField};
+        });
+    }
+
+    render() {
+        const {businesses} = this.state;
+        const {onSearchChange} = this;
+        const filteredBusiness = businesses.filter((business) => {
+            if (this.state.searchField === "") {
+                return;
+            }
+            return business.name.toLocaleLowerCase().includes(this.state.searchField);
+        });
+
+        return (
             <div>
-                {newFilter.length !== 0 && (
-                    <div className="searchDataResult">
-                        {/* Slicing in order to show 15 items*/}
-                        {newFilter.slice(0,15).map((value, key) => {
-                            return ( // TODO add here the new component
-                                <p>{value.text}</p>
-                            )
-                        })}
-                    </div>)}
+                <div>
+                    <h1>My Search Page</h1>
+                    <SearchBar
+                        onChangeHandler={onSearchChange}
+                        placeHolder='search business'
+                        className='search-bar-business'
+                    />
+                    <BusinessList businesses={filteredBusiness}/>
+                </div>
             </div>
-            <button onClick={sayBye}>Say bye!</button>
-        </div>
-    );
-};
+        );
+
+    }
+}
 
 export default SearchPage;

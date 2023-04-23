@@ -4,10 +4,10 @@ import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
 import "./MyMap.css";
 import { MarkerLayer } from "react-leaflet-marker";
 import L from "leaflet";
-import MapLocations from "../databases/MapLocations.json";
+import MapLocations from "../../databases/MapLocations.json";
 
 const IconPerson = new L.Icon({
-    iconUrl: require("..//pictures/LocationPin.png"),
+    iconUrl: require("../../Icons/LocationPin.png"),
     iconSize: [35, 45],
     iconAnchor: [17, 46], //[left/right, top/bottom],
     popupAnchor: [0, -46]
