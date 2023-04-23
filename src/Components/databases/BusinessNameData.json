@@ -1,0 +1,27 @@
+[
+  {
+  "id": 1,
+  "name": "lak gel"
+},
+  {
+    "id": 2,
+    "name": "barber"
+  },
+  {
+  "id": 3,
+  "name": "super lak gel"
+},
+  {
+    "id": 4,
+    "name": "super barber"
+  },
+  {
+    "id": 5,
+    "name": "duper lak gel"
+  },
+  {
+    "id": 6,
+    "name": "duper barber"
+  }
+
+]

@@ -15,6 +15,10 @@ const Navigation = () =>
                     <Link className='nav-link' to='/shop'>
                         Shop
                     </Link>
+                    <p></p>
+                    <Link className='nav-link' to='/SearchPage' state = {{id: "barber"}}>
+                        SearchPage
+                    </Link>
                 </div>
             </div>
             <Outlet/>

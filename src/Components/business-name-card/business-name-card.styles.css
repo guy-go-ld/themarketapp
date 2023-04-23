@@ -1,0 +1,65 @@
+.card-contatiner {
+    display: flex;
+    flex-direction: column;
+    background-color: #95dada;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 25px;
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+}
+
+.card-contatiner:hover {
+    transform: scale(1.05);
+}
+
+.dataResult {
+    margin-top: 5px;
+    width: 205px;
+    height: 200px;
+    background-color: white;
+    box-shadow: rgba(0,0,0,0.2) 0 5px 15px;
+    overflow: hidden;
+    overflow-y: auto;
+    cursor: pointer;
+}
+
+
+.dataResult::-webkit-scrollbar {
+    display: none;
+}
+.dataResult .dataItem {
+    width: 205px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.dataItem p {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.dataItem:hover
+{
+    transform: scale(1.05);
+}
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    background-color: lightgray;
+}
+.searchIcon{
+    margin-left: auto;
+    margin-right: 0;
+}
+
+#clearBtn {
+    cursor: pointer;
+}

@@ -21,7 +21,7 @@ class App extends Component{
                 <Route path="/" element={<Navigation />}>
                     <Route index element={<HomePage />} />
                     <Route path="shop" element={<Shop />}/>
-                    {/*<Route path="SearchPage" element={<SearchPage />} />*/}
+                    <Route path="SearchPage" element={<SearchPage />} />
                 </Route>
             </Routes>
         </div>

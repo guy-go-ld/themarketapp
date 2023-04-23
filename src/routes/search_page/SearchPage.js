@@ -1,5 +1,5 @@
 import React from 'react';
-import {useLocation, Link } from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import data from "../../Components/databases/ListData.json"
 
 const SearchPage = () => {
@@ -12,9 +12,6 @@ const SearchPage = () => {
     function sayBye() {
         alert('Bye!');
     }
-
-
-    console.log(location);
     return (
         <div>
             <div>
@@ -29,7 +26,6 @@ const SearchPage = () => {
                     </div>)}
             </div>
             <button onClick={sayBye}>Say bye!</button>
-            <p></p><Link to= "/">HomePage</Link>
         </div>
     );
 };
