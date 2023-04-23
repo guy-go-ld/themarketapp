@@ -3,6 +3,7 @@ import './App.css';
 import {render} from "@testing-library/react";
 import SearchBar from "./Components/search-bar/search-bar.component";
 import BusinessList from "./Components/business-list/buisness-list.component";
+import MyMap from "./Components/map-main-menu/MyMap";
 // Hello
 class App extends Component{
   constructor(){
@@ -29,7 +30,12 @@ class App extends Component{
     render(){
         const {businesses} = this.state;
         const {onSearchChange} = this;
-        const filteredBusiness = businesses.filter((business) => {
+        const filteredBusiness = businesses.filter((business) =>
+        {
+            if (this.state.searchField === "")
+            {
+                return;
+            }
             return business.name.toLocaleLowerCase().includes(this.state.searchField);
         });
     return(
@@ -41,6 +47,7 @@ class App extends Component{
               className ='search-bar-business'
           />
             <BusinessList businesses={filteredBusiness}/>
+            <div id="map"><MyMap/></div>
         </div>
 
     );

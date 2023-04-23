@@ -1,0 +1,46 @@
+[{
+  "BusinessName": "Ofra's lak-gel",
+  "Address": "Jaffa 23, Jerusalem",
+  "Area": "city center",
+  "Coord": {
+    "latitude": 31.780366880203907,
+    "longitude": 35.222080437229
+  },
+  "Description": "Lak Jel",
+  "NumOfPeople": 1,
+  "URL": "www.url.il"
+},
+  {"BusinessName": "Nitzan's lak gel",
+    "Address": "Ben Yehuda 12, Jerusalem",
+    "Area": "city center",
+    "Coord": {
+      "latitude": 31.78163621434146,
+      "longitude": 35.217435221663656
+    },
+    "Description": "Lak Jel",
+    "NumOfPeople": 5,
+    "URL": "www.url.il"
+  },
+  {"BusinessName": "Podcat",
+    "Address": "Eilat 12, Jerusalem",
+    "Area": "Nahlaot",
+    "Coord": {
+      "latitude": 31.78360707310446,
+      "longitude": 35.21090181285521
+    },
+    "Description": "Barber",
+    "NumOfPeople": 0,
+    "URL": "www.url.il"
+  },
+  {"BusinessName": "Blognation",
+    "Address": "Alma 10, Jerusalem",
+    "Area": "Nahlaot",
+    "Coord": {
+      "latitude": 31.782270492013442,
+      "longitude": 35.20888887075022
+    },
+    "Description": "Barber",
+    "NumOfPeople": 10,
+    "URL": "www.url.il"
+  }
+]
