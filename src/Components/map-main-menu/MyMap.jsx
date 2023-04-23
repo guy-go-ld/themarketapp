@@ -6,7 +6,6 @@ import { MarkerLayer } from "react-leaflet-marker";
 import L from "leaflet";
 import MapLocations from "../databases/MapLocations.json";
 
-// TODO solve later
 const IconPerson = new L.Icon({
     iconUrl: require("..//pictures/LocationPin.png"),
     iconSize: [35, 45],
