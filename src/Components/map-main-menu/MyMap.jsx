@@ -1,11 +1,9 @@
 import React, {Component} from 'react'
 import "leaflet/dist/leaflet.css"
 import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
-// import LocationOnIcon from '@mui/icons-material/LocationOn';
 import "./MyMap.css";
 import { MarkerLayer } from "react-leaflet-marker";
 import L from "leaflet";
-// import { IconPerson } from "./IconLocation";
 import MapLocations from "../databases/MapLocations.json";
 
 // TODO solve later

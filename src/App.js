@@ -1,10 +1,14 @@
 import {Component} from "react";
 import './App.css';
-import {render} from "@testing-library/react";
+// import HomePage from './HomePage';
+// import SearchPage from './SearchPage';
+// import { Routes, Route } from 'react-router-dom';
+// import * as React from 'react';
+// import {render} from "@testing-library/react";
 import SearchBar from "./Components/search-bar/search-bar.component";
 import BusinessList from "./Components/business-list/buisness-list.component";
 import MyMap from "./Components/map-main-menu/MyMap";
-// Hello
+
 class App extends Component{
   constructor(){
     super();
@@ -34,7 +38,7 @@ class App extends Component{
         {
             if (this.state.searchField === "")
             {
-                return;
+                return [];
             }
             return business.name.toLocaleLowerCase().includes(this.state.searchField);
         });
@@ -49,6 +53,12 @@ class App extends Component{
             <BusinessList businesses={filteredBusiness}/>
             <div id="map"><MyMap/></div>
         </div>
+        // <div className="App">
+        //     <Routes>
+        //         <Route path="/" element={<HomePage />} />
+        //         <Route path="/SearchPage" element={<SearchPage />} />
+        //     </Routes>
+        // </div>
 
     );
   }
