@@ -33,7 +33,7 @@ class HomePage extends Component{
         {
             if (this.state.searchField === "")
             {
-                return [];
+                return ;
             }
             return business.name.toLocaleLowerCase().includes(this.state.searchField);
         });
@@ -46,7 +46,7 @@ class HomePage extends Component{
                   className ='search-bar-business'
               />
                 <BusinessList businesses={filteredBusiness}/>
-                <div id="map"><MyMap/></div>
+                <div><MyMap/></div>
             </div>
 
         );

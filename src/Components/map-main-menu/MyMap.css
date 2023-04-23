@@ -24,8 +24,8 @@
 /*}*/
 
 #map {
-    height: 50%;
-    width: auto;
+    width: 50%;
+    height: auto;
     border: solid black 2px;
     position: relative;
     align-content: center;
