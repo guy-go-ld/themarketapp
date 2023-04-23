@@ -1,8 +1,8 @@
 import {Component} from "react";
 import './HomePage.css';
-import SearchBar from "./Components/search-bar/search-bar.component";
-import BusinessList from "./Components/business-list/buisness-list.component";
-import MyMap from "./Components/map-main-menu/MyMap";
+import SearchBar from "../../Components/search-bar/search-bar.component";
+import BusinessList from "../../Components/business-list/buisness-list.component";
+import MyMap from "../../Components/map-main-menu/MyMap";
 
 class HomePage extends Component{
     constructor(){
@@ -39,7 +39,6 @@ class HomePage extends Component{
         });
         return(
             <div>
-                Hi
               <h1 >My Bazzar App</h1>
               <SearchBar
                   onChangeHandler = {onSearchChange}
