@@ -6,7 +6,7 @@ class BusinessNameList extends Component{
     render() {
         const {businesses} = this.props;
         return (
-            <div className="dataResult">
+            <div className="business-list">
                 {businesses.map(business =>{
                     return(
                         <BusinessNameCard business={business}/>

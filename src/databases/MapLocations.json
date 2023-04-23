@@ -8,7 +8,7 @@
   },
   "Description": "Lak Jel",
   "NumOfPeople": 1,
-  "URL": "www.url.il"
+  "URL": "/SearchPage"
 },
   {"BusinessName": "Nitzan's lak gel",
     "Address": "Ben Yehuda 12, Jerusalem",
@@ -19,7 +19,7 @@
     },
     "Description": "Lak Jel",
     "NumOfPeople": 5,
-    "URL": "www.url.il"
+    "URL": "/"
   },
   {"BusinessName": "Podcat",
     "Address": "Eilat 12, Jerusalem",
@@ -30,7 +30,7 @@
     },
     "Description": "Barber",
     "NumOfPeople": 0,
-    "URL": "www.url.il"
+    "URL": "/"
   },
   {"BusinessName": "Blognation",
     "Address": "Alma 10, Jerusalem",
@@ -41,6 +41,6 @@
     },
     "Description": "Barber",
     "NumOfPeople": 10,
-    "URL": "www.url.il"
+    "URL": "/"
   }
 ]

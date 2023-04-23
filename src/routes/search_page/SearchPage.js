@@ -1,24 +1,26 @@
 import {Component} from 'react';
-// import data from "../../databases/ListData.json"
-import BusinessList from "../../Components/business-list/buisness-list.component";
+import data from "../../databases/ListData.json"
+import BusinessNameList from "../../Components/business-name-list/buisness-name-list.component";
 import SearchBar from "../../Components/search-bar/search-bar.component";
 
 class SearchPage extends Component{
     constructor(){
         super();
         this.state={
-            businesses:[],
+            businesses:data,
             searchField : ''
         };
     }
-    componentDidMount(){
-        fetch("https://jsonplaceholder.typicode.com/users")
-            .then((response) => response.json())
-            .then((users) => this.setState(()=> {
-                    return{businesses: users}
-                }
-            ));
-    }
+
+    //TODO fix
+    // componentDidMount(){
+    //     fetch("https://jsonplaceholder.typicode.com/users")
+    //         .then((response) => response.json())
+    //         .then((users) => this.setState(()=> {
+    //                 return{businesses: users}
+    //             }
+    //         ));
+    // }
 
     onSearchChange = (event) => {
         const searchField = event.target.value.toLocaleLowerCase();
@@ -46,7 +48,7 @@ class SearchPage extends Component{
                         placeHolder='search business'
                         className='search-bar-business'
                     />
-                    <BusinessList businesses={filteredBusiness}/>
+                    <BusinessNameList businesses={filteredBusiness}/>
                 </div>
             </div>
         );

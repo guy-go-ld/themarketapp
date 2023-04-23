@@ -1,51 +1,51 @@
 [
   {
   "id": 1,
-  "text": "Ofra's lak-gel",
+  "name": "Ofra's lak-gel",
   "title": "lak gel"
   },
   {
   "id": 2,
-  "text": "Yuval's lak gel",
+  "name": "Yuval's lak gel",
   "title": "lak gel"
   },
   {
   "id": 3,
-  "text": "Nitzan's lak gel",
+  "name": "Nitzan's lak gel",
   "title": "lak gel"
   },
   {
   "id": 4,
-  "text": "DeLakGelBest",
+  "name": "DeLakGelBest",
   "title": "lak gel"
   },
   {
   "id": 5,
-  "text": "Avaveo",
+  "name": "Avaveo",
   "title": "Barber"
   },
   {
   "id": 6,
-  "text": "Demivee",
+  "name": "Demivee",
   "title": "Barber"
   },
   {
   "id": 7,
-  "text": "Jayo",
+  "name": "Jayo",
   "title": "Barber"
   },
   {
   "id": 8,
-  "text": "Blognation",
+  "name": "Blognation",
   "title": "Barber"
   },
   {
   "id": 9,
-  "text": "Podcat",
+  "name": "Podcat",
   "title": "Barber"
   },
   {
   "id": 10,
-  "text": "Layo",
+  "name": "Layo",
   "title": "Barber"
   }]
