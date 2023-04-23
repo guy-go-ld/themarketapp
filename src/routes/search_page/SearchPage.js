@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import data from "../../databases/ListData.json"
+// import data from "../../databases/ListData.json"
 import BusinessList from "../../Components/business-list/buisness-list.component";
 import SearchBar from "../../Components/search-bar/search-bar.component";
 
