@@ -7,6 +7,7 @@ import {Avatar, Stack} from "@mui/material";
 
 import {deepOrange, deepPurple} from "@mui/material/colors";
 import LastActivitiesFriendsDialog from "../../Components/dialog-box-basic/dialog_box_basic";
+import BusinessNameCard from "../../Components/business-name-card/business-name-card.component";
 
 // TODO how to implement hooks in a class?
 export const mapHook = (Component) =>
@@ -46,6 +47,7 @@ class HomePageComponent extends Component{
                 </div>
                 <div><MyMap/></div>
                 <button onClick={mapHook}>JumpTo</button>
+                <BusinessNameCard business={{"id": 1, "name": "Ofra's lak-gel", "title": "lak gel"}}/>
             </div>
         );
     }
