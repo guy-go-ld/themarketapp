@@ -1,7 +1,7 @@
 import {Component} from "react";
 import data from "../../databases/ListData.json";
 
-class ProfilePage extends Component{
+class ProfilePageComponent extends Component{
     constructor(id) {
         super();
         this.state={
@@ -17,4 +17,4 @@ class ProfilePage extends Component{
     }
 }
 
-export default ProfilePage;
+export default ProfilePageComponent;

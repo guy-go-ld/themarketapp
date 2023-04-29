@@ -1,6 +1,6 @@
 import {Component} from "react";
 
-class BusinessPage extends Component{
+class BusinessPageComponent extends Component{
     render(){
         return(
             <div>
@@ -10,4 +10,4 @@ class BusinessPage extends Component{
     }
 }
 
-export default BusinessPage;
+export default BusinessPageComponent;

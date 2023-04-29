@@ -1,12 +1,12 @@
 import {Component} from "react";
 import './App.css';
-import HomePage from './routes/home/HomePage';
-import SearchPage from './routes/search_page/SearchPage';
+import HomePageComponent from './routes/home/HomePage.component';
+import SearchPageComponent from './routes/search_page/SearchPage.component';
 import { Routes, Route } from 'react-router-dom';
-import Navigation from './routes/navigation/Navigation';
-import ProfilePage from "./routes/profile_page/ProfilePage";
-import BusinessPage from "./routes/business_page/BusinessPage";
-
+import NavigationComponent from './routes/navigation/Navigation.component';
+import ProfilePageComponent from "./routes/profile_page/ProfilePage.component";
+import BusinessPageComponent from "./routes/business_page/BusinessPage.component";
+import AroundMeComponent from "./routes/Around Me/AroundMe.component";
 const Shop = ()=>
 {
     return(
@@ -20,12 +20,13 @@ class App extends Component{
     return(
         <div className="App">
             <Routes>
-                <Route path="/" element={<Navigation />}>
-                    <Route index element={<HomePage />} />
+                <Route path="/" element={<NavigationComponent />}>
+                    <Route index element={<HomePageComponent />} />
                     <Route path="shop" element={<Shop />}/>
-                    <Route path="SearchPage" element={<SearchPage />} />
-                    <Route path="ProfilePage" element={<ProfilePage/>}/>
-                    <Route path="BusinessPage" element={<BusinessPage/>}/>
+                    <Route path="SearchPageComponent" element={<SearchPageComponent />} />
+                    <Route path="ProfilePageComponent" element={<ProfilePageComponent/>}/>
+                    <Route path="BusinessPageComponent" element={<BusinessPageComponent/>}/>
+                    <Route path="AroundMeComponent" element={<AroundMeComponent/>}/>
                 </Route>
             </Routes>
         </div>

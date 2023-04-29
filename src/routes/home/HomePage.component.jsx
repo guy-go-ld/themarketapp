@@ -1,5 +1,5 @@
 import {Component, useEffect} from "react";
-import './HomePage.css';
+import './HomePage.styles.css';
 import MyMap from "../../Components/map-main-menu/MyMap";
 import {Link} from "react-router-dom";
 import {useMap} from "react-leaflet";
@@ -17,7 +17,7 @@ export const mapHook = (Component) =>
     }
 }
 
-class HomePage extends Component{
+class HomePageComponent extends Component{
 
 
 
@@ -27,7 +27,7 @@ class HomePage extends Component{
         return(
             <div className="All Home Page">
               <h1 >My Bazzar App</h1>
-                <Link to='/SearchPage'>
+                <Link to='/SearchPageComponent'>
                     SEARCH_PAGE
                 </Link>
                 <div><MyMap/></div>
@@ -37,4 +37,4 @@ class HomePage extends Component{
     }
 }
 
-export default HomePage;
+export default HomePageComponent;

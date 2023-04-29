@@ -3,7 +3,7 @@ import data from "../../databases/ListData.json"
 import BusinessNameList from "../../Components/business-name-list/buisness-name-list.component";
 import SearchBar from "../../Components/search-bar/search-bar.component";
 
-class SearchPage extends Component{
+class SearchPageComponent extends Component{
     constructor(){
         super();
         this.state={
@@ -56,4 +56,4 @@ class SearchPage extends Component{
     }
 }
 
-export default SearchPage;
+export default SearchPageComponent;
