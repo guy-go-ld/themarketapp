@@ -48,7 +48,9 @@ class SearchPageComponent extends Component{
                         placeHolder='search business'
                         className='search-bar-business'
                     />
-                    <BusinessNameList businesses={filteredBusiness}/>
+                    <BusinessNameList
+                        businesses={filteredBusiness}
+                    />
                 </div>
             </div>
         );

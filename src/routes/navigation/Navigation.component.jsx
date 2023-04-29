@@ -30,11 +30,10 @@ const NavigationComponent = () =>
                     value={value}
                     onChange={(event, newValue) => {
                         setValue(newValue);
-
                     }}
                 >
                     <BottomNavigationAction component={Link} to="/" label="Home" icon={<SearchRoundedIcon />}/>
-                    <BottomNavigationAction component={Link} to="/SearchPageComponent" label="Community" icon={<ApartmentRoundedIcon />}  />
+                    <BottomNavigationAction component={Link} to="/CommunityComponent" label="Community" icon={<ApartmentRoundedIcon />}  />
                     <BottomNavigationAction component={Link} to="/AroundMeComponent" label="Around Me" icon={<LocationOnIcon />}  />
                     <BottomNavigationAction component={Link} to="/NotificationsComponent" label="Notifications" icon={<NotificationImportantRoundedIcon />}  />
                     <BottomNavigationAction component={Link} to="/ProfilePageComponent" label="Profile" icon={<PersonRoundedIcon />}  />
