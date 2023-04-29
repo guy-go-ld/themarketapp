@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 class HomePage extends Component{
     render(){
         return(
-            <div>
+            <div className="All Home Page">
               <h1 >My Bazzar App</h1>
                 <Link to='/SearchPage'>
                     SEARCH_PAGE

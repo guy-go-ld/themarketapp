@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, {Component, useEffect} from 'react'
 import "leaflet/dist/leaflet.css"
-import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
+import {MapContainer, Marker, Popup, TileLayer, useMap} from "react-leaflet";
 import "./MyMap.css";
 import { MarkerLayer } from "react-leaflet-marker";
 import L from "leaflet";
@@ -14,9 +14,26 @@ const IconPerson = new L.Icon({
 
 })
 
+
+
 class MyMap extends Component
 {
+
     render() {
+        const position = [31.777587, 35.215094]; //[this.state.location.lat, this.state.location.lng];
+
+        function FlyMapTo() {
+
+            const map = useMap()
+
+            useEffect(() => {
+                map.flyTo(position)
+            }, [position])
+
+            return null
+        }
+
+
         return(
             <MapContainer center={[31.777587, 35.215094]} zoom={15} scrollWheelZoom={true}>
                 <TileLayer
