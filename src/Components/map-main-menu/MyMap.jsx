@@ -20,18 +20,7 @@ class MyMap extends Component
 {
 
     render() {
-        const position = [31.777587, 35.215094]; //[this.state.location.lat, this.state.location.lng];
 
-        function FlyMapTo() {
-
-            const map = useMap()
-
-            useEffect(() => {
-                map.flyTo(position)
-            }, [position])
-
-            return null
-        }
 
 
         return(
