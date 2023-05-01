@@ -22,8 +22,6 @@ export const mapHook = (Component) =>
     }
 }
 
-
-
 class HomePageComponent extends Component{
 
 

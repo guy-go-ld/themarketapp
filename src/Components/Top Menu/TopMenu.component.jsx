@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {
-    AppBar, BottomNavigationAction,
+    AppBar, BottomNavigation, BottomNavigationAction,
     Box,
     CssBaseline,
     Divider, Drawer, IconButton,
@@ -84,8 +84,10 @@ function ResponsiveDrawer(props) {
                     <IconButton
                         color="inherit"
                     >
-                        <BottomNavigationAction component={Link} to="/SearchPageComponent" label="Community" icon={<SearchRoundedIcon />}  />
-                    </IconButton>
+                        <BottomNavigation>
+                        <BottomNavigationAction component={Link} to="/SearchPageComponent" label="Community" icon={<SearchRoundedIcon />} />
+                        </BottomNavigation>
+                        </IconButton>
                 </Toolbar>
             </AppBar>
             <Box

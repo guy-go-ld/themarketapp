@@ -24,7 +24,6 @@ class App extends Component{
             <Routes>
                 <Route path="/" element={<NavigationComponent />}>
                     <Route index element={<HomePageComponent />} />
-                    <Route path="shop" element={<Shop />}/>
                     <Route path="SearchPageComponent" element={<SearchPageComponent />} />
                     <Route path="ProfilePageComponent" element={<ProfilePageComponent/>}/>
                     <Route path="BusinessPageComponent" element={<BusinessPageComponent/>}/>

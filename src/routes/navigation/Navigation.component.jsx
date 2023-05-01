@@ -19,7 +19,6 @@ const NavigationComponent = () =>
     const [value, setValue] = useState(0);
     return(
         <Fragment>
-
             <div className="top-nav">
                 <TopMenuComponent/>
             </div>
