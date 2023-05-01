@@ -14,9 +14,6 @@ import {
 import InboxIcon from "@mui/icons-material/Inbox";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import {Link} from "react-router-dom";
-import ApartmentRoundedIcon from "@mui/icons-material/ApartmentRounded";
 
 const drawerWidth = 240;
 function ResponsiveDrawer(props) {
@@ -63,15 +60,6 @@ function ResponsiveDrawer(props) {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
-            <AppBar
-                position="fixed"
-                sx={{
-                    width: { sm: `calc(10% - ${drawerWidth}px)` },
-                    ml: { sm: `${drawerWidth}px` },
-                }}
-            >
-                <Toolbar>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -81,15 +69,6 @@ function ResponsiveDrawer(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <IconButton
-                        color="inherit"
-                    >
-                        <BottomNavigation>
-                        <BottomNavigationAction component={Link} to="/SearchPageComponent" label="Community" icon={<SearchRoundedIcon />} />
-                        </BottomNavigation>
-                        </IconButton>
-                </Toolbar>
-            </AppBar>
             <Box
                 component="nav"
                 sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}

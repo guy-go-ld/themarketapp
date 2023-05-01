@@ -24,13 +24,13 @@ class App extends Component{
             <Routes>
                 <Route path="/" element={<NavigationComponent />}>
                     <Route index element={<HomePageComponent />} />
-                    <Route path="SearchPageComponent" element={<SearchPageComponent />} />
                     <Route path="ProfilePageComponent" element={<ProfilePageComponent/>}/>
                     <Route path="BusinessPageComponent" element={<BusinessPageComponent/>}/>
                     <Route path="AroundMeComponent" element={<AroundMeComponent/>}/>
                     <Route path="NotificationsComponent" element={<NotificationsComponent/>}/>
                     <Route path="CommunityComponent" element={<CommunitiyComponent/>}/>
                 </Route>
+                <Route path="SearchPageComponent" element={<SearchPageComponent />} />
             </Routes>
         </div>
 
