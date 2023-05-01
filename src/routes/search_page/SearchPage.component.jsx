@@ -1,5 +1,5 @@
 import {Component, Fragment} from 'react';
-import data from "../../databases/ListData.json"
+import data from "../../databases/BusinessAllData.json"
 import BusinessNameList from "../../Components/business-name-list/buisness-name-list.component";
 import SearchBar from "../../Components/search-bar/search-bar.component";
 import {Box} from "@mui/material";
