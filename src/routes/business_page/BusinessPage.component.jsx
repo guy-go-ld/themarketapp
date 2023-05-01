@@ -88,7 +88,7 @@ function ShowPerson(data_on_person)
                     </Collapse>
                 </List>
             </Stack>
-            HERE
+
         </div>
     );
 }
