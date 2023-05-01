@@ -1,10 +1,11 @@
-import React, {Component, useEffect} from 'react'
+import React, {Component, useEffect, useState} from 'react'
 import "leaflet/dist/leaflet.css"
 import {MapContainer, Marker, Popup, TileLayer, useMap} from "react-leaflet";
 import "./MyMap.css";
 import { MarkerLayer } from "react-leaflet-marker";
 import L from "leaflet";
 import MapLocations from "../../databases/MapLocations.json";
+import {Box} from "@mui/material";
 
 const IconPerson = new L.Icon({
     iconUrl: require("../../Icons/LocationPin.png"),
@@ -21,22 +22,47 @@ class MyMap extends Component
 {
     constructor(props) {
         super(props);
-        this.state = [[51.505, -0.09], [51.505, -0.09]];
-        this.mapRef = React.createRef();
+        // this.state = [[51.505, -0.09], [51.505, -0.09]];
+        this.height = window.innerWidth >= 600 ? window.innerHeight : 100;
+
+        this.const [height, setHeight] = useState('initial')
     }
-    handleResize = () => {
-    const bounds = this.mapRef.current.leafletElement.getBounds();
-    this.setState({ bounds });
-};
+    hello(){alert("HELLO");}
+    updateDimensions() {
+        const height = window.innerWidth >= 600 ? window.innerHeight : 100
+        console.log(this.state.height)
+        this.setState({ height: height })
+        (window.innerWidth >= 600 ? window.innerHeight : 100)
+    }
+
+    componentWillMount() {
+        this.updateDimensions()
+    }
+
+    componentDidMount() {
+        window.addEventListener("resize", this.updateDimensions)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateDimensions)
+    }
+//     handleResize = () => {
+//     const bounds = this.mapRef.current.leafletElement.getBounds();
+//     this.setState({ bounds });
+// };
     render() {
 
 
 
         return(
-            <MapContainer center={[31.777587, 35.215094]} zoom={15} scrollWheelZoom={true} style={{ height: '50vh', width: '80%', border: 'black solid 4px', margin: 'auto'}} bounds={[[51.505, -0.09], [51.505, -0.09]]} boundsOptions={{ padding: [50, 50] }} resize="vertical">
+            // <Box sx={{ height: 100, width: '100%' }}>
+            // <Box sx={{ height: '75%' }}>
+            <MapContainer center={[31.777587, 35.215094]} zoom={15} scrollWheelZoom={true} style={{ height: this.state.height, width: '80%', border: 'black solid 4px', margin: 'auto', resize: 'vertical'}}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+
                 />
                 <MarkerLayer>
                     {MapLocations.map(mapDat =>
@@ -59,6 +85,8 @@ class MyMap extends Component
 
                 </MarkerLayer>
             </MapContainer>
+            // </Box>
+            // </Box>
         )
     }
 
