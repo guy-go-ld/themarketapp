@@ -16,15 +16,24 @@ const IconPerson = new L.Icon({
 
 
 
+
 class MyMap extends Component
 {
-
+    constructor(props) {
+        super(props);
+        this.state = [[51.505, -0.09], [51.505, -0.09]];
+        this.mapRef = React.createRef();
+    }
+    handleResize = () => {
+    const bounds = this.mapRef.current.leafletElement.getBounds();
+    this.setState({ bounds });
+};
     render() {
 
 
 
         return(
-            <MapContainer center={[31.777587, 35.215094]} zoom={15} scrollWheelZoom={true}>
+            <MapContainer center={[31.777587, 35.215094]} zoom={15} scrollWheelZoom={true} style={{ height: '50vh', width: '80%', border: 'black solid 4px', margin: 'auto'}} bounds={[[51.505, -0.09], [51.505, -0.09]]} boundsOptions={{ padding: [50, 50] }} resize="vertical">
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

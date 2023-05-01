@@ -4,13 +4,13 @@
 /*    color: #03207b;*/
 /*}*/
 
-.leaflet-container {
-    height: 100px;
-    width: 200px;
-    border: black solid 4px;
-    padding: 300px;
-    margin: auto;
-}
+/*.leaflet-container {*/
+/*    height: 100px;*/
+/*    width: 200px;*/
+/*    border: black solid 4px;*/
+/*    padding: 300px;*/
+/*    margin: auto;*/
+/*}*/
 
 #popup {
     color: darkcyan;
@@ -24,13 +24,13 @@
 /*    position: relative;*/
 /*}*/
 
-#map {
-    width: 50%;
-    height: auto;
-    border: solid black 2px;
-    position: relative;
-    align-content: center;
-}
+/*#map {*/
+/*    width: 50%;*/
+/*    height: auto;*/
+/*    border: solid black 2px;*/
+/*    position: relative;*/
+/*    align-content: center;*/
+/*}*/
 
 /*.leaflet-shadow-pane {*/
 /*    z-index: 1000;*/
