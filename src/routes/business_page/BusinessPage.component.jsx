@@ -145,13 +145,16 @@ function ShowPerson(data_on_person)
                     </Collapse>
                 </List>
             </Stack>
-            <Rating
-                name="simple-controlled"
-                value={value}
-                onChange={(event, newValue) => {
-                    setValue(newValue);
-                }}
-            />
+            <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
+                <h1>Rating: {data_on_person.rating}</h1>
+                <Rating
+                    name="simple-controlled"
+                    value={value}
+                    onChange={(event, newValue) => {
+                        setValue(newValue);
+                    }}
+                />
+            </Stack>
             <div style={{ marginTop: "5em" }}>
                 <ReactCardSlider slides={slides} />
             </div>
