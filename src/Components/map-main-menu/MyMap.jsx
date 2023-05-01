@@ -5,7 +5,10 @@ import "./MyMap.css";
 import { MarkerLayer } from "react-leaflet-marker";
 import L from "leaflet";
 import MapLocations from "../../databases/MapLocations.json";
+import sizing from "@mui/system";
 import {Box} from "@mui/material";
+import Container from '@mui/material/Container';
+
 
 const IconPerson = new L.Icon({
     iconUrl: require("../../Icons/LocationPin.png"),
@@ -25,27 +28,27 @@ class MyMap extends Component
         // this.state = [[51.505, -0.09], [51.505, -0.09]];
         this.height = window.innerWidth >= 600 ? window.innerHeight : 100;
 
-        this.const [height, setHeight] = useState('initial')
+        // this.const [height, setHeight] = useState('initial')
     }
-    hello(){alert("HELLO");}
-    updateDimensions() {
-        const height = window.innerWidth >= 600 ? window.innerHeight : 100
-        console.log(this.state.height)
-        this.setState({ height: height })
-        (window.innerWidth >= 600 ? window.innerHeight : 100)
-    }
-
-    componentWillMount() {
-        this.updateDimensions()
-    }
-
-    componentDidMount() {
-        window.addEventListener("resize", this.updateDimensions)
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("resize", this.updateDimensions)
-    }
+    // hello(){alert("HELLO");}
+    // updateDimensions() {
+    //     const height = window.innerWidth >= 600 ? window.innerHeight : 100
+    //     console.log(this.state.height)
+    //     this.setState({ height: height })
+    //     (window.innerWidth >= 600 ? window.innerHeight : 100)
+    // }
+    //
+    // componentWillMount() {
+    //     this.updateDimensions()
+    // }
+    //
+    // componentDidMount() {
+    //     window.addEventListener("resize", this.updateDimensions)
+    // }
+    //
+    // componentWillUnmount() {
+    //     window.removeEventListener("resize", this.updateDimensions)
+    // }
 //     handleResize = () => {
 //     const bounds = this.mapRef.current.leafletElement.getBounds();
 //     this.setState({ bounds });
@@ -57,7 +60,10 @@ class MyMap extends Component
         return(
             // <Box sx={{ height: 100, width: '100%' }}>
             // <Box sx={{ height: '75%' }}>
-            <MapContainer center={[31.777587, 35.215094]} zoom={15} scrollWheelZoom={true} style={{ height: this.state.height, width: '80%', border: 'black solid 4px', margin: 'auto', resize: 'vertical'}}>
+            <Container maxWidth="xl">
+            <MapContainer center={[31.777587, 35.215094]} zoom={15} scrollWheelZoom={true} style={{ height: '50vh', width: '80%', border: 'black solid 4px', radius:'2', margin: 'auto', resize: 'vertical'}}>
+                {/*<MapContainer center={[31.777587, 35.215094]} zoom={15} scrollWheelZoom={true} style={{ height: '100%', width: '80%', border: 'black solid 4px', borderRadius:'2', margin: 'auto', resize: 'vertical'}}>*/}
+
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -85,6 +91,7 @@ class MyMap extends Component
 
                 </MarkerLayer>
             </MapContainer>
+            </Container>
             // </Box>
             // </Box>
         )
