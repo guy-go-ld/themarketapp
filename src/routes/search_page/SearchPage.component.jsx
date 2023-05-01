@@ -45,26 +45,18 @@ class SearchPageComponent extends Component{
 
         return (
             <Fragment>
-                <Box
-                    sx={{
-                        width:1,
-                        height: 200,
-                        backgroundColor: 'primary.light',
-                        '&:hover': {
-                            backgroundColor: 'primary.dark',
-                            opacity: [0.9, 0.8, 0.7],
-                        },
-                    }}
-                >
-                    <Box sx={{float:'left'}}>
+                <div className="top-search-page-wrapper">
+                    <div className="close-button-wrapper">
                         <GoBack/>
-                    </Box>
+                    </div>
+                    <div className="search-bar-wrapper">
                         <SearchBar
                             onChangeHandler={onSearchChange}
                             placeHolder='search business'
                             className='search-bar-business'
                         />
-                </Box>
+                    </div>
+                </div>
                 <BusinessNameList
                     businesses={filteredBusiness}
                 />

@@ -7,7 +7,7 @@ const GoBack= () =>{
         navigate('/',{replace:true});
     }
     return <>
-        <IconButton aria-label="delete" size="large" onClick={goBack}>
+        <IconButton aria-label="delete" size="large" onClick={goBack} sx={{float:"left"}}>
             <CloseIcon fontSize="inherit"/>
         </IconButton>
     </>;

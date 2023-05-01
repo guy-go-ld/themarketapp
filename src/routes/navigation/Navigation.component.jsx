@@ -25,10 +25,10 @@ const NavigationComponent = () =>
         <Fragment>
             <div className="top-nav">
                 {/*<TopMenuComponent/>*/}
-                <AppBar position="sticky">
-                    <Toolbar>
+                <AppBar position="sticky" >
+                    <Toolbar >
                         <ResponsiveDrawer/>
-                        <Input variant="text" sx={{color:'white'}} href='/SearchPageComponent' onClick={sendToSearch}>
+                        <Input variant="text" sx={{color:'white'}} href='/SearchPageComponent' onClick={sendToSearch} placeholder="Search Businesses">
                             Text</Input>
                     </Toolbar>
                 </AppBar>

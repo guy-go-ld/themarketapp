@@ -24,7 +24,7 @@ class BusinessNameCard extends Component{
                                 component="img"
                                 alt={`business ${name}`} src={`https://robohash.org/${id}?set=set2&size=180x180`}
                             />
-                            <CardContent sx={{width:'65%', float:'left'}}>
+                            <CardContent sx={{width:'55%', float:'left'}}>
                                 <Typography gutterBottom variant="h4" component="div" sx={{width:'100%', float:'left', textAlign: 'left'}}>
                                     {name}
                                 </Typography>

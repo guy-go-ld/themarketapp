@@ -9,6 +9,7 @@ class SearchBar extends Component{
     render() {
         return(
             <input
+                autoFocus={true}
                 className ={`search-box ${this.props.className}`}
                 type='search'
                 placeholder = {this.props.placeHolder}
