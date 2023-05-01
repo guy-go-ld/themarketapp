@@ -1,7 +1,11 @@
-import {Component} from 'react';
-import data from "../../databases/BusinessAllData.json"
+import {Component, Fragment} from 'react';
+import data from "../../databases/ListData.json"
 import BusinessNameList from "../../Components/business-name-list/buisness-name-list.component";
 import SearchBar from "../../Components/search-bar/search-bar.component";
+import {Box} from "@mui/material";
+import {useNavigate} from "react-router-dom";
+import GoBack from "../../Components/Tests/BackButton.component";
+
 
 class SearchPageComponent extends Component{
     constructor(){
@@ -40,19 +44,23 @@ class SearchPageComponent extends Component{
         });
 
         return (
-            <div>
-                <div>
-                    <h1>My Search Page</h1>
-                    <SearchBar
-                        onChangeHandler={onSearchChange}
-                        placeHolder='search business'
-                        className='search-bar-business'
-                    />
-                    <BusinessNameList
-                        businesses={filteredBusiness}
-                    />
+            <Fragment>
+                <div className="top-search-page-wrapper">
+                    <div className="close-button-wrapper">
+                        <GoBack/>
+                    </div>
+                    <div className="search-bar-wrapper">
+                        <SearchBar
+                            onChangeHandler={onSearchChange}
+                            placeHolder='search business'
+                            className='search-bar-business'
+                        />
+                    </div>
                 </div>
-            </div>
+                <BusinessNameList
+                    businesses={filteredBusiness}
+                />
+            </Fragment>
         );
 
     }

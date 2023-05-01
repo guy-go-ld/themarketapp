@@ -1,0 +1,22 @@
+
+.top-search-page-wrapper{
+    background-color: #800080  ;
+    height: 7rem;
+    width: 100%;
+    display: grid;
+}
+.close-button-wrapper{
+    display: block;
+    width: 100%;
+    grid-column: 1;
+    height: fit-content ;
+}
+input.search-box.search-bar-business {
+    font-size: x-large;
+    height: fit-content;
+    border: 2px solid;
+    padding: 2%;
+}
+.search-bar-wrapper{
+    margin-bottom: 1rem;
+}
