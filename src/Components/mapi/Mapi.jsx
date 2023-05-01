@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import L from 'leaflet';
 import MapLocations from "../../databases/MapLocations.json";
-import {Marker, Popup} from "react-leaflet";
-import {MarkerLayer} from "react-leaflet-marker";
+import "leaflet/dist/leaflet.css"
+import "./Mapi.css";
 
 
 
@@ -59,7 +59,7 @@ const Mapi = () => {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
 
-    return <div ref={mapContainer} style={{ height: '100%', width: '100%' ,border: 'black solid 4px'}} />;
+    return <div ref={mapContainer} style={{ height: '100%', width: '90%' ,border: 'black solid 4px', margin:'auto'}} />;
 };
 
 export default Mapi;

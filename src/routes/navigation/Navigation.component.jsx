@@ -1,10 +1,10 @@
-import {Outlet, Link, useNavigate} from "react-router-dom";
+import {Outlet, Link} from "react-router-dom";
 import {Fragment, useState} from "react";
 import './Navigation.styles.css';
 import {
     AppBar,
     BottomNavigation,
-    BottomNavigationAction, Button, IconButton, Input, styled, Toolbar
+    BottomNavigationAction, Input, Toolbar
 } from "@mui/material";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
@@ -18,13 +18,12 @@ import ResponsiveDrawer from "../../Components/Responsive Drawer/ResponsiveDrawe
 const NavigationComponent = () =>
 {
     const [value, setValue] = useState(0);
-    function sendToSearch(event){
+    function sendToSearch(){
         window.location.replace('/searchPageComponent');
     }
     return(
         <Fragment>
             <div className="top-nav">
-                {/*<TopMenuComponent/>*/}
                 <AppBar position="sticky" >
                     <Toolbar >
                         <ResponsiveDrawer/>

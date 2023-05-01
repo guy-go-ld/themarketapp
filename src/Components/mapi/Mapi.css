@@ -1,0 +1,38 @@
+/*.MuiSvgIcon-root {*/
+/*    z-index: 1000;*/
+/*    !*position: fixed;*!*/
+/*    color: #03207b;*/
+/*}*/
+
+/*.leaflet-container {*/
+/*    height: 100px;*/
+/*    width: 200px;*/
+/*    border: black solid 4px;*/
+/*    padding: 300px;*/
+/*    margin: auto;*/
+/*}*/
+
+#popup {
+    color: darkcyan;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+/*.leaflet-marker-icon {*/
+/*    !*border: solid black 3px;*!*/
+/*    z-index: 400;*/
+/*    position: relative;*/
+/*}*/
+
+/*#map {*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*    border: solid black 2px;*/
+/*    position: relative;*/
+/*    align-content: center;*/
+/*}*/
+
+/*.leaflet-shadow-pane {*/
+/*    z-index: 1000;*/
+/*}*/
+

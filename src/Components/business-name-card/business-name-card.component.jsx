@@ -28,7 +28,7 @@ class BusinessNameCard extends Component{
                                 <Typography gutterBottom variant="h4" component="div" sx={{width:'100%', float:'left', textAlign: 'left'}}>
                                     {name}
                                 </Typography>
-                                <Typography variant="body2"  variant="h4"color="text.secondary" sx={{width:'100%', float:'left', textAlign: 'left'}}>
+                                <Typography variant="h4" color="text.secondary" sx={{width:'100%', float:'left', textAlign: 'left'}}>
                                     {title}
                                 </Typography>
                             </CardContent>

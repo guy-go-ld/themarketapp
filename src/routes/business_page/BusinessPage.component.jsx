@@ -18,49 +18,56 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import {useState} from "react";
 import ReactCardSlider from "react-card-slider-component";
 
+const sliderClick =(slider)=>
+{
+    return (()=>
+    {
+        alert(slider); // Put here something useful
+    })
+}
 
 const slides = [
     {
         image: "https://picsum.photos/200/300",
         title: "This is a title",
-        description: "This is a description"
-        // clickEvent: sliderClick
+        description: "This is a description",
+        clickEvent: sliderClick(1)
     },
     {
         image: "https://picsum.photos/600/500",
         title: "This is a second title",
-        description: "This is a second description"
-        // clickEvent: sliderClick
+        description: "This is a second description",
+        clickEvent: sliderClick(2)
     },
     {
         image: "https://picsum.photos/700/600",
         title: "This is a third title",
-        description: "This is a third description"
-        // clickEvent: sliderClick
+        description: "This is a third description",
+        clickEvent: sliderClick(3)
     },
     {
         image: "https://picsum.photos/500/400",
         title: "This is a fourth title",
-        description: "This is a fourth description"
-        // clickEvent: sliderClick
+        description: "This is a fourth description",
+        clickEvent: sliderClick(4)
     },
     {
         image: "https://picsum.photos/200/300",
         title: "This is a fifth title",
-        description: "This is a fifth description"
-        // clickEvent: sliderClick
+        description: "This is a fifth description",
+        clickEvent: sliderClick(5)
     },
     {
         image: "https://picsum.photos/800/700",
         title: "This is a sixth title",
-        description: "This is a sixth description"
-        // clickEvent: sliderClick
+        description: "This is a sixth description",
+        clickEvent: sliderClick(6)
     },
     {
         image: "https://picsum.photos/800/900",
         title: "This is a seventh title",
-        description: "This is a seventh description"
-        // clickEvent: sliderClick
+        description: "This is a seventh description",
+        clickEvent: sliderClick(7)
     }
 ];
 function ShowPerson(data_on_person)

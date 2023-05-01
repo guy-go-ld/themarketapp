@@ -1,11 +1,9 @@
-import React, {Component, useEffect, useState} from 'react'
+import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
 import "leaflet/dist/leaflet.css"
-import {MapContainer, Marker, Popup, TileLayer, useMap} from "react-leaflet";
 import "./MyMap.css";
 import { MarkerLayer } from "react-leaflet-marker";
 import L from "leaflet";
 import MapLocations from "../../databases/MapLocations.json";
-import {Box} from "@mui/material";
 
 const IconPerson = new L.Icon({
     iconUrl: require("../../Icons/LocationPin.png"),
@@ -16,9 +14,9 @@ const IconPerson = new L.Icon({
 })
 
 
-function componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions)
-}
+// function componentWillUnmount() {
+//     window.removeEventListener("resize", this.updateDimensions)
+// }
 export default function MyMap()
 {
     const [map, setMap] = useState(null);
