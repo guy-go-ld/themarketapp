@@ -2,50 +2,60 @@
   {
   "id": 1,
   "name": "Ofra's lak-gel",
-  "title": "lak gel"
+  "title": "lak gel",
+  "rating": 4.9
   },
   {
   "id": 2,
   "name": "Yuval's lak gel",
-  "title": "lak gel"
+  "title": "lak gel",
+  "rating": 4.6
   },
   {
   "id": 3,
   "name": "Nitzan's lak gel",
-  "title": "lak gel"
+  "title": "lak gel",
+  "rating": 4.2
   },
   {
   "id": 4,
   "name": "DeLakGelBest",
-  "title": "lak gel"
+  "title": "lak gel",
+  "rating": 2.7
   },
   {
   "id": 5,
   "name": "Avaveo",
-  "title": "Barber"
+  "title": "Barber",
+  "rating": 4.6
   },
   {
   "id": 6,
   "name": "Demivee",
-  "title": "Barber"
+  "title": "Barber",
+  "rating": 4.3
   },
   {
   "id": 7,
   "name": "Jayo",
-  "title": "Barber"
+  "title": "Barber",
+  "rating": 3.8
   },
   {
   "id": 8,
   "name": "Blognation",
-  "title": "Barber"
+  "title": "Barber",
+  "rating": 4.1
   },
   {
   "id": 9,
   "name": "Podcat",
-  "title": "Barber"
+  "title": "Barber",
+  "rating": 4.9
   },
   {
   "id": 10,
   "name": "Layo",
-  "title": "Barber"
+  "title": "Barber",
+  "rating": 4.7
   }]

@@ -1,5 +1,5 @@
 import {Component} from "react";
-import data from "../../databases/ListData.json";
+import data from "../../databases/BusinessAllData.json";
 
 class ProfilePageComponent extends Component{
     constructor(id) {

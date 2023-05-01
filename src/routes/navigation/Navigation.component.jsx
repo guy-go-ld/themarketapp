@@ -1,6 +1,5 @@
 import {Outlet, Link} from "react-router-dom";
 import {Fragment, useState} from "react";
-import {ReactComponent as CrwnLogo} from './crown.svg';
 import './Navigation.styles.css';
 import {
     BottomNavigation,

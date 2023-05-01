@@ -1,15 +1,72 @@
 import {useLocation} from 'react-router-dom'
-import data from "../../databases/ListData.json"
-import {Avatar, Collapse, List, ListItemButton, ListItemIcon, ListItemText, ListSubheader, Stack} from "@mui/material";
+import data from "../../databases/BusinessAllData.json"
+import {
+    Avatar,
+    Collapse,
+    List,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+    ListSubheader,
+    Rating,
+    Stack
+} from "@mui/material";
 import DialogBoxContact from "../../Components/dialog-box-contact/dialog_box_contact";
 import LastActivitiesFriendsDialog from "../../Components/dialog-box-basic/dialog_box_basic";
 import {ExpandLess, ExpandMore, StarBorder} from "@mui/icons-material";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import {useState} from "react";
+import ReactCardSlider from "react-card-slider-component";
 
+
+const slides = [
+    {
+        image: "https://picsum.photos/200/300",
+        title: "This is a title",
+        description: "This is a description"
+        // clickEvent: sliderClick
+    },
+    {
+        image: "https://picsum.photos/600/500",
+        title: "This is a second title",
+        description: "This is a second description"
+        // clickEvent: sliderClick
+    },
+    {
+        image: "https://picsum.photos/700/600",
+        title: "This is a third title",
+        description: "This is a third description"
+        // clickEvent: sliderClick
+    },
+    {
+        image: "https://picsum.photos/500/400",
+        title: "This is a fourth title",
+        description: "This is a fourth description"
+        // clickEvent: sliderClick
+    },
+    {
+        image: "https://picsum.photos/200/300",
+        title: "This is a fifth title",
+        description: "This is a fifth description"
+        // clickEvent: sliderClick
+    },
+    {
+        image: "https://picsum.photos/800/700",
+        title: "This is a sixth title",
+        description: "This is a sixth description"
+        // clickEvent: sliderClick
+    },
+    {
+        image: "https://picsum.photos/800/900",
+        title: "This is a seventh title",
+        description: "This is a seventh description"
+        // clickEvent: sliderClick
+    }
+];
 function ShowPerson(data_on_person)
 {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState(2);
 
     const handleClick = () => {
         setOpen(!open);
@@ -20,7 +77,7 @@ function ShowPerson(data_on_person)
             <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
                 <Avatar alt={`business ${data_on_person.name}`}
                         src={`https://robohash.org/${data_on_person.id}?set=set2&size=180x180`}
-                        sx={{ width: 90, height: 90 }}/>
+                        sx={{ width: 120, height: 120 }}/>
             </Stack>
             <h3>{data_on_person.title}</h3>
             <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
@@ -88,6 +145,16 @@ function ShowPerson(data_on_person)
                     </Collapse>
                 </List>
             </Stack>
+            <Rating
+                name="simple-controlled"
+                value={value}
+                onChange={(event, newValue) => {
+                    setValue(newValue);
+                }}
+            />
+            <div style={{ marginTop: "5em" }}>
+                <ReactCardSlider slides={slides} />
+            </div>
 
         </div>
     );

@@ -1,11 +1,9 @@
 import {Component, useEffect} from "react";
 import './HomePage.styles.css';
 import MyMap from "../../Components/map-main-menu/MyMap";
-import {Link} from "react-router-dom";
 import {useMap} from "react-leaflet";
-import {Avatar, Stack} from "@mui/material";
+import {Stack} from "@mui/material";
 
-import {deepOrange, deepPurple} from "@mui/material/colors";
 import LastActivitiesFriendsDialog from "../../Components/dialog-box-basic/dialog_box_basic";
 import BusinessNameCard from "../../Components/business-name-card/business-name-card.component";
 

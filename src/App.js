@@ -9,14 +9,7 @@ import BusinessPageComponent from "./routes/business_page/BusinessPage.component
 import AroundMeComponent from "./routes/Around Me/AroundMe.component";
 import NotificationsComponent from "./routes/notifications/Notifications.component";
 import CommunitiyComponent from "./routes/Community/Communitiy.component";
-const Shop = ()=>
-{
-    return(
-        <div>
-            <h2>Shop Page</h2>
-        </div>
-    )
-}
+
 class App extends Component{
     render(){
     return(
