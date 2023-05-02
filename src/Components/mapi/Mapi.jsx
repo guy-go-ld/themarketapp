@@ -59,7 +59,7 @@ const Mapi = () => {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
 
-    return <div ref={mapContainer} style={{ height: '100%', width: '90%' ,border: 'black solid 4px', margin:'auto'}} />;
+    return <div ref={mapContainer} style={{ height: '100%', width: '90%' ,border: 'whitesmoke solid 8px', margin:'auto', marginBottom: '8px'}} />;
 };
 
 export default Mapi;
