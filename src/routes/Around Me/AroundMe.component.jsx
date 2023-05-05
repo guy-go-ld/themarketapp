@@ -11,7 +11,7 @@ class AroundMe extends Component{
 render() {
     return(
         <div>
-            <Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText',p: 2, width: '100%' }}>
+            <Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText',p: 2}}>
                 {/*TODO: 1. apply design like the tab bar. 2. make the h1 tag centered.*/}
                 <h1 style={{justifyContent: 'center', alignItems: 'center', margin: 'auto'}}>
                     Around Me
