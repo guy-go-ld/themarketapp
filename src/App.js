@@ -9,11 +9,15 @@ import BusinessPageComponent from "./routes/business_page/BusinessPage.component
 import AroundMeComponent from "./routes/Around Me/AroundMe.component";
 import NotificationsComponent from "./routes/notifications/Notifications.component";
 import CommunitiyComponent from "./routes/Community/Communitiy.component";
+import Theme from "./Components/Theme/Theme";
+import {ThemeProvider} from "@mui/material/styles";
 
 class App extends Component{
     render(){
     return(
+
         <div className="App">
+            <ThemeProvider theme={Theme}>
             <Routes>
                 <Route path="/" element={<NavigationComponent />}>
                     <Route index element={<HomePageComponent />} />
@@ -25,8 +29,9 @@ class App extends Component{
                 </Route>
                 <Route path="SearchPageComponent" element={<SearchPageComponent />} />
             </Routes>
-        </div>
+            </ThemeProvider>
 
+        </div>
     );
   }
 }

@@ -9,6 +9,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ResizableMap from '../updatable-map/ResizableMap';
 import BusinessNameCard from "../business-name-card/business-name-card.component";
+// import BusinessCardTest from "../BusinessCardTest/BusinessCardTest";
+
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -81,6 +83,7 @@ export default function FullWidthTabs() {
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
                     {/*TODO: 1. create json file that connects to my friends/ community last activity shows the around me activity on map and as a cards list*/}
+                    {/*<BusinessCardTest/>*/}
                     <BusinessNameCard business={{"id": 1, "name": "Ofra's lak-gel", "title": "lak gel"}}/>
                 </TabPanel>
                 {/*<TabPanel value={value} index={2} dir={theme.direction}>*/}
