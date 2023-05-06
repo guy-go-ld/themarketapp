@@ -3,7 +3,7 @@ import L from 'leaflet';
 import MapLocations from "../../databases/MapLocations.json";
 import "leaflet/dist/leaflet.css"
 import "./Mapi.css";
-import {Typography} from "@mui/material";
+// import {Typography} from "@mui/material";
 
 
 const IconLocation = new L.Icon({

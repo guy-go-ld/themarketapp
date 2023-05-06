@@ -1,9 +1,9 @@
 import './AroundMe.styles.css';
 import {Component} from "react";
-import ResizableMap from "../../Components/updatable-map/ResizableMap"
+// import ResizableMap from "../../Components/updatable-map/ResizableMap"
 import FullWidthTabs from "../../Components/AroundMeTab/TabAroundMe"
-import Box from '@mui/material/Box';
-import {AppBar, Typography} from "@mui/material";
+// import Box from '@mui/material/Box';
+// import {AppBar, Typography} from "@mui/material";
 // import { palette } from '@mui/system';
 
 

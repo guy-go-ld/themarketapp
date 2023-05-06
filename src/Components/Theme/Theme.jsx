@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
+// import * as React from 'react';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import {purple} from "@mui/material/colors";
 
 

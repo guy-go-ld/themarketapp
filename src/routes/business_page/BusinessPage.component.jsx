@@ -74,6 +74,7 @@ const slides = [
         clickEvent: sliderClick(7)
     }
 ];
+
 function ShowPerson(data_on_person)
 {
     const [open, setOpen] = useState(false);

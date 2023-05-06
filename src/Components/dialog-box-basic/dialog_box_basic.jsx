@@ -60,7 +60,7 @@ SimpleDialog.propTypes = {
 
 export default function LastActivitiesFriendsDialog(id_param) {
     const [open, setOpen] = React.useState(false);
-    const id_account = id_param;
+    // const id_account = id_param;
     const handleClickOpen = () => {
         setOpen(true);
     };

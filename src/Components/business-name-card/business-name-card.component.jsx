@@ -2,7 +2,7 @@ import {Component} from "react";
 import './business-name-card.styles.css';
 import {Link} from "react-router-dom";
 import {Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
-import {useTheme} from "@mui/material/styles";
+// import {useTheme} from "@mui/material/styles";
 
 // theme = useTheme()
 // const styles = theme => ({

@@ -53,9 +53,9 @@ export default function FullWidthTabs() {
         setValue(newValue);
     };
 
-    const handleChangeIndex = (index) => {
-        setValue(index);
-    };
+    // const handleChangeIndex = (index) => {
+    //     setValue(index);
+    // };
 
     return (
         <Box sx={{ bgcolor: 'background.paper', width: '100%' }}>
