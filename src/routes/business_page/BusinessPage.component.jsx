@@ -1,8 +1,8 @@
 import {useLocation} from 'react-router-dom'
 import data from "../../databases/BusinessAllData.json"
 import {
-    Avatar,
-    Collapse,
+    Avatar, Button,
+    Collapse, Grid,
     List,
     ListItemButton,
     ListItemIcon,
@@ -18,6 +18,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import {useState} from "react";
 import ReactCardSlider from "react-card-slider-component";
 import {Typography} from "@mui/material";
+import Box from "@mui/material/Box";
 
 const sliderClick =(slider)=>
 {
@@ -75,30 +76,133 @@ const slides = [
     }
 ];
 
+// const useClasses = makeStyles(theme => ({
+//     avatar:
+//         {
+//             boxShadow: theme.shadows[3],
+//         }
+// }))
+
+
+/**
+ * Shows all the relevant information about that person
+ * @param data_on_person - got the data from "../../databases/BusinessAllData.json"
+ * @returns {JSX.Element} - mainly a javascript and html
+ * @constructor
+ */
 function ShowPerson(data_on_person)
 {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState(2);
+    // const classes = useClasses; // To add shadow to the avatar
 
     const handleClick = () => {
         setOpen(!open);
     };
     return(
         <div>
-            <Typography variant="h2">{data_on_person.name}</Typography>
-            {/*<h1>{data_on_person.name}</h1>*/}
-            <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
-                <Avatar alt={`business ${data_on_person.name}`}
-                        src={`https://robohash.org/${data_on_person.id}?set=set2&size=180x180`}
-                        sx={{ width: 120, height: 120 }}/>
-            </Stack>
-            <Typography variant="h3">{data_on_person.title}</Typography>
-            {/*<h3>{data_on_person.title}</h3>*/}
-            <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
-                <DialogBoxContact props = {0}></DialogBoxContact>
-                <DialogBoxContact props = {1}></DialogBoxContact>
-                <DialogBoxContact props = {2}></DialogBoxContact>
-            </Stack>
+            <Box sx={{ p: 3,
+                backgroundColor: 'primary.dark',
+                position: 'relative'}}>
+                <Grid container spacing={1}>
+                    <Grid item xs={8.5} sx={{ textAlign: 'left' }}>
+                        <Typography variant="h4">
+                            {data_on_person.name}
+                        </Typography>
+                        <Typography variant="h5">
+                            - {data_on_person.title}
+                        </Typography>
+                        <p></p><p></p><p></p><p></p><p></p>
+                        <Typography variant="h5">
+                            - Location
+                        </Typography>
+                            <List
+                                sx={{ width: '100%', maxWidth: 360, bgcolor: 'primary.dark' }}
+                                component="nav"
+                                aria-labelledby="nested-list-subheader">
+                                <ListItemButton onClick={handleClick} sx={{pl:0, pr: 0}}>
+                                    <ListItemIcon sx={{paddingLeft: 0, paddingRight: 0}}>
+                                        <AccessTimeIcon />
+                                    </ListItemIcon>
+                                    <ListItemText >
+                                        <Typography variant="h6">
+                                            Time Table Items
+                                        </Typography>
+                                    </ListItemText>
+                                    {open ? <ExpandLess /> : <ExpandMore />}
+                                </ListItemButton>
+                                <Collapse in={open} timeout="auto" unmountOnExit>
+                                    <List component="div" disablePadding>
+                                        <ListItemButton sx={{ pl: 4 }}>
+                                            <ListItemIcon>
+                                                <StarBorder />
+                                            </ListItemIcon>
+                                            <ListItemText >
+                                                <Typography variant="body1">
+                                                    Today
+                                                </Typography>
+                                            </ListItemText>
+                                        </ListItemButton>
+                                        <ListItemButton sx={{ pl: 4 }}>
+                                            <ListItemIcon>
+                                                <StarBorder />
+                                            </ListItemIcon>
+                                            <ListItemText >
+                                                <Typography variant="body1">
+                                                    Tomorrow
+                                                </Typography>
+                                            </ListItemText>
+                                        </ListItemButton>
+                                        <ListItemButton sx={{ pl: 4 }}>
+                                            <ListItemIcon>
+                                                <StarBorder />
+                                            </ListItemIcon>
+                                            <ListItemText >
+                                                <Typography variant="body1">
+                                                    Yesterday
+                                                </Typography>
+                                            </ListItemText>
+                                        </ListItemButton>
+                                        <ListItemButton sx={{ pl: 4 }}>
+                                            <ListItemIcon>
+                                                <StarBorder />
+                                            </ListItemIcon>
+                                            <ListItemText >
+                                                <Typography variant="body1">
+                                                    Next Year
+                                                </Typography>
+                                            </ListItemText>
+                                        </ListItemButton>
+                                    </List>
+                                </Collapse>
+                            </List>
+                    </Grid>
+                    <Grid item xs={3} sx={{ textAlign: 'right' }}>
+                            <Avatar
+                                backgroundColor='background.paper'
+                                elevation={3}
+                                alt={`business ${data_on_person.name}`}
+                                src={`https://robohash.org/${data_on_person.id}?set=set2&size=180x180`}
+                                sx={{ width: 120, height: 120, boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)',
+                                    bgcolor: 'white'}}/>
+
+                    </Grid>
+                </Grid>
+                <Box sx={{ position: 'absolute', bottom: -20, left: 0, right: 0, display: 'flex', justifyContent: 'center' }}>
+                    <Button sx={{ width: 40, height: 40, borderRadius: '50%', margin: '0 8px', background: '#f00' }} />
+                    <Button sx={{ width: 40, height: 40, borderRadius: '50%', margin: '0 8px', background: '#0f0' }} />
+                    <Button sx={{ width: 40, height: 40, borderRadius: '50%', margin: '0 8px', background: '#00f' }} />
+                    <Button sx={{ width: 40, height: 40, borderRadius: '50%', margin: '0 8px', background: '#ff0' }} />
+                    <Button sx={{ width: 40, height: 40, borderRadius: '50%', margin: '0 8px', background: '#0ff' }} />
+                </Box>
+            </Box>
+
+
+            {/*<Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>*/}
+            {/*    <DialogBoxContact props = {0}></DialogBoxContact>*/}
+            {/*    <DialogBoxContact props = {1}></DialogBoxContact>*/}
+            {/*    <DialogBoxContact props = {2}></DialogBoxContact>*/}
+            {/*</Stack>*/}
             <p></p>
             <Typography variant="h5">
             Friends that used this business
@@ -112,77 +216,7 @@ function ShowPerson(data_on_person)
                 <LastActivitiesFriendsDialog props={5}/>
             </Stack>
 
-            <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
 
-                <List
-                    sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-                    component="nav"
-                    aria-labelledby="nested-list-subheader"
-                    subheader={
-                        <ListSubheader component="div" id="nested-list-subheader">
-                            <Typography variant="h5">
-                            Time Table Items
-                            </Typography>
-                        </ListSubheader>
-                    }
-                >
-                    <ListItemButton onClick={handleClick}>
-                        <ListItemIcon>
-                            <AccessTimeIcon />
-                        </ListItemIcon>
-                        <ListItemText >
-                            <Typography variant="h6">
-                                Time Table Items
-                            </Typography>
-                        </ListItemText>
-                        {open ? <ExpandLess /> : <ExpandMore />}
-                    </ListItemButton>
-                    <Collapse in={open} timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding>
-                            <ListItemButton sx={{ pl: 4 }}>
-                                <ListItemIcon>
-                                    <StarBorder />
-                                </ListItemIcon>
-                                <ListItemText >
-                                    <Typography variant="body1">
-                                        Today
-                                    </Typography>
-                                </ListItemText>
-                            </ListItemButton>
-                            <ListItemButton sx={{ pl: 4 }}>
-                                <ListItemIcon>
-                                    <StarBorder />
-                                </ListItemIcon>
-                                <ListItemText >
-                                <Typography variant="body1">
-                                    Tomorrow
-                                </Typography>
-                            </ListItemText>
-                            </ListItemButton>
-                            <ListItemButton sx={{ pl: 4 }}>
-                                <ListItemIcon>
-                                    <StarBorder />
-                                </ListItemIcon>
-                                <ListItemText >
-                                <Typography variant="body1">
-                                    Yesterday
-                                </Typography>
-                            </ListItemText>
-                            </ListItemButton>
-                            <ListItemButton sx={{ pl: 4 }}>
-                                <ListItemIcon>
-                                    <StarBorder />
-                                </ListItemIcon>
-                                <ListItemText >
-                                <Typography variant="body1">
-                                    Next Year
-                                </Typography>
-                            </ListItemText>
-                            </ListItemButton>
-                        </List>
-                    </Collapse>
-                </List>
-            </Stack>
             <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
                 <Typography variant="h3">
                     Rating: {data_on_person.rating}
