@@ -7,6 +7,7 @@ let theme = createTheme({
     palette: {
         primary: purple
     },
+
     // typography: {
     //     fontFamily: 'Roboto',
     //     fontSize: 16,

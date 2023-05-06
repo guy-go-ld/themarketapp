@@ -29,7 +29,9 @@ class HomePageComponent extends Component{
                     {/*<Avatar sx={{ bgcolor: deepPurple[500] }}>OP</Avatar>*/}
                 </Stack>
                 </div>
-                <ResizableMap/>
+                <div style={{paddingTop: "2rem", paddingBottom: "2rem"}}>
+                    <ResizableMap/>
+                </div>
                 {/*<button onClick={mapHook}>JumpTo</button>*/}
                 <BusinessNameCard business={{"id": 1, "name": "Ofra's lak-gel", "title": "lak gel"}}/>
             </div>

@@ -26,7 +26,7 @@ const NavigationComponent = () =>
             <div className="top-nav">
                 <AppBar style={{top: "0", position: "fixed"}}>
                     <Toolbar >
-                        <ResponsiveDrawer/>
+                        {/*<ResponsiveDrawer/>*/}
                         <Input variant="text" sx={{color:'white'}} href='/SearchPageComponent' onClick={sendToSearch} placeholder="Search Businesses">
                             Text</Input>
                     </Toolbar>
