@@ -1,4 +1,5 @@
 import {Component} from "react";
+import {Typography} from "@mui/material";
 // import data from "../../databases/BusinessAllData.json";
 
 class ProfilePageComponent extends Component{
@@ -10,8 +11,11 @@ class ProfilePageComponent extends Component{
     }
     render(){
         return(
-            <div>
-                <h1 >My Profile Page</h1>
+            <div style={{paddingTop: "3.5rem"}}>
+                <Typography variant="h2">
+                    My Profile Page
+                </Typography>
+
             </div>
         );
     }

@@ -11,7 +11,10 @@ import Dialog from '@mui/material/Dialog';
 import PersonIcon from '@mui/icons-material/Person';
 
 import { blue } from '@mui/material/colors';
+import {Typography} from "@mui/material";
 
+// TODO:
+//  1. create json file with emails
 const emails = ['username@gmail.com', 'user02@gmail.com'];
 
 function SimpleDialog(props) {
@@ -27,7 +30,9 @@ function SimpleDialog(props) {
 
     return (
         <Dialog onClose={handleClose} open={open}>
-            <DialogTitle>Hi list of emails:</DialogTitle>
+            <DialogTitle>
+                <Typography variant="h4">Hi list of emails:</Typography>
+                </DialogTitle>
             <List sx={{ pt: 0 }}>
                 {emails.map((email) => (
                     <ListItem disableGutters>
@@ -37,7 +42,9 @@ function SimpleDialog(props) {
                                     <PersonIcon />
                                 </Avatar>
                             </ListItemAvatar>
-                            <ListItemText primary={email} />
+                            <ListItemText>
+                            <Typography variant="h5">{email}</Typography>
+                            </ListItemText>
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -63,7 +70,11 @@ export default function LastActivitiesFriendsDialog(id_param) {
     };
     return (
         <div>
-            <Avatar onClick={handleClickOpen}>H</Avatar>
+            <Avatar onClick={handleClickOpen}>
+                {/*<Typography varianr="h3">*/}
+                    H
+                {/*</Typography>*/}
+            </Avatar>
             <SimpleDialog
                 open={open}
                 onClose={handleClose}

@@ -1,6 +1,6 @@
 import {Component} from "react";
 import './HomePage.styles.css';
-import {Stack} from "@mui/material";
+import {Stack, Typography} from "@mui/material";
 
 import LastActivitiesFriendsDialog from "../../Components/dialog-box-basic/dialog_box_basic";
 import BusinessNameCard from "../../Components/business-name-card/business-name-card.component";
@@ -16,8 +16,8 @@ class HomePageComponent extends Component{
         // const position = [31.777587, 35.215094]; //[this.state.location.lat, this.state.location.lng];
 
         return(
-            <div className="All Home Page">
-              <h1 >My Bazzar App</h1>
+            <div className="All Home Page" style={{paddingTop: "3.5rem"}}>
+              <Typography variant="h1">CityCircle</Typography>
                 <div className="Last-Activities-Friends">
 
                     <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>

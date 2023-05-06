@@ -60,6 +60,7 @@ export default function FullWidthTabs() {
     return (
         <Box sx={{ bgcolor: 'background.paper', width: '100%' }}>
             <AppBar position="static">
+                <Typography variant="h2">Around me</Typography>
                 <Tabs
                     value={value}
                     onChange={handleChange}
@@ -68,6 +69,7 @@ export default function FullWidthTabs() {
                     variant="fullWidth"
                     aria-label="full width tabs example"
                 >
+                    {/*TODO: make the tab responsive*/}
                     <Tab label="Map" {...a11yProps(0)} />
                     <Tab label="List" {...a11yProps(1)} />
                     {/*<Tab label="Item Three" {...a11yProps(2)} />*/}

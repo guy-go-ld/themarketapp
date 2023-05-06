@@ -17,6 +17,7 @@ import {ExpandLess, ExpandMore, StarBorder} from "@mui/icons-material";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import {useState} from "react";
 import ReactCardSlider from "react-card-slider-component";
+import {Typography} from "@mui/material";
 
 const sliderClick =(slider)=>
 {
@@ -26,6 +27,9 @@ const sliderClick =(slider)=>
     })
 }
 
+// TODO:
+//  1. changing slides to be responsive.
+//  2. create json file that contains the pictures and descriptions of each business.
 const slides = [
     {
         image: "https://picsum.photos/200/300",
@@ -80,20 +84,24 @@ function ShowPerson(data_on_person)
     };
     return(
         <div>
-            <h1>{data_on_person.name}</h1>
+            <Typography variant="h2">{data_on_person.name}</Typography>
+            {/*<h1>{data_on_person.name}</h1>*/}
             <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
                 <Avatar alt={`business ${data_on_person.name}`}
                         src={`https://robohash.org/${data_on_person.id}?set=set2&size=180x180`}
                         sx={{ width: 120, height: 120 }}/>
             </Stack>
-            <h3>{data_on_person.title}</h3>
+            <Typography variant="h3">{data_on_person.title}</Typography>
+            {/*<h3>{data_on_person.title}</h3>*/}
             <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
                 <DialogBoxContact props = {0}></DialogBoxContact>
                 <DialogBoxContact props = {1}></DialogBoxContact>
                 <DialogBoxContact props = {2}></DialogBoxContact>
             </Stack>
             <p></p>
+            <Typography variant="h5">
             Friends that used this business
+            </Typography>
             <p></p>
             <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
                 <LastActivitiesFriendsDialog props={1}/>
@@ -111,7 +119,9 @@ function ShowPerson(data_on_person)
                     aria-labelledby="nested-list-subheader"
                     subheader={
                         <ListSubheader component="div" id="nested-list-subheader">
+                            <Typography variant="h5">
                             Time Table Items
+                            </Typography>
                         </ListSubheader>
                     }
                 >
@@ -119,7 +129,11 @@ function ShowPerson(data_on_person)
                         <ListItemIcon>
                             <AccessTimeIcon />
                         </ListItemIcon>
-                        <ListItemText primary="TimeTable" />
+                        <ListItemText >
+                            <Typography variant="h6">
+                                Time Table Items
+                            </Typography>
+                        </ListItemText>
                         {open ? <ExpandLess /> : <ExpandMore />}
                     </ListItemButton>
                     <Collapse in={open} timeout="auto" unmountOnExit>
@@ -128,32 +142,50 @@ function ShowPerson(data_on_person)
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
-                                <ListItemText primary="Today" />
+                                <ListItemText >
+                                    <Typography variant="body1">
+                                        Today
+                                    </Typography>
+                                </ListItemText>
                             </ListItemButton>
                             <ListItemButton sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
-                                <ListItemText primary="Tomorrow" />
+                                <ListItemText >
+                                <Typography variant="body1">
+                                    Tomorrow
+                                </Typography>
+                            </ListItemText>
                             </ListItemButton>
                             <ListItemButton sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
-                                <ListItemText primary="Yesterday" />
+                                <ListItemText >
+                                <Typography variant="body1">
+                                    Yesterday
+                                </Typography>
+                            </ListItemText>
                             </ListItemButton>
                             <ListItemButton sx={{ pl: 4 }}>
                                 <ListItemIcon>
                                     <StarBorder />
                                 </ListItemIcon>
-                                <ListItemText primary="Next year" />
+                                <ListItemText >
+                                <Typography variant="body1">
+                                    Next Year
+                                </Typography>
+                            </ListItemText>
                             </ListItemButton>
                         </List>
                     </Collapse>
                 </List>
             </Stack>
             <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
-                <h1>Rating: {data_on_person.rating}</h1>
+                <Typography variant="h3">
+                    Rating: {data_on_person.rating}
+                </Typography>
                 <Rating
                     name="simple-controlled"
                     value={value}
@@ -162,7 +194,7 @@ function ShowPerson(data_on_person)
                     }}
                 />
             </Stack>
-            <div style={{ marginTop: "5em" }}>
+            <div style={{ marginTop: "5em", marginBottom: "5em" }}>
                 <ReactCardSlider slides={slides} />
             </div>
 
@@ -178,7 +210,7 @@ export default function BusinessPageComponent()
     const data_on_person = data.filter((business) => business.id === from)[0]; // TODO better this stuff
 
     return (
-        <div>
+        <div style={{paddingTop: "3.5rem"}}>
             {(check_null === true) ?
                 (<div><h2> Error - business page doesn't exists</h2></div>)
             :

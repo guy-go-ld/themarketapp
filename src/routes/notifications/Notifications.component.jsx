@@ -1,13 +1,15 @@
 import './Notifications.styles.css';
 import {Component} from "react";
+import {Typography} from "@mui/material";
 
 class Notifications extends Component{
     render() {
         return(
-            <div>
-                <h1>
+            <div style={{paddingTop: "3.5rem"}}>
+                <Typography variant="h2">
                     Notifications
-                </h1>
+                </Typography>
+
             </div>
         )
     }

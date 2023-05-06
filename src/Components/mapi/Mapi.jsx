@@ -3,10 +3,10 @@ import L from 'leaflet';
 import MapLocations from "../../databases/MapLocations.json";
 import "leaflet/dist/leaflet.css"
 import "./Mapi.css";
+import {Typography} from "@mui/material";
 
 
-
-const IconPerson = new L.Icon({
+const IconLocation = new L.Icon({
     iconUrl: require("../../Icons/LocationPin.png"),
     iconSize: [35, 45],
     iconAnchor: [17, 46], //[left/right, top/bottom],
@@ -14,14 +14,18 @@ const IconPerson = new L.Icon({
 
 })
 
-
+// TODO: this function does not recognize the Typography tag, why??
 function popUpContent (mapDat) {
     return (
         "<div id='popup'> " +
-        "<h3 id='businessName'>"+mapDat.BusinessName+"</h3>" +
-        "<p id='businessAddress'>"+mapDat.Address+"</p>" +
-        "<p id='description'>"+mapDat.Description+"</p>" +
-        "<p id='numOfPeople'>"+mapDat.NumOfPeople+" people you connect with visited here recently</p>" +
+        "<Typography variant='h3' id='businessName'>"+mapDat.BusinessName+"</Typography>" +
+            "<br />"+
+        "<Typography variant='h1' id='businessAddress'>"+mapDat.Address+"</Typography>" +
+        "<br />"+
+        "<Typography variant='body1' id='description'>"+mapDat.Description+"</Typography>" +
+        "<br />"+
+        "<Typography variant='body1' id='numOfPeople'>"+mapDat.NumOfPeople+" people you connect with visited here recently</Typography>" +
+        "<br />"+
         "<a id='URLlink' href={mapDat.URL}>business page</a>" +
         "</div>"
      )
@@ -37,7 +41,7 @@ const Mapi = () => {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
                 maxZoom: 18,
             }).addTo(map);
-            MapLocations.map(mapDat=> L.marker([mapDat.Coord.latitude, mapDat.Coord.longitude], {size: [80,20],icon: IconPerson}).bindPopup(popUpContent(mapDat)).addTo(map));
+            MapLocations.map(mapDat=> L.marker([mapDat.Coord.latitude, mapDat.Coord.longitude], {size: [80,20],icon: IconLocation}).bindPopup(popUpContent(mapDat), { maxWidthXs: 100, maxWidthSm:200, maxWidthMd: 300, maxWidthLg:400, maxWidthXl: 500, maxWidth: 300}).addTo(map));
             // const marker1 = L.marker([31.777587, 35.215094], {size: [80,20],icon: IconPerson}).bindPopup(popUpContent()).addTo(map);
             // popUpContent();
             mapRef.current = map;

@@ -1,11 +1,14 @@
 import {Component} from 'react';
 import './Community.styles.css';
+import {Typography} from "@mui/material";
 
 class CommunitiyComponent extends Component{
     render() {
         return(
-            <div>
-                <h1>Community</h1>
+            <div style={{paddingTop: "3.5rem"}}>
+                <Typography variant="h2">
+                    Community
+                </Typography>
             </div>
         )
     }

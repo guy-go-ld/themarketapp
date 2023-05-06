@@ -24,7 +24,7 @@ const NavigationComponent = () =>
     return(
         <Fragment>
             <div className="top-nav">
-                <AppBar position="sticky" >
+                <AppBar style={{top: "0", position: "fixed"}}>
                     <Toolbar >
                         <ResponsiveDrawer/>
                         <Input variant="text" sx={{color:'white'}} href='/SearchPageComponent' onClick={sendToSearch} placeholder="Search Businesses">
@@ -32,7 +32,7 @@ const NavigationComponent = () =>
                     </Toolbar>
                 </AppBar>
             </div>
-            <Outlet/>
+            <Outlet />
             <div className="bottom-nav">
                 <BottomNavigation
                     showLabels

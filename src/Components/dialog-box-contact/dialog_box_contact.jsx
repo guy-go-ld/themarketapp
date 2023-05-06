@@ -12,7 +12,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import AddIcon from '@mui/icons-material/Add';
 
 import { blue } from '@mui/material/colors';
-import {Button} from "@mui/material";
+import {Button, Typography} from "@mui/material";
 
 const emails = ['I am here', 'back'];
 const button_names = ['Check in', 'Contact', 'Navigate'];
@@ -30,7 +30,9 @@ function SimpleDialog(props) {
 
     return (
         <Dialog onClose={handleClose} open={open}>
-            <DialogTitle>Set backup account</DialogTitle>
+            <DialogTitle>
+                <Typography variant="h4">Set backup account</Typography>
+            </DialogTitle>
             <List sx={{ pt: 0 }}>
                 {emails.map((email) => (
                     <ListItem disableGutters>
@@ -40,7 +42,10 @@ function SimpleDialog(props) {
                                     <PersonIcon />
                                 </Avatar>
                             </ListItemAvatar>
-                            <ListItemText primary={email} />
+                            <ListItemText>
+                                <Typography variant="h5">{email}</Typography>
+                            </ListItemText>
+                            {/*<ListItemText primary={email} />*/}
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -55,7 +60,10 @@ function SimpleDialog(props) {
                                 <AddIcon />
                             </Avatar>
                         </ListItemAvatar>
-                        <ListItemText primary="Add account" />
+                        {/*<ListItemText primary="Add account" />*/}
+                        <ListItemText>
+                            <Typography variant="h5">Add account</Typography>
+                        </ListItemText>
                     </ListItemButton>
                 </ListItem>
             </List>
@@ -83,7 +91,11 @@ export default function DialogBoxContact(id_param) {
     };
     return (
         <div>
-            <Button variant="contained" onClick={handleClickOpen}>{button_names.at(id_button.props)}</Button>
+            <Button variant="contained" onClick={handleClickOpen}>
+                <Typography variant="button">
+                {button_names.at(id_button.props)}
+                </Typography>
+            </Button>
             <SimpleDialog
                 selectedValue={selectedValue}
                 open={open}
