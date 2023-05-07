@@ -32,3 +32,6 @@
   height: fit-content;
   background-color: blue;
 }
+.MuiToolbar-root {
+  min-height: 6rem !important;
+}

@@ -41,7 +41,10 @@ function SimpleDialog(props) {
                     <ListItem disableGutters>
                         <ListItemButton onClick={() => handleListItemClick(info)} key={info}>
                             <ListItemAvatar>
-                                <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
+                                <Avatar sx={{
+                                    bgcolor: blue[100],
+                                    color: blue[600],
+                                }}>
                                     {contact_icon[info]}
                                 </Avatar>
                             </ListItemAvatar>

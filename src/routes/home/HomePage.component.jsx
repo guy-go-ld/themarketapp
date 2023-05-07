@@ -5,6 +5,7 @@ import {Stack, Typography} from "@mui/material";
 import LastActivitiesFriendsDialog from "../../Components/dialog-box-basic/dialog_box_basic";
 import BusinessNameCard from "../../Components/business-name-card/business-name-card.component";
 import ResizableMap from '../../Components/updatable-map/ResizableMap'
+import ApartmentRoundedIcon from "@mui/icons-material/ApartmentRounded";
 // TODO how to implement hooks in a class?
 
 
@@ -16,10 +17,27 @@ class HomePageComponent extends Component{
         // const position = [31.777587, 35.215094]; //[this.state.location.lat, this.state.location.lng];
 
         return(
-            <div className="All Home Page" style={{paddingTop: "3.5rem"}}>
-              <Typography variant="h1">CityCircle</Typography>
+            <div className="All-Home-Page" style={{
+                marginTop: "7rem",
+                paddingLeft:"2rem",
+                paddingRight:"2rem",
+                paddingBottom:"7rem"
+            }}>
+                <header>
+                    <Stack direction="row" justifyContent="center" alignItems="center" spacing={3}>
+                        <ApartmentRoundedIcon
+                            sx={{
+                                fontSize: {
+                                    xs: '3rem',
+                                    sm: '4rem',
+                                    md: '5rem',
+                                    lg: '6rem'
+                                }
+                        }}/>
+                        <Typography variant="h1">CityCircle</Typography>
+                    </Stack>
+                </header>
                 <div className="Last-Activities-Friends">
-
                     <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
                         <LastActivitiesFriendsDialog props={1}/>
                         <LastActivitiesFriendsDialog props={2}/>

@@ -13,7 +13,7 @@ import InboxIcon from "@mui/icons-material/Inbox";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const drawerWidth = 240;
+const drawerWidth = '35%';
 function ResponsiveDrawer(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -63,9 +63,15 @@ function ResponsiveDrawer(props) {
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{display: { sm: 'none' } }}
                     >
-                        <MenuIcon />
+                        <MenuIcon sx={{
+                            fontSize: {
+                                xs: '3rem',
+                                sm: '4rem',
+                                md: '5rem',
+                                lg: '6rem'
+                            }
+                        }} />
                     </IconButton>
             <Box
                 component="nav"
@@ -79,10 +85,10 @@ function ResponsiveDrawer(props) {
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
                     ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
+                        keepMounted: false, // Better open performance on mobile.
                     }}
                     sx={{
-                        display: { xs: 'block', sm: 'none' },
+                        display: { xs: 'block' },
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}
                 >
@@ -91,9 +97,15 @@ function ResponsiveDrawer(props) {
                 <Drawer
                     variant="permanent"
                     sx={{
-                        display: { xs: 'none', sm: 'block' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+
+                        display:
+                            {
+                                xs: 'none',
+                                sm: 'block',
+                            },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, display:"none"},
                     }}
+
                     open
                 >
                     {drawer}
