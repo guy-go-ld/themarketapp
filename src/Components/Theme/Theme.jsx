@@ -8,6 +8,11 @@ let theme = createTheme({
             main: '#775CDF',
             light: '#937af3',
             dark: '#5d47b1'
+        },
+        secondary: {
+            main: '#c3ed5b',
+            light: '#d9ff78',
+            dark: '#a0c640'
         }
     },
     shape: {

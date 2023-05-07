@@ -23,6 +23,7 @@ import MailOutlineTwoToneIcon from '@mui/icons-material/MailOutlineTwoTone';
 import NearMeOutlinedIcon from '@mui/icons-material/NearMeOutlined';
 import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
+import Divider from "@mui/material/Divider";
 const sliderClick =(slider)=>
 {
     return (()=>
@@ -170,13 +171,14 @@ function ShowPerson(data_on_person)
 
     return(
         <div>
-            <Box sx={{ paddingRight: '1rem', paddingLeft: '1rem',paddingTop: '4rem', paddingBottom: '4rem', backgroundColor: 'primary.light', position: 'relative'}}>
+            <Box sx={{ paddingRight: '1rem', paddingLeft: '1rem',paddingTop: '4rem', paddingBottom: '4rem', backgroundColor: 'primary.light', position: 'relative', borderBottom: 4, borderBottomColor: "secondary.main"}}>
                 <Grid container spacing={1}>
                     <Grid item xs={8.5} sx={{ textAlign: 'left' }}>
                         <Typography variant="h4"> {data_on_person.name} </Typography>
                         <Typography variant="h6">· {data_on_person.title}</Typography>
                         <p></p><p></p><p></p><p></p><p></p><p></p>
                         <Typography variant="h7">
+                           {/* TODO: need to add business address from json*/}
                            <LocationOnIcon/>Shamai street 34, Jerusalem
                         </Typography>
                         {TimeTable()}
@@ -227,18 +229,18 @@ function ShowPerson(data_on_person)
                 </Box>
             </Box>
             <Box sx={{p:5}}></Box>
-            <Typography variant="h5">
+            <Typography variant="h5" sx={{justifySelf: "start", display: "flex", paddingLeft: "1.5rem"}}>
             Friends that used this business
             </Typography>
-            <p></p>
-            <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
+            <Divider/>
+            <Stack direction="row" justifyContent="center" alignItems="center" spacing={2} p="1rem">
                 <LastActivitiesFriendsDialog props={1}/>
                 <LastActivitiesFriendsDialog props={2}/>
                 <LastActivitiesFriendsDialog props={3}/>
                 <LastActivitiesFriendsDialog props={4}/>
                 <LastActivitiesFriendsDialog props={5}/>
             </Stack>
-
+            <Divider/>
 
             <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
                 <Typography variant="h3">
