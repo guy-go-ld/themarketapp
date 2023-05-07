@@ -58,4 +58,11 @@
   "name": "Layo",
   "title": "Barber",
   "rating": 4.7
-  }]
+  },
+  {
+    "id": 11,
+    "name": "MASPERAFI",
+    "title": "Hair Design",
+    "rating": 4.7
+  }
+]
