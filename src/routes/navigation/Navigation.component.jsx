@@ -12,9 +12,6 @@ import ApartmentRoundedIcon from '@mui/icons-material/ApartmentRounded';
 import NotificationImportantRoundedIcon from '@mui/icons-material/NotificationImportantRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import ResponsiveDrawer from "../../Components/Responsive Drawer/ResponsiveDrawer.component";
-import theme from "../../Components/Theme/Theme";
-import {ThemeProvider} from "@mui/material/styles";
-import {myBottomButton} from "../../Components/Theme/Theme";
 
 const NavigationComponent = () =>
 {

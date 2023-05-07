@@ -5,7 +5,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {CardActionArea, Container} from '@mui/material';
 import data from "../../databases/BusinessAllData.json";
-import Avatar    from "@mui/material/Avatar";
 import {Link} from "react-router-dom";
 
 // const businesses = data

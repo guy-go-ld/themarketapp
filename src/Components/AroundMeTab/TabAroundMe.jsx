@@ -8,8 +8,6 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ResizableMap from '../updatable-map/ResizableMap';
-import BusinessNameCard from "../business-name-card/business-name-card.component";
-// import BusinessCardTest from "../BusinessCardTest/BusinessCardTest";
 import ResponsiveCards from "../../Components/responsiveBusinessCards/ResponsiveCards";
 
 
