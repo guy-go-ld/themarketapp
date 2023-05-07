@@ -7,6 +7,16 @@ let theme = createTheme({
     palette: {
         primary: purple
     },
+    shape: {
+        borderRadius: 10
+    },
+    typography: {
+        fontFamily: "sans-serif",
+        fontWeightBold: 800,
+        fontWeightMedium: 700,
+        fontWeightRegular: 600,
+        fontWeightLight: 400
+    },
 
     // typography: {
     //     fontFamily: 'Roboto',
