@@ -170,7 +170,7 @@ function ShowPerson(data_on_person)
 
     return(
         <div>
-            <Box sx={{ p: 3, backgroundColor: 'primary.light', position: 'relative'}}>
+            <Box sx={{ paddingRight: '1rem', paddingLeft: '1rem',paddingTop: '4rem', paddingBottom: '4rem', backgroundColor: 'primary.light', position: 'relative'}}>
                 <Grid container spacing={1}>
                     <Grid item xs={8.5} sx={{ textAlign: 'left' }}>
                         <Typography variant="h4"> {data_on_person.name} </Typography>
