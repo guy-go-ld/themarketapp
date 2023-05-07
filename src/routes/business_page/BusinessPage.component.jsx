@@ -1,17 +1,15 @@
 import {useLocation} from 'react-router-dom'
 import data from "../../databases/BusinessAllData.json"
 import {
-    Avatar, Button,
+    Avatar,
     Collapse, Grid,
     List,
     ListItemButton,
     ListItemIcon,
     ListItemText,
-    ListSubheader,
     Rating,
     Stack
 } from "@mui/material";
-import DialogBoxContact from "../../Components/dialog-box-contact/dialog_box_contact";
 import LastActivitiesFriendsDialog from "../../Components/dialog-box-basic/dialog_box_basic";
 import {ExpandLess, ExpandMore, StarBorder} from "@mui/icons-material";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -106,12 +104,8 @@ function ShowPerson(data_on_person)
                 position: 'relative'}}>
                 <Grid container spacing={1}>
                     <Grid item xs={8.5} sx={{ textAlign: 'left' }}>
-                        <Typography variant="h4">
-                            {data_on_person.name}
-                        </Typography>
-                        <Typography variant="h5">
-                            - {data_on_person.title}
-                        </Typography>
+                        <Typography variant="h4"> {data_on_person.name} </Typography>
+                        <Typography variant="h5">- {data_on_person.title}</Typography>
                         <p></p><p></p><p></p><p></p><p></p>
                         <Typography variant="h5">
                             - Location
@@ -121,9 +115,7 @@ function ShowPerson(data_on_person)
                                 component="nav"
                                 aria-labelledby="nested-list-subheader">
                                 <ListItemButton onClick={handleClick} sx={{pl:0, pr: 0}}>
-                                    <ListItemIcon sx={{paddingLeft: 0, paddingRight: 0}}>
-                                        <AccessTimeIcon />
-                                    </ListItemIcon>
+                                    <AccessTimeIcon />
                                     <ListItemText >
                                         <Typography variant="h6">
                                             Time Table Items
@@ -188,12 +180,12 @@ function ShowPerson(data_on_person)
 
                     </Grid>
                 </Grid>
-                <Box sx={{ position: 'absolute', bottom: -20, left: 0, right: 0, display: 'flex', justifyContent: 'center' }}>
-                    <Button sx={{ width: 40, height: 40, borderRadius: '50%', margin: '0 8px', background: '#f00' }} />
-                    <Button sx={{ width: 40, height: 40, borderRadius: '50%', margin: '0 8px', background: '#0f0' }} />
-                    <Button sx={{ width: 40, height: 40, borderRadius: '50%', margin: '0 8px', background: '#00f' }} />
-                    <Button sx={{ width: 40, height: 40, borderRadius: '50%', margin: '0 8px', background: '#ff0' }} />
-                    <Button sx={{ width: 40, height: 40, borderRadius: '50%', margin: '0 8px', background: '#0ff' }} />
+                <Box sx={{ position: 'absolute', bottom: -20, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#f00', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                    <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#0f0', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                    <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#00f', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                    <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#ff0', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                    <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#0ff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
                 </Box>
             </Box>
 
