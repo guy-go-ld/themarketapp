@@ -8,15 +8,18 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
-import PersonIcon from '@mui/icons-material/Person';
-
 import { blue } from '@mui/material/colors';
 import {Typography} from "@mui/material";
+import { ReactComponent as EmailSvg } from '../../Icons/email-svgrepo-com.svg';
+import { ReactComponent as ChromeSvg } from '../../Icons/chrome-svgrepo-com.svg';
+import { ReactComponent as WhatsAppSvg } from '../../Icons/whatsapp-svgrepo-com.svg';
 
-// TODO:
-//  1. create json file with emails
-const emails = ['username@gmail.com', 'user02@gmail.com'];
+// Here we can add more ways to contact, need to check it with the business way of contacting.
 
+const contact_info = ['WhatsApp', 'Official Website', 'Email'];
+const contact_icon = {'WhatsApp':<WhatsAppSvg/>,
+    'Official Website':<ChromeSvg/>,
+    'Email':<EmailSvg/>};
 function SimpleDialog(props) {
     const { onClose, open } = props;
 
@@ -34,16 +37,16 @@ function SimpleDialog(props) {
                 <Typography variant="h4">Hi list of emails:</Typography>
                 </DialogTitle>
             <List sx={{ pt: 0 }}>
-                {emails.map((email) => (
+                {contact_info.map((info) => (
                     <ListItem disableGutters>
-                        <ListItemButton onClick={() => handleListItemClick(email)} key={email}>
+                        <ListItemButton onClick={() => handleListItemClick(info)} key={info}>
                             <ListItemAvatar>
                                 <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
-                                    <PersonIcon />
+                                    {contact_icon[info]}
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText>
-                            <Typography variant="h5">{email}</Typography>
+                            <Typography variant="h5">{info}</Typography>
                             </ListItemText>
                         </ListItemButton>
                     </ListItem>
