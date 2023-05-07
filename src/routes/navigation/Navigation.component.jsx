@@ -75,7 +75,7 @@ const NavigationComponent = () =>
                     }}
                     />
                     }/>
-                    <BottomNavigationAction component={Link} to="/CommunityComponent" label="Community" icon={<ApartmentRoundedIcon sx={{
+                    <BottomNavigationAction component={Link} to="/CommunityComponent" label="Circle" icon={<ApartmentRoundedIcon sx={{
                         fontSize: {
                             xs:"3rem",
                             sm:"5rem"

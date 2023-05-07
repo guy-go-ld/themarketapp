@@ -9,6 +9,7 @@ import ApartmentRoundedIcon from "@mui/icons-material/ApartmentRounded";
 // TODO how to implement hooks in a class?
 
 
+
 class HomePageComponent extends Component{
 
 
