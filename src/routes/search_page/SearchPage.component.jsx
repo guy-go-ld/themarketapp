@@ -38,7 +38,7 @@ class SearchPageComponent extends Component{
             if (this.state.searchField === "") {
                 return;
             }
-            return business.name.toLocaleLowerCase().includes(this.state.searchField);
+            return business.name.toLocaleLowerCase().includes(this.state.searchField) | business.title.toLocaleLowerCase().includes(this.state.searchField);
         });
 
         return (
