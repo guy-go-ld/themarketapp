@@ -59,7 +59,7 @@ export default function FullWidthTabs() {
     // };
 
     return (
-        <Box sx={{ bgcolor: 'background.paper', width: '100%' }}>
+        <Box sx={{ bgcolor: 'background.paper', width: '100%', paddingTop: "2.5rem" }}>
             <AppBar position="static">
                 {/*<Typography variant="h2">Around me</Typography>*/}
                 <Tabs
