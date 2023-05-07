@@ -17,7 +17,7 @@ import {useState} from "react";
 import ReactCardSlider from "react-card-slider-component";
 import {Typography} from "@mui/material";
 import Box from "@mui/material/Box";
-
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 const sliderClick =(slider)=>
 {
     return (()=>
@@ -74,13 +74,84 @@ const slides = [
     }
 ];
 
-// const useClasses = makeStyles(theme => ({
-//     avatar:
-//         {
-//             boxShadow: theme.shadows[3],
-//         }
-// }))
 
+
+
+/**
+ * In charge of showing and opening the TimeTable
+ * @returns {JSX.Element}
+ * @constructor
+ */
+function TimeTable()
+{
+    const [open, setOpen] = useState(false);
+
+    const handleClick = () => {
+        setOpen(!open);
+    };
+    return(
+        <div>
+            <List
+                sx={{ width: '100%', maxWidth: 360, bgcolor: 'primary.dark', padding: 0}}
+                component="nav"
+                aria-labelledby="nested-list-subheader">
+                <ListItemButton onClick={handleClick} sx={{padding: 0}}>
+                    <AccessTimeIcon />
+                    <ListItemText sx={{pl:1, pr: 1}}>
+                        <Typography variant="h7">
+                            Time Table Items
+                        </Typography>
+                    </ListItemText>
+                    {open ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+                <Collapse in={open} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItemButton sx={{ pl: 4 }}>
+                            <ListItemIcon>
+                                <StarBorder />
+                            </ListItemIcon>
+                            <ListItemText >
+                                <Typography variant="body1">
+                                    Today
+                                </Typography>
+                            </ListItemText>
+                        </ListItemButton>
+                        <ListItemButton sx={{ pl: 4 }}>
+                            <ListItemIcon>
+                                <StarBorder />
+                            </ListItemIcon>
+                            <ListItemText >
+                                <Typography variant="body1">
+                                    Tomorrow
+                                </Typography>
+                            </ListItemText>
+                        </ListItemButton>
+                        <ListItemButton sx={{ pl: 4 }}>
+                            <ListItemIcon>
+                                <StarBorder />
+                            </ListItemIcon>
+                            <ListItemText >
+                                <Typography variant="body1">
+                                    Yesterday
+                                </Typography>
+                            </ListItemText>
+                        </ListItemButton>
+                        <ListItemButton sx={{ pl: 4 }}>
+                            <ListItemIcon>
+                                <StarBorder />
+                            </ListItemIcon>
+                            <ListItemText >
+                                <Typography variant="body1">
+                                    Next Year
+                                </Typography>
+                            </ListItemText>
+                        </ListItemButton>
+                    </List>
+                </Collapse>
+            </List>
+        </div>
+    );
+}
 
 /**
  * Shows all the relevant information about that person
@@ -90,84 +161,20 @@ const slides = [
  */
 function ShowPerson(data_on_person)
 {
-    const [open, setOpen] = useState(false);
     const [value, setValue] = useState(2);
-    // const classes = useClasses; // To add shadow to the avatar
 
-    const handleClick = () => {
-        setOpen(!open);
-    };
     return(
         <div>
-            <Box sx={{ p: 3,
-                backgroundColor: 'primary.dark',
-                position: 'relative'}}>
+            <Box sx={{ p: 3, backgroundColor: 'primary.dark', position: 'relative'}}>
                 <Grid container spacing={1}>
                     <Grid item xs={8.5} sx={{ textAlign: 'left' }}>
                         <Typography variant="h4"> {data_on_person.name} </Typography>
-                        <Typography variant="h5">- {data_on_person.title}</Typography>
-                        <p></p><p></p><p></p><p></p><p></p>
-                        <Typography variant="h5">
-                            - Location
+                        <Typography variant="h6">· {data_on_person.title}</Typography>
+                        <p></p><p></p><p></p><p></p><p></p><p></p>
+                        <Typography variant="h7">
+                           <LocationOnIcon/>Shamai street 34, Jerusalem
                         </Typography>
-                            <List
-                                sx={{ width: '100%', maxWidth: 360, bgcolor: 'primary.dark' }}
-                                component="nav"
-                                aria-labelledby="nested-list-subheader">
-                                <ListItemButton onClick={handleClick} sx={{pl:0, pr: 0}}>
-                                    <AccessTimeIcon />
-                                    <ListItemText >
-                                        <Typography variant="h6">
-                                            Time Table Items
-                                        </Typography>
-                                    </ListItemText>
-                                    {open ? <ExpandLess /> : <ExpandMore />}
-                                </ListItemButton>
-                                <Collapse in={open} timeout="auto" unmountOnExit>
-                                    <List component="div" disablePadding>
-                                        <ListItemButton sx={{ pl: 4 }}>
-                                            <ListItemIcon>
-                                                <StarBorder />
-                                            </ListItemIcon>
-                                            <ListItemText >
-                                                <Typography variant="body1">
-                                                    Today
-                                                </Typography>
-                                            </ListItemText>
-                                        </ListItemButton>
-                                        <ListItemButton sx={{ pl: 4 }}>
-                                            <ListItemIcon>
-                                                <StarBorder />
-                                            </ListItemIcon>
-                                            <ListItemText >
-                                                <Typography variant="body1">
-                                                    Tomorrow
-                                                </Typography>
-                                            </ListItemText>
-                                        </ListItemButton>
-                                        <ListItemButton sx={{ pl: 4 }}>
-                                            <ListItemIcon>
-                                                <StarBorder />
-                                            </ListItemIcon>
-                                            <ListItemText >
-                                                <Typography variant="body1">
-                                                    Yesterday
-                                                </Typography>
-                                            </ListItemText>
-                                        </ListItemButton>
-                                        <ListItemButton sx={{ pl: 4 }}>
-                                            <ListItemIcon>
-                                                <StarBorder />
-                                            </ListItemIcon>
-                                            <ListItemText >
-                                                <Typography variant="body1">
-                                                    Next Year
-                                                </Typography>
-                                            </ListItemText>
-                                        </ListItemButton>
-                                    </List>
-                                </Collapse>
-                            </List>
+                        {TimeTable()}
                     </Grid>
                     <Grid item xs={3} sx={{ textAlign: 'right' }}>
                             <Avatar
@@ -180,22 +187,30 @@ function ShowPerson(data_on_person)
 
                     </Grid>
                 </Grid>
-                <Box sx={{ position: 'absolute', bottom: -20, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#f00', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
-                    <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#0f0', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
-                    <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#00f', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
-                    <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#ff0', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
-                    <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#0ff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                <Box sx={{position: 'absolute', bottom: -40, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                    <Box sx={{flexDirection: 'column', margin: 'auto'}}>
+                        <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#f00', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                        <Typography variant="body2" color="text.secondary">Contact</Typography>
+                    </Box>
+                    <Box sx={{flexDirection: 'column', margin: 'auto'}}>
+                        <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#0f0', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                        <Typography variant="body2" color="text.secondary">Navigate</Typography>
+                    </Box>
+                    <Box sx={{flexDirection: 'column', margin: 'auto'}}>
+                        <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#00f', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                        <Typography variant="body2" color="text.secondary">Socials</Typography>
+                    </Box>
+                    <Box sx={{flexDirection: 'column', margin: 'auto'}}>
+                        <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#ff0', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                        <Typography variant="body2" color="text.secondary">Share</Typography>
+                    </Box>
+                    <Box sx={{flexDirection: 'column', margin: 'auto'}}>
+                        <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#0ff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                        <Typography variant="body2" color="text.secondary">Message</Typography>
+                    </Box>
                 </Box>
             </Box>
-
-
-            {/*<Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>*/}
-            {/*    <DialogBoxContact props = {0}></DialogBoxContact>*/}
-            {/*    <DialogBoxContact props = {1}></DialogBoxContact>*/}
-            {/*    <DialogBoxContact props = {2}></DialogBoxContact>*/}
-            {/*</Stack>*/}
-            <p></p>
+            <Box sx={{p:5}}></Box>
             <Typography variant="h5">
             Friends that used this business
             </Typography>
