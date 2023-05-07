@@ -1,12 +1,17 @@
 // import * as React from 'react';
 import {createTheme, responsiveFontSizes, styled} from '@mui/material/styles';
 import {purple} from "@mui/material/colors";
+import "../../App.css";
 import {BottomNavigation, BottomNavigationAction} from "@mui/material";
 
 
 let theme = createTheme({
     palette: {
-        primary: purple
+        primary: {
+            main: '#775CDF',
+            light: '#937af3',
+            dark: '#5d47b1'
+        }
     },
     shape: {
         borderRadius: 10
@@ -18,6 +23,7 @@ let theme = createTheme({
         fontWeightRegular: 600,
         fontWeightLight: 400
     },
+
     // typography: {
     //     fontFamily: 'Roboto',
     //     fontSize: 16,
