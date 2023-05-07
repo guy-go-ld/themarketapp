@@ -15,7 +15,6 @@ class ProfilePageComponent extends Component{
                 <Typography variant="h2">
                     My Profile Page
                 </Typography>
-
             </div>
         );
     }
