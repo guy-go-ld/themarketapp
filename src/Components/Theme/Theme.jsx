@@ -1,6 +1,7 @@
 // import * as React from 'react';
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import {createTheme, responsiveFontSizes, styled} from '@mui/material/styles';
 import {purple} from "@mui/material/colors";
+import {BottomNavigation, BottomNavigationAction} from "@mui/material";
 
 
 let theme = createTheme({
@@ -11,13 +12,12 @@ let theme = createTheme({
         borderRadius: 10
     },
     typography: {
-        fontFamily: "sans-serif",
+        fontFamily: "Urbanist",
         fontWeightBold: 800,
         fontWeightMedium: 700,
         fontWeightRegular: 600,
         fontWeightLight: 400
     },
-
     // typography: {
     //     fontFamily: 'Roboto',
     //     fontSize: 16,
@@ -67,7 +67,6 @@ let theme = createTheme({
 
     // },
 });
-
 theme = responsiveFontSizes(theme)
 
 export default theme
