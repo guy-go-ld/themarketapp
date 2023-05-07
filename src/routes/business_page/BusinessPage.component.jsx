@@ -10,6 +10,7 @@ import {
     Rating,
     Stack
 } from "@mui/material";
+import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
 import LastActivitiesFriendsDialog from "../../Components/dialog-box-basic/dialog_box_basic";
 import {ExpandLess, ExpandMore, StarBorder} from "@mui/icons-material";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -18,6 +19,10 @@ import ReactCardSlider from "react-card-slider-component";
 import {Typography} from "@mui/material";
 import Box from "@mui/material/Box";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import MailOutlineTwoToneIcon from '@mui/icons-material/MailOutlineTwoTone';
+import NearMeOutlinedIcon from '@mui/icons-material/NearMeOutlined';
+import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
+import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 const sliderClick =(slider)=>
 {
     return (()=>
@@ -92,7 +97,7 @@ function TimeTable()
     return(
         <div>
             <List
-                sx={{ width: '100%', maxWidth: 360, bgcolor: 'primary.dark', padding: 0}}
+                sx={{ width: '100%', maxWidth: 360, bgcolor: 'primary.light', padding: 0}}
                 component="nav"
                 aria-labelledby="nested-list-subheader">
                 <ListItemButton onClick={handleClick} sx={{padding: 0}}>
@@ -165,7 +170,7 @@ function ShowPerson(data_on_person)
 
     return(
         <div>
-            <Box sx={{ p: 3, backgroundColor: 'primary.dark', position: 'relative'}}>
+            <Box sx={{ p: 3, backgroundColor: 'primary.light', position: 'relative'}}>
                 <Grid container spacing={1}>
                     <Grid item xs={8.5} sx={{ textAlign: 'left' }}>
                         <Typography variant="h4"> {data_on_person.name} </Typography>
@@ -189,23 +194,34 @@ function ShowPerson(data_on_person)
                 </Grid>
                 <Box sx={{position: 'absolute', bottom: -40, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                     <Box sx={{flexDirection: 'column', margin: 'auto'}}>
-                        <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#f00', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                        <Avatar sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
+                        <LocalPhoneRoundedIcon />
+                        </Avatar>
                         <Typography variant="body2" color="text.secondary">Contact</Typography>
                     </Box>
                     <Box sx={{flexDirection: 'column', margin: 'auto'}}>
-                        <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#0f0', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                        <Avatar sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
+                        <NearMeOutlinedIcon sx={{
+                            transform: "rotate(-90deg)"}}/>
+                        </Avatar>
                         <Typography variant="body2" color="text.secondary">Navigate</Typography>
                     </Box>
                     <Box sx={{flexDirection: 'column', margin: 'auto'}}>
-                        <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#00f', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                        <Avatar sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
+                        <PeopleOutlineOutlinedIcon/>
+                        </Avatar>
                         <Typography variant="body2" color="text.secondary">Socials</Typography>
                     </Box>
                     <Box sx={{flexDirection: 'column', margin: 'auto'}}>
-                        <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#ff0', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                        <Avatar sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
+                        <ShareOutlinedIcon/>
+                        </Avatar>
                         <Typography variant="body2" color="text.secondary">Share</Typography>
                     </Box>
                     <Box sx={{flexDirection: 'column', margin: 'auto'}}>
-                        <Avatar sx={{width: 40, height: 40, margin: '0 8px', background: '#0ff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}/>
+                        <Avatar sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
+                            <MailOutlineTwoToneIcon/>
+                        </Avatar>
                         <Typography variant="body2" color="text.secondary">Message</Typography>
                     </Box>
                 </Box>

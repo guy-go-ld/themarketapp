@@ -1,17 +1,21 @@
 // import * as React from 'react';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import {purple} from "@mui/material/colors";
-
+import "../../App.css";
 
 let theme = createTheme({
     palette: {
-        primary: purple
+        primary: {
+            main: '#775CDF',
+            light: '#937af3',
+            dark: '#5d47b1'
+        }
     },
     shape: {
         borderRadius: 10
     },
     typography: {
-        fontFamily: "sans-serif",
+        // fontFamily: "Poppins",
         fontWeightBold: 800,
         fontWeightMedium: 700,
         fontWeightRegular: 600,

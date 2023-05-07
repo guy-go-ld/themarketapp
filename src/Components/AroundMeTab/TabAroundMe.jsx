@@ -61,11 +61,11 @@ export default function FullWidthTabs() {
     return (
         <Box sx={{ bgcolor: 'background.paper', width: '100%' }}>
             <AppBar position="static">
-                <Typography variant="h2">Around me</Typography>
+                {/*<Typography variant="h2">Around me</Typography>*/}
                 <Tabs
                     value={value}
                     onChange={handleChange}
-                    indicatorColor="secondary"
+                    indicatorColor="primary.dark"
                     textColor="inherit"
                     variant="fullWidth"
                     aria-label="full width tabs example"
