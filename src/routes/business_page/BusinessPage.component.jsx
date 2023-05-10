@@ -105,7 +105,7 @@ function TimeTable()
                 <ListItemButton onClick={handleClick} sx={{padding: 0}}>
                     <AccessTimeIcon />
                     <ListItemText sx={{pl:1, pr: 1}}>
-                        <Typography variant="h7">
+                        <Typography variant="h5">
                             Time Table Items
                         </Typography>
                     </ListItemText>
@@ -176,7 +176,7 @@ function ShowPerson(data_on_person)
                 <Grid container spacing={1}>
                     <Grid item xs={8.5} sx={{ textAlign: 'left' }}>
                         <Typography variant="h4"> {data_on_person.name} </Typography>
-                        <Typography variant="h6">· {data_on_person.title}</Typography>
+                        <Typography variant="h5">· {data_on_person.title}</Typography>
                         <p></p><p></p><p></p><p></p><p></p><p></p>
                         <Stack direction="row" justifyContent="start" alignItems="center" spacing={2} marginBottom="1rem">
                             <Typography variant="h5">
@@ -190,7 +190,7 @@ function ShowPerson(data_on_person)
                                 }}
                             />
                         </Stack>
-                        <Typography justifyContent="start" variant="h7">
+                        <Typography justifyContent="start" variant="h5">
                            {/* TODO: need to add business address from json*/}
                            <LocationOnIcon />
                             Shamai street 34, Jerusalem

@@ -6,6 +6,8 @@ import LastActivitiesFriendsDialog from "../../Components/dialog-box-basic/dialo
 import BusinessNameCard from "../../Components/business-name-card/business-name-card.component";
 import ResizableMap from '../../Components/updatable-map/ResizableMap'
 import ApartmentRoundedIcon from "@mui/icons-material/ApartmentRounded";
+import Divider from "@mui/material/Divider";
+import HomePageCards from "../../Components/homePageCards/HomePageCard";
 // TODO how to implement hooks in a class?
 
 
@@ -38,21 +40,29 @@ class HomePageComponent extends Component{
                         <Typography variant="h1">CityCircle</Typography>
                     </Stack>
                 </header>
-                <div className="Last-Activities-Friends">
-                    <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
-                        <LastActivitiesFriendsDialog props={1}/>
-                        <LastActivitiesFriendsDialog props={2}/>
-                        <LastActivitiesFriendsDialog props={3}/>
+                <br/>
+                <Typography variant="h4" justifyItems="start" textAlign="left" marginBottom="1rem">This week’s visits</Typography>
+                <Divider/>
+                <br/>
+                <HomePageCards/>
+                <br/>
+                <Divider />
+                {/*<button>Show all visits</button>*/}
+                {/*<div className="Last-Activities-Friends">*/}
+                {/*    <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>*/}
+                {/*        <LastActivitiesFriendsDialog props={1}/>*/}
+                {/*        <LastActivitiesFriendsDialog props={2}/>*/}
+                {/*        <LastActivitiesFriendsDialog props={3}/>*/}
 
-                    {/*    <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>*/}
-                    {/*<Avatar sx={{ bgcolor: deepPurple[500] }}>OP</Avatar>*/}
-                </Stack>
-                </div>
+                {/*    /!*    <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>*!/*/}
+                {/*    /!*<Avatar sx={{ bgcolor: deepPurple[500] }}>OP</Avatar>*!/*/}
+                {/*</Stack>*/}
+                {/*</div>*/}
                 <div style={{paddingTop: "2rem", paddingBottom: "2rem"}}>
                     <ResizableMap/>
                 </div>
                 {/*<button onClick={mapHook}>JumpTo</button>*/}
-                <BusinessNameCard business={{"id": 1, "name": "Ofra's lak-gel", "title": "lak gel"}}/>
+                {/*<BusinessNameCard business={{"id": 1, "name": "Ofra's lak-gel", "title": "lak gel"}}/>*/}
             </div>
         );
     }
