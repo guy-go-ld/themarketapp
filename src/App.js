@@ -8,7 +8,7 @@ import ProfilePageComponent from "./routes/profile_page/ProfilePage.component";
 import BusinessPageComponent from "./routes/business_page/BusinessPage.component";
 import AroundMeComponent from "./routes/Around Me/AroundMe.component";
 import NotificationsComponent from "./routes/notifications/Notifications.component";
-import CommunityComponent from "./routes/Community/CommunityComponent";
+import CommunityComponent from "./routes/Community/Community.component";
 import Theme from "./Components/Theme/Theme";
 import {ThemeProvider} from "@mui/material/styles";
 

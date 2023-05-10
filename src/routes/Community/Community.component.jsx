@@ -3,8 +3,10 @@ import './Community.styles.css';
 import {Container, Typography} from "@mui/material";
 import SupervisedUserCircleSharpIcon from '@mui/icons-material/SupervisedUserCircleSharp';
 import Avatar from "@mui/material/Avatar";
+import ComunityCard from "../../Components/AvatarGroup/AvatarGroupComp";
 import Box from "@mui/material/Box";
-import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
+import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
+
 class CommunityComponent extends Component{
     render() {
         return(
@@ -27,8 +29,9 @@ class CommunityComponent extends Component{
                     </Box>
                 </Box>
                 <Typography variant="h2">
-                    {/*Community*/}
+                    Community
                 </Typography>
+                <ComunityCard/>
             </div>
         )
     }
