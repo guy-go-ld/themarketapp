@@ -3,6 +3,7 @@ import './Community.styles.css';
 import {Container, Typography} from "@mui/material";
 import SupervisedUserCircleSharpIcon from '@mui/icons-material/SupervisedUserCircleSharp';
 import Avatar from "@mui/material/Avatar";
+import ComunityCard from "../../Components/AvatarGroup/AvatarGroupComp";
 
 class CommunitiyComponent extends Component{
     render() {
@@ -16,6 +17,7 @@ class CommunitiyComponent extends Component{
                 <Typography variant="h2">
                     Community
                 </Typography>
+                <ComunityCard/>
             </div>
         )
     }
