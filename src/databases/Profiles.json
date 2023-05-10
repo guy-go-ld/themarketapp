@@ -1,0 +1,31 @@
+
+[
+  {
+    "name": "Tal",
+    "profileImg": "src/Icons/profileImg/1.jfif"
+  },
+  {
+    "name": "Guy",
+    "profileImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHDRlp-KGr_M94k_oor4Odjn2UzbAS7n1YoA&usqp=CAU"
+  },
+  {
+    "name": "Hila",
+    "profileImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&usqp=CAU"
+  },
+  {
+    "name": "Yuval",
+    "profileImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRij6dtiHizH96qpCOe8WeXXP3yLyQJkPdGVg&usqp=CAU"
+  },
+  {
+    "name": "Gal",
+    "profileImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf686xJRtWDvGxXHISwA9QBWLPi-EVW3PFIw&usqp=CAU"
+  },
+  {
+    "name": "Yael",
+    "profileImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf686xJRtWDvGxXHISwA9QBWLPi-EVW3PFIw&usqp=CAU"
+  },
+  {
+    "name": "Matan",
+    "profileImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf686xJRtWDvGxXHISwA9QBWLPi-EVW3PFIw&usqp=CAU"
+  }
+]

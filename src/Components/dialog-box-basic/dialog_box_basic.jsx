@@ -13,6 +13,8 @@ import {Typography} from "@mui/material";
 import { ReactComponent as EmailSvg } from '../../Icons/email-svgrepo-com.svg';
 import { ReactComponent as ChromeSvg } from '../../Icons/chrome-svgrepo-com.svg';
 import { ReactComponent as WhatsAppSvg } from '../../Icons/whatsapp-svgrepo-com.svg';
+import peopleProfile from "../../databases/PeopleProfile.json"
+
 
 // Here we can add more ways to contact, need to check it with the business way of contacting.
 
@@ -76,9 +78,9 @@ export default function LastActivitiesFriendsDialog(id_param) {
     };
     return (
         <div>
-            <Avatar onClick={handleClickOpen}>
+            <Avatar onClick={handleClickOpen} src={id_param}>
                 {/*<Typography varianr="h3">*/}
-                    H
+                {/*{id_param}*/}
                 {/*</Typography>*/}
             </Avatar>
             <SimpleDialog

@@ -1,5 +1,6 @@
 import {useLocation} from 'react-router-dom'
 import data from "../../databases/BusinessAllData.json"
+import peopleProfile from "../../databases/Profiles.json"
 import {
     Avatar,
     Collapse, Grid,
@@ -98,7 +99,7 @@ function TimeTable()
     return(
         <div>
             <List
-                sx={{ width: '100%', maxWidth: 360, bgcolor: 'primary.light', padding: 0}}
+                sx={{ width: '100%', maxWidth: 360, bgcolor: 'primary.light', padding: 0, marginTop: 1}}
                 component="nav"
                 aria-labelledby="nested-list-subheader">
                 <ListItemButton onClick={handleClick} sx={{padding: 0}}>
@@ -177,9 +178,22 @@ function ShowPerson(data_on_person)
                         <Typography variant="h4"> {data_on_person.name} </Typography>
                         <Typography variant="h6">· {data_on_person.title}</Typography>
                         <p></p><p></p><p></p><p></p><p></p><p></p>
-                        <Typography variant="h7">
+                        <Stack direction="row" justifyContent="start" alignItems="center" spacing={2} marginBottom="1rem">
+                            <Typography variant="h5">
+                                Rating: {data_on_person.rating}
+                            </Typography>
+                            <Rating
+                                name="simple-controlled"
+                                value={value}
+                                onChange={(event, newValue) => {
+                                    setValue(newValue);
+                                }}
+                            />
+                        </Stack>
+                        <Typography justifyContent="start" variant="h7">
                            {/* TODO: need to add business address from json*/}
-                           <LocationOnIcon/>Shamai street 34, Jerusalem
+                           <LocationOnIcon />
+                            Shamai street 34, Jerusalem
                         </Typography>
                         {TimeTable()}
                     </Grid>
@@ -189,7 +203,7 @@ function ShowPerson(data_on_person)
                                 elevation={3}
                                 alt={`business ${data_on_person.name}`}
                                 src={`https://robohash.org/${data_on_person.id}?set=set2&size=180x180`}
-                                sx={{ width: 120, height: 120, boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)',
+                                sx={{ width: 100, height: 100, boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)',
                                     bgcolor: 'white'}}/>
 
                     </Grid>
@@ -199,32 +213,32 @@ function ShowPerson(data_on_person)
                         <Avatar sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
                         <LocalPhoneRoundedIcon />
                         </Avatar>
-                        <Typography variant="body2" color="text.secondary">Contact</Typography>
+                        <Typography variant="body1" color="text.main">Contact</Typography>
                     </Box>
                     <Box sx={{flexDirection: 'column', margin: 'auto'}}>
                         <Avatar sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
                         <NearMeOutlinedIcon sx={{
                             transform: "rotate(-90deg)"}}/>
                         </Avatar>
-                        <Typography variant="body2" color="text.secondary">Navigate</Typography>
+                        <Typography variant="body1" color="text.main">Navigate</Typography>
                     </Box>
                     <Box sx={{flexDirection: 'column', margin: 'auto'}}>
                         <Avatar sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
                         <PeopleOutlineOutlinedIcon/>
                         </Avatar>
-                        <Typography variant="body2" color="text.secondary">Socials</Typography>
+                        <Typography variant="body1" color="text.main">Socials</Typography>
                     </Box>
                     <Box sx={{flexDirection: 'column', margin: 'auto'}}>
                         <Avatar sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
                         <ShareOutlinedIcon/>
                         </Avatar>
-                        <Typography variant="body2" color="text.secondary">Share</Typography>
+                        <Typography variant="body1" color="text.main">Share</Typography>
                     </Box>
                     <Box sx={{flexDirection: 'column', margin: 'auto'}}>
                         <Avatar sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
                             <MailOutlineTwoToneIcon/>
                         </Avatar>
-                        <Typography variant="body2" color="text.secondary">Message</Typography>
+                        <Typography variant="body1" color="text.main">Message</Typography>
                     </Box>
                 </Box>
             </Box>
@@ -233,27 +247,40 @@ function ShowPerson(data_on_person)
             Friends that used this business
             </Typography>
             <Divider/>
-            <Stack direction="row" justifyContent="center" alignItems="center" spacing={2} p="1rem">
-                <LastActivitiesFriendsDialog props={1}/>
-                <LastActivitiesFriendsDialog props={2}/>
-                <LastActivitiesFriendsDialog props={3}/>
-                <LastActivitiesFriendsDialog props={4}/>
-                <LastActivitiesFriendsDialog props={5}/>
+            <Stack direction="row" justifyContent="start" alignItems="center" spacing={2} p="1rem" overflow="scroll">
+                {peopleProfile.map(prof =>
+                    <Box sx={{flexDirection: 'column', margin: 'auto'}}>
+                        <Avatar sx={{color: "primary.main", width: 50, height: 50, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
+                            {/*<PeopleOutlineOutlinedIcon/>*/}
+
+                            <LastActivitiesFriendsDialog props={prof.profileImg}/>
+
+
+                        </Avatar>
+                        <Typography variant="h6" color="text.secondary">{prof.name}</Typography>
+                    </Box>
+                )}
+
+                {/*<LastActivitiesFriendsDialog props={1}/>*/}
+                {/*<LastActivitiesFriendsDialog props={2}/>*/}
+                {/*<LastActivitiesFriendsDialog props={3}/>*/}
+                {/*<LastActivitiesFriendsDialog props={4}/>*/}
+                {/*<LastActivitiesFriendsDialog props={5}/>*/}
             </Stack>
             <Divider/>
 
-            <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
-                <Typography variant="h3">
-                    Rating: {data_on_person.rating}
-                </Typography>
-                <Rating
-                    name="simple-controlled"
-                    value={value}
-                    onChange={(event, newValue) => {
-                        setValue(newValue);
-                    }}
-                />
-            </Stack>
+            {/*<Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>*/}
+            {/*    <Typography variant="h3">*/}
+            {/*        Rating: {data_on_person.rating}*/}
+            {/*    </Typography>*/}
+            {/*    <Rating*/}
+            {/*        name="simple-controlled"*/}
+            {/*        value={value}*/}
+            {/*        onChange={(event, newValue) => {*/}
+            {/*            setValue(newValue);*/}
+            {/*        }}*/}
+            {/*    />*/}
+            {/*</Stack>*/}
             <div style={{ marginTop: "5em", marginBottom: "5em" }}>
                 <ReactCardSlider slides={slides} />
             </div>
