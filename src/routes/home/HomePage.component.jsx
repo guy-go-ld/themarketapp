@@ -1,10 +1,9 @@
 import {Component} from "react";
 import './HomePage.styles.css';
-import {Stack, Typography} from "@mui/material";
+import {Typography} from "@mui/material";
 
 
 import ResizableMap from '../../Components/updatable-map/ResizableMap'
-import ApartmentRoundedIcon from "@mui/icons-material/ApartmentRounded";
 import Divider from "@mui/material/Divider";
 import HomePageCards from "../../Components/homePageCards/HomePageCard";
 

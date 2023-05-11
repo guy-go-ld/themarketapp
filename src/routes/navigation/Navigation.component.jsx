@@ -7,9 +7,6 @@ import {
     BottomNavigationAction, Grid, Input, Toolbar
 } from "@mui/material";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
-import ApartmentRoundedIcon from '@mui/icons-material/ApartmentRounded';
-import NotificationImportantRoundedIcon from '@mui/icons-material/NotificationImportantRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import ResponsiveDrawer from "../../Components/Responsive Drawer/ResponsiveDrawer.component";
 import logoNew from "../../Icons/logo-all-white.png";

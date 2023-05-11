@@ -2,19 +2,10 @@ import {useLocation} from 'react-router-dom'
 import data from "../../databases/BusinessAllData.json"
 import peopleProfile from "../../databases/Profiles.json"
 import {
-    Avatar,
-    Collapse, Grid,
-    List,
-    ListItemButton,
-    ListItemIcon,
-    ListItemText,
-    Stack
+    Avatar, Grid, Stack
 } from "@mui/material";
 import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
 import LastActivitiesFriendsDialog from "../../Components/dialog-box-basic/dialog_box_basic";
-import {ExpandLess, ExpandMore, StarBorder} from "@mui/icons-material";
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import {useState} from "react";
 import ReactCardSlider from "react-card-slider-component";
 import {Typography} from "@mui/material";
 import Box from "@mui/material/Box";
