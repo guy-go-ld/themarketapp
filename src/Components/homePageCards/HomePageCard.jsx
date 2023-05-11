@@ -37,7 +37,7 @@ export default function HomePageCards() {
         <Box sx={{ flexGrow: 1, overflow: 'hidden' }}>
             <Stack spacing={3} direction="row" overflow="scroll">
             {data.map(businesses =>
-                <Link to={'../BusinessPageComponent'} state={{ from: businesses.id}} >
+                <Link to={'../BusinessPageComponent'} state={{ from: businesses.id}} className="home-card-container" >
                     <Item
                         sx={{
                             my: 1,

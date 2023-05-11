@@ -1,37 +1,50 @@
 .navigation {
-  height: 70px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
 }
 
-  .navigation .logo-container {
+.navigation .logo-container {
     height: 100%;
     width: 70px;
     padding: 25px;
-  }
+}
 
 .navigation .nav-links-container {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .navigation .nav-links-container .nav-link {
-  padding: 10px 15px;
-  cursor: pointer;
+    padding: 10px 15px;
+    cursor: pointer;
 }
-.bottom-nav{
-  position: fixed;
-  bottom: 0;
-  z-index: 999;
-  width: 100%;
-  height: fit-content;
-  background-color: blue;
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    z-index: 1005;
+    width: 100%;
+    height: fit-content;
+    background-color: blue;
 }
+
 .MuiToolbar-root {
-  min-height: 6rem !important;
+    min-height: 7rem !important;
+}
+
+.search-bar-business {
+    background-color: white;
+    border: 0.2rem solid black;
+    padding: 0.6rem;
+    border-radius: 2rem;
+}
+
+.logo-icon {
+    width: 5rem;
 }

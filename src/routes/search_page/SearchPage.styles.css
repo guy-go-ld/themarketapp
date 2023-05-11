@@ -1,3 +1,11 @@
 .businesses-list{
     margin-top: 10px;
 }
+/*.top-search-page-wrapper .search-bar-wrap {*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*}*/
+.top-search-page-wrapper{
+    height: 14rem;
+    background-color: #775CDF;
+}

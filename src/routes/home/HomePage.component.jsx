@@ -22,8 +22,8 @@ class HomePageComponent extends Component{
         return(
             <div className="All-Home-Page" style={{
                 marginTop: "7rem",
-                paddingLeft:"2rem",
-                paddingRight:"2rem",
+                paddingLeft:"1rem",
+                paddingRight:"1rem",
                 paddingBottom:"7rem"
             }}>
                 <header>
