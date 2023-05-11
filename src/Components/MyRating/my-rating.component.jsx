@@ -32,6 +32,13 @@ function SimpleDialog(props: SimpleDialogProps) {
                     onChange={(event, newValue) => {
                         handleListItemClick(newValue);
                     }}
+                    sx={{
+                        '& .MuiRating-iconFilled': {
+                            color: '#C3ED5B',
+                        },
+                        '& .MuiRating-iconHover': {
+                            color: '#C3ED5B',
+                        }}}
                     precision={0.5}
                 />
             </Stack>
@@ -59,6 +66,13 @@ export default function MyRatingComponent({personIdAndBusinessRating}) {
                 name="simple-controlled"
                 value={rating}
                 onClick={handleClickOpen}
+                sx={{
+                    '& .MuiRating-iconFilled': {
+                        color: '#C3ED5B',
+                    },
+                    '& .MuiRating-iconHover': {
+                        color: '#C3ED5B',
+                    }}}
             />
 
             <SimpleDialog

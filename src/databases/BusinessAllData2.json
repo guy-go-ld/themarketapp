@@ -1,0 +1,90 @@
+[
+  {
+  "id": 1,
+  "name": "Ofra's lak-gel",
+  "title": "Cosmetics",
+  "rating": 4.9,
+  "profile_img": "none",
+  "business_imgs": "none"
+  },
+  {
+  "id": 2,
+  "name": "Yuval's lak gel",
+  "title": "Cosmetics",
+  "rating": 4,
+  "profile_img": "none",
+  "business_imgs": "none"
+  },
+  {
+  "id": 3,
+  "name": "Nitzan's lak gel",
+  "title": "Cosmetics",
+  "rating": 4.2,
+  "profile_img": "none",
+  "business_imgs": "none"
+  },
+  {
+  "id": 4,
+  "name": "DeLakGelBest",
+  "title": "Cosmetics",
+  "rating": 2.7,
+  "profile_img": "none",
+  "business_imgs": "none"
+  },
+  {
+  "id": 5,
+  "name": "Avaveo",
+  "title": "Barber",
+  "rating": 4.6,
+  "profile_img": "none",
+  "business_imgs": "none"
+  },
+  {
+  "id": 6,
+  "name": "Demivee",
+  "title": "Barber",
+  "rating": 4.3,
+  "profile_img": "none",
+  "business_imgs": "none"
+  },
+  {
+  "id": 7,
+  "name": "Jayo",
+  "title": "Barber",
+  "rating": 3.8,
+  "profile_img": "none",
+  "business_imgs": "none"
+  },
+  {
+  "id": 8,
+  "name": "Blognation",
+  "title": "Barber",
+  "rating": 4.1,
+  "profile_img": "none",
+  "business_imgs": "none"
+  },
+  {
+  "id": 9,
+  "name": "Podcat",
+  "title": "Barber",
+  "rating": 4.9,
+  "profile_img": "none",
+  "business_imgs": "none"
+  },
+  {
+  "id": 10,
+  "name": "Layo",
+  "title": "Barber",
+  "rating": 4.7,
+  "profile_img": "none",
+  "business_imgs": "none"
+  },
+  {
+    "id": 11,
+    "name": "MASPERAFI",
+    "title": "Hair Design",
+    "rating": 4.7,
+    "profile_img": "none",
+    "business_imgs": "none"
+  }
+]

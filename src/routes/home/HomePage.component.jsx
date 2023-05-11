@@ -2,13 +2,11 @@ import {Component} from "react";
 import './HomePage.styles.css';
 import {Stack, Typography} from "@mui/material";
 
-import LastActivitiesFriendsDialog from "../../Components/dialog-box-basic/dialog_box_basic";
-import BusinessNameCard from "../../Components/business-name-card/business-name-card.component";
+
 import ResizableMap from '../../Components/updatable-map/ResizableMap'
 import ApartmentRoundedIcon from "@mui/icons-material/ApartmentRounded";
 import Divider from "@mui/material/Divider";
 import HomePageCards from "../../Components/homePageCards/HomePageCard";
-// TODO how to implement hooks in a class?
 
 
 

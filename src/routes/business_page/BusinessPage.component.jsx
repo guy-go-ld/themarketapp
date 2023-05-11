@@ -8,7 +8,6 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
-    Rating,
     Stack
 } from "@mui/material";
 import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
@@ -25,6 +24,10 @@ import NearMeOutlinedIcon from '@mui/icons-material/NearMeOutlined';
 import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import Divider from "@mui/material/Divider";
+import MyRatingComponent from "../../Components/MyRating/my-rating.component";
+import * as React from "react";
+import BusinessAvatar from "../../Components/BusinessAvatar/business-avatar.component";
+import TimeTable from "../../Components/TimeTable/time-table.component";
 const sliderClick =(slider)=>
 {
     return (()=>
@@ -85,82 +88,6 @@ const slides = [
 
 
 /**
- * In charge of showing and opening the TimeTable
- * @returns {JSX.Element}
- * @constructor
- */
-function TimeTable()
-{
-    const [open, setOpen] = useState(false);
-
-    const handleClick = () => {
-        setOpen(!open);
-    };
-    return(
-        <div>
-            <List
-                sx={{ width: '100%', maxWidth: 360, bgcolor: 'primary.light', padding: 0, marginTop: 1}}
-                component="nav"
-                aria-labelledby="nested-list-subheader">
-                <ListItemButton onClick={handleClick} sx={{padding: 0}}>
-                    <AccessTimeIcon />
-                    <ListItemText sx={{pl:1, pr: 1}}>
-                        <Typography variant="h5">
-                            Time Table Items
-                        </Typography>
-                    </ListItemText>
-                    {open ? <ExpandLess /> : <ExpandMore />}
-                </ListItemButton>
-                <Collapse in={open} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItemButton sx={{ pl: 4 }}>
-                            <ListItemIcon>
-                                <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText >
-                                <Typography variant="body1">
-                                    Today
-                                </Typography>
-                            </ListItemText>
-                        </ListItemButton>
-                        <ListItemButton sx={{ pl: 4 }}>
-                            <ListItemIcon>
-                                <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText >
-                                <Typography variant="body1">
-                                    Tomorrow
-                                </Typography>
-                            </ListItemText>
-                        </ListItemButton>
-                        <ListItemButton sx={{ pl: 4 }}>
-                            <ListItemIcon>
-                                <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText >
-                                <Typography variant="body1">
-                                    Yesterday
-                                </Typography>
-                            </ListItemText>
-                        </ListItemButton>
-                        <ListItemButton sx={{ pl: 4 }}>
-                            <ListItemIcon>
-                                <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText >
-                                <Typography variant="body1">
-                                    Next Year
-                                </Typography>
-                            </ListItemText>
-                        </ListItemButton>
-                    </List>
-                </Collapse>
-            </List>
-        </div>
-    );
-}
-
-/**
  * Shows all the relevant information about that person
  * @param data_on_person - got the data from "../../databases/BusinessAllData.json"
  * @returns {JSX.Element} - mainly a javascript and html
@@ -168,7 +95,6 @@ function TimeTable()
  */
 function ShowPerson(data_on_person)
 {
-    const [value, setValue] = useState(2);
 
     return(
         <div>
@@ -182,30 +108,18 @@ function ShowPerson(data_on_person)
                             <Typography variant="h5">
                                 Rating: {data_on_person.rating}
                             </Typography>
-                            <Rating
-                                name="simple-controlled"
-                                value={value}
-                                onChange={(event, newValue) => {
-                                    setValue(newValue);
-                                }}
-                            />
+                            <MyRatingComponent personIdAndBusinessRating={{"read_only_rating":data_on_person.rating, "rating":data_on_person.rating}}/>
                         </Stack>
                         <Typography justifyContent="start" variant="h5">
                            {/* TODO: need to add business address from json*/}
                            <LocationOnIcon />
-                            Shamai street 34, Jerusalem
+                            {data_on_person.address}
+                            {/*Shamai street 34, Jerusalem*/}
                         </Typography>
-                        {TimeTable()}
+                        <TimeTable business={data_on_person}></TimeTable>
                     </Grid>
                     <Grid item xs={3} sx={{ textAlign: 'right' }}>
-                            <Avatar
-                                backgroundColor='background.paper'
-                                elevation={3}
-                                alt={`business ${data_on_person.name}`}
-                                src={`https://robohash.org/${data_on_person.id}?set=set2&size=180x180`}
-                                sx={{ width: 100, height: 100, boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)',
-                                    bgcolor: 'white'}}/>
-
+                        <BusinessAvatar business={{"name":data_on_person.name,"id":data_on_person.id,"profile_img":data_on_person.profile_img,"size":false}} />
                     </Grid>
                 </Grid>
                 <Box sx={{position: 'absolute', bottom: -40, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
