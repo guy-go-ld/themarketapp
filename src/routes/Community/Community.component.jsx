@@ -35,5 +35,5 @@ class CommunityComponent extends Component{
             </div>
         )
     }
-};
+}
 export default CommunityComponent;

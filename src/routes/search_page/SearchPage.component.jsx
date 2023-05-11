@@ -55,9 +55,17 @@ class SearchPageComponent extends Component{
                         />
                     </div>
                 </div>
-                <BusinessNameList
-                    businesses={filteredBusiness}
-                />
+                {(this.state.searchField === "") ?
+                    (<div>Nothing</div>)
+                    :
+                    (filteredBusiness.length === 0)?
+                        (<div>Not Exist</div>)
+                        :
+                        (<BusinessNameList
+                            businesses={filteredBusiness}
+                        />)
+                }
+
             </Fragment>
         );
 
