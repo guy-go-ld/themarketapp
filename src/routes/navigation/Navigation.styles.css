@@ -35,7 +35,11 @@
 }
 
 .MuiToolbar-root {
-    min-height: 7rem !important;
+    padding: 1rem 0;
+}
+.MuiGrid-item {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
 }
 
 .search-bar-business {
@@ -46,5 +50,6 @@
 }
 
 .logo-icon {
-    width: 5rem;
+    width: 4rem;
+    padding: 0 0.3rem;
 }

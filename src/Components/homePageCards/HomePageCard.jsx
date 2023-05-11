@@ -34,8 +34,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function HomePageCards() {
     return (
-        <Box sx={{ flexGrow: 1, overflow: 'hidden' }}>
-            <Stack spacing={3} direction="row" overflow="scroll">
+        <Box sx={{ flexGrow: 1, overflow: 'hidden' }} className="home-page-cards">
+            <Stack spacing={0.7} direction="row" overflow="scroll">
             {data.map(businesses =>
                 <Link to={'../BusinessPageComponent'} state={{ from: businesses.id}} className="home-card-container" >
                     <Item

@@ -26,22 +26,9 @@ class HomePageComponent extends Component{
                 paddingRight:"1rem",
                 paddingBottom:"7rem"
             }}>
-                <header>
-                    <Stack direction="row" justifyContent="center" alignItems="center" spacing={3}>
-                        <ApartmentRoundedIcon
-                            sx={{
-                                fontSize: {
-                                    xs: '3rem',
-                                    sm: '4rem',
-                                    md: '5rem',
-                                    lg: '6rem'
-                                }
-                        }}/>
-                        <Typography variant="h1">CityCircle</Typography>
-                    </Stack>
-                </header>
+
                 <br/>
-                <Typography variant="h4" justifyItems="start" textAlign="left" marginBottom="1rem">This week’s visits</Typography>
+                <Typography variant="h4" justifyItems="start" textAlign="left" marginBottom="1rem">My visits</Typography>
                 <Divider/>
                 <br/>
                 <HomePageCards/>
@@ -58,7 +45,9 @@ class HomePageComponent extends Component{
                 {/*    /!*<Avatar sx={{ bgcolor: deepPurple[500] }}>OP</Avatar>*!/*/}
                 {/*</Stack>*/}
                 {/*</div>*/}
-                <div style={{paddingTop: "2rem", paddingBottom: "2rem"}}>
+                <div className="map-container width-100"
+                    // style={{paddingTop: "2rem", paddingBottom: "2rem"}}
+                >
                     <ResizableMap/>
                 </div>
                 {/*<button onClick={mapHook}>JumpTo</button>*/}

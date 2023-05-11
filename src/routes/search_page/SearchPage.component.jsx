@@ -5,6 +5,8 @@ import BusinessNameList from "../../Components/business-name-list/buisness-name-
 import GoBack from "../../Components/Tests/BackButton.component";
 import {Grid, Input} from "@mui/material";
 import "./SearchPage.styles.css";
+import logoNew from "../../Icons/logo-all-white.png";
+
 
 class SearchPageComponent extends Component {
     constructor() {
@@ -46,8 +48,11 @@ class SearchPageComponent extends Component {
             <Fragment>
                 <div className="top-search-page-wrapper">
                     <Grid container>
-                        <Grid item xs = {12} sm={12}>
+                        <Grid item xs = {6} sm={6}>
                             <GoBack/>
+                        </Grid>
+                        <Grid item xs ={6} sm={6}>
+                            <img src={logoNew} alt={logoNew} className="logo-icon f-right"/>
                         </Grid>
                         <Grid item xs ={2}>
                         </Grid>
@@ -83,10 +88,10 @@ class SearchPageComponent extends Component {
                     </Grid>
             </div>
                 {(this.state.searchField === "") ?
-                    (<div>Nothing</div>)
+                    (<div><h3>What are you looking for?</h3></div>)
                     :
                     (filteredBusiness.length === 0)?
-                        (<div>Not Exist</div>)
+                        (<div><h3>We couldn't find anything..</h3></div>)
                         :
                         (<BusinessNameList
                             businesses={filteredBusiness}

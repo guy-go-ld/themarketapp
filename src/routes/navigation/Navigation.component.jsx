@@ -12,8 +12,10 @@ import ApartmentRoundedIcon from '@mui/icons-material/ApartmentRounded';
 import NotificationImportantRoundedIcon from '@mui/icons-material/NotificationImportantRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import ResponsiveDrawer from "../../Components/Responsive Drawer/ResponsiveDrawer.component";
-import logo from './logo.png';
-
+import logoNew from "../../Icons/logo-all-white.png";
+import HomeIcon from '@mui/icons-material/Home';
+import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 const NavigationComponent = () => {
     const [value, setValue] = useState(0);
 
@@ -30,7 +32,7 @@ const NavigationComponent = () => {
                 }}>
                     <Toolbar>
                         <div className="top-menu-container">
-                            <Grid container >
+                            <Grid container spacing={1}>
                                 <Grid item xs={2}>
                                     <ResponsiveDrawer/>
                                 </Grid>
@@ -54,7 +56,7 @@ const NavigationComponent = () => {
                                         Text</Input>
                                 </Grid>
                                 <Grid item xs={2}>
-                                    <img src={logo} alt={logo} className="logo-icon"/>
+                                    <img src={logoNew} alt={logoNew} className="logo-icon"/>
                                 </Grid>
                             </Grid>
                         </div>
@@ -77,7 +79,7 @@ const NavigationComponent = () => {
                     }}
                 >
                     <BottomNavigationAction
-                        component={Link} to="/" label="Home" icon={<SearchRoundedIcon
+                        component={Link} to="/" label="Home" icon={<HomeIcon
                         sx={{
                             fontSize: {
                                 xs: "3rem",
@@ -87,7 +89,7 @@ const NavigationComponent = () => {
                     />
                     }/>
                     <BottomNavigationAction component={Link} to="/CommunityComponent" label="Circle"
-                                            icon={<ApartmentRoundedIcon sx={{
+                                            icon={<SupervisedUserCircleIcon sx={{
                                                 fontSize: {
                                                     xs: "3rem",
                                                     sm: "5rem"
@@ -101,7 +103,7 @@ const NavigationComponent = () => {
                                                 }
                                             }}/>}/>
                     <BottomNavigationAction component={Link} to="/NotificationsComponent" label="Notifications"
-                                            icon={<NotificationImportantRoundedIcon sx={{
+                                            icon={<NotificationsIcon sx={{
                                                 fontSize: {
                                                     xs: "3rem",
                                                     sm: "5rem"

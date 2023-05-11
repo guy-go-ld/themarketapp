@@ -9,3 +9,9 @@
     height: 14rem;
     background-color: #775CDF;
 }
+.f-right{
+    float: right;
+}
+img.logo-icon.f-right {
+    padding: 1rem;
+}
