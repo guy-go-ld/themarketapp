@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import data from "../../databases/BusinessAllData.json";
 import {Link} from "react-router-dom";
+import BusinessAvatar from "../BusinessAvatar/business-avatar.component";
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -50,9 +51,7 @@ export default function HomePageCards() {
                             borderRadius: 4,
                         }}>
                         <Stack spacing={2} direction="column" alignItems="center">
-                            <Avatar alt={businesses.name}
-                                // src={businesses.img}
-                                    src={`https://robohash.org/${businesses.id}?set=set2&size=180x180`}></Avatar>
+                            <BusinessAvatar business={{"name":businesses.name,"id":businesses.id,"profile_img":businesses.profile_img,"size":true}} />
                             <Stack spacing={2} direction="column" alignItems="start">
                                 <Typography variant="h6" flexWrap="wrap" display="flex">{businesses.name}</Typography>
                                 {/*<Typography variant="h6" noWrap>{businesses.title}</Typography>*/}

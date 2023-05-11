@@ -1,89 +1,178 @@
 [
   {
-  "id": 1,
-  "name": "Ofra's lak-gel",
-  "title": "Cosmetics",
-  "rating": 4.9,
-  "profile_img": "none",
-  "business_imgs": "none"
+    "id": 1,
+    "name": "Liat Atias Nails",
+    "title": "Cosmetics",
+    "rating": 4.9,
+    "address": "Dahomey Street, Jerusalem",
+    "opening_hours": {
+      "Sunday": "10:00-19:00",
+      "Monday": "11:00-19:00",
+      "Tuesday": "10:00-19:00",
+      "Wednesday": "10:00-15:00",
+      "Thursday": "14:00-20:00",
+      "Friday": "09:00-13:00",
+      "Saturday": "closed"
+    },
+    "socials": {
+      "Instagram": "https://www.instagram.com/liatattiasnails/"
+    },
+    "contact": "none",
+    "profile_img": "1",
+    "business_imgs": "none"
   },
   {
-  "id": 2,
-  "name": "Yuval's lak gel",
-  "title": "Cosmetics",
-  "rating": 4,
-  "profile_img": "none",
-  "business_imgs": "none"
+    "id": 2,
+    "name": "Naama Nahary Nails",
+    "title": "Cosmetics",
+    "rating": 4.6,
+    "address": "Arnona, Jerusalem",
+    "opening_hours": {
+      "Sunday": "09:00-19:00",
+      "Monday": "09:00-19:00",
+      "Tuesday": "closed",
+      "Wednesday": "09:00-19:00",
+      "Thursday": "10:00-20:00",
+      "Friday": "08:00-13:00",
+      "Saturday": "closed"
+    },
+    "socials": {
+      "Instagram": "https://www.instagram.com/naama.nahary.nails/"
+    },
+    "contact": "050-4441795",
+    "profile_img": "2",
+    "business_imgs": "none"
   },
   {
-  "id": 3,
-  "name": "Nitzan's lak gel",
-  "title": "Cosmetics",
-  "rating": 4.2,
-  "profile_img": "none",
-  "business_imgs": "none"
+    "id": 3,
+    "name": "Yahav Nails Jerusalem",
+    "title": "Cosmetics",
+    "rating": 4.2,
+    "address": "Pat junction, Jerusalem",
+    "opening_hours": {
+      "Sunday": "10:00-19:00",
+      "Monday": "11:00-19:00",
+      "Tuesday": "10:00-19:00",
+      "Wednesday": "10:00-15:00",
+      "Thursday": "14:00-20:00",
+      "Friday": "09:00-13:00",
+      "Saturday": "closed"
+    },
+    "socials": {
+      "Instagram": "https://www.instagram.com/yahavnails_jerusalem/"
+    },
+    "contact": "0542121872",
+    "profile_img": "3",
+    "business_imgs": "none"
   },
   {
-  "id": 4,
-  "name": "DeLakGelBest",
-  "title": "Cosmetics",
-  "rating": 2.7,
-  "profile_img": "none",
-  "business_imgs": "none"
+    "id": 4,
+    "name": "Masperafi",
+    "title": "Hair Salon",
+    "rating": 4.8,
+    "address": "41, Menahem Ussishkin Street, Jerusalem",
+    "opening_hours": {
+      "Sunday": "08:00-19:00",
+      "Monday": "08:00-19:00",
+      "Tuesday": "08:00-19:00",
+      "Wednesday": "08:00-19:00",
+      "Thursday": "08:00-19:00",
+      "Friday": "08:00-15:00",
+      "Saturday": "closed"
+    },
+    "socials": {
+      "Facebook": "https://www.facebook.com/profile.php?id=100063663575780"
+    },
+    "contact": "+972 54-635-6939",
+    "profile_img": "4",
+    "business_imgs": "none"
   },
   {
-  "id": 5,
-  "name": "Avaveo",
-  "title": "Barber",
-  "rating": 4.6,
-  "profile_img": "none",
-  "business_imgs": "none"
+    "id": 5,
+    "name": "Handylock",
+    "title": "Handyman",
+    "rating": 4.9,
+    "address": "Jerusalem",
+    "opening_hours": "open 24/7",
+    "socials": {
+      "Facebook": "https://www.facebook.com/profile.php?id=100078675117361"
+    },
+    "contact": "+972 50-311-3418",
+    "profile_img": "5",
+    "business_imgs": "none"
   },
   {
-  "id": 6,
-  "name": "Demivee",
-  "title": "Barber",
-  "rating": 4.3,
-  "profile_img": "none",
-  "business_imgs": "none"
+    "id": 6,
+    "name": "Koral Mizrachi Hair Style",
+    "title": "Hair Stylist",
+    "rating": 4.3,
+    "address": "Jerusalem",
+    "opening_hours": "none",
+    "socials": {
+      "Facebook": "https://www.facebook.com/profile.php?id=100000939571806",
+      "Instagram": "https://www.instagram.com/koral_mizrachi_/"
+    },
+    "contact": "none",
+    "profile_img": "6",
+    "business_imgs": "none"
   },
   {
-  "id": 7,
-  "name": "Jayo",
-  "title": "Barber",
-  "rating": 3.8,
-  "profile_img": "none",
-  "business_imgs": "none"
+    "id": 7,
+    "name": "Jayo",
+    "title": "Barber",
+    "rating": 3.8,
+    "address": "Jerusalem",
+    "opening_hours": "none",
+    "socials": "none",
+    "contact": "none",
+    "profile_img": "none",
+    "business_imgs": "none"
   },
   {
-  "id": 8,
-  "name": "Blognation",
-  "title": "Barber",
-  "rating": 4.1,
-  "profile_img": "none",
-  "business_imgs": "none"
+    "id": 8,
+    "name": "Blognation",
+    "title": "Barber",
+    "rating": 4.1,
+    "address": "Jerusalem",
+    "opening_hours": "none",
+    "socials": "none",
+    "contact": "none",
+    "profile_img": "none",
+    "business_imgs": "none"
   },
   {
-  "id": 9,
-  "name": "Podcat",
-  "title": "Barber",
-  "rating": 4.9,
-  "profile_img": "none",
-  "business_imgs": "none"
+    "id": 9,
+    "name": "Podcat",
+    "title": "Barber",
+    "rating": 4.9,
+    "address": "Jerusalem",
+    "opening_hours": "none",
+    "socials": "none",
+    "contact": "none",
+    "profile_img": "none",
+    "business_imgs": "none"
   },
   {
-  "id": 10,
-  "name": "Layo",
-  "title": "Barber",
-  "rating": 4.7,
-  "profile_img": "none",
-  "business_imgs": "none"
+    "id": 10,
+    "name": "Layo",
+    "title": "Barber",
+    "rating": 4.7,
+    "address": "Jerusalem",
+    "opening_hours": "none",
+    "socials": "none",
+    "contact": "none",
+    "profile_img": "none",
+    "business_imgs": "none"
   },
   {
     "id": 11,
     "name": "MASPERAFI",
     "title": "Hair Design",
     "rating": 4.7,
+    "address": "Jerusalem",
+    "opening_hours": "none",
+    "socials": "none",
+    "contact": "none",
     "profile_img": "none",
     "business_imgs": "none"
   }

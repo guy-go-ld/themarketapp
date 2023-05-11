@@ -26,6 +26,7 @@ import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import Divider from "@mui/material/Divider";
 import MyRatingComponent from "../../Components/MyRating/my-rating.component";
 import * as React from "react";
+import BusinessAvatar from "../../Components/BusinessAvatar/business-avatar.component";
 const sliderClick =(slider)=>
 {
     return (()=>
@@ -192,14 +193,7 @@ function ShowPerson(data_on_person)
                         {TimeTable()}
                     </Grid>
                     <Grid item xs={3} sx={{ textAlign: 'right' }}>
-                            <Avatar
-                                backgroundColor='background.paper'
-                                elevation={3}
-                                alt={`business ${data_on_person.name}`}
-                                src={`https://robohash.org/${data_on_person.id}?set=set2&size=180x180`}
-                                sx={{ width: 100, height: 100, boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)',
-                                    bgcolor: 'white'}}/>
-
+                        <BusinessAvatar business={{"name":data_on_person.name,"id":data_on_person.id,"profile_img":data_on_person.profile_img,"size":false}} />
                     </Grid>
                 </Grid>
                 <Box sx={{position: 'absolute', bottom: -40, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>

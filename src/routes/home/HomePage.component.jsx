@@ -7,7 +7,6 @@ import ResizableMap from '../../Components/updatable-map/ResizableMap'
 import ApartmentRoundedIcon from "@mui/icons-material/ApartmentRounded";
 import Divider from "@mui/material/Divider";
 import HomePageCards from "../../Components/homePageCards/HomePageCard";
-// TODO how to implement hooks in a class?
 
 
 
