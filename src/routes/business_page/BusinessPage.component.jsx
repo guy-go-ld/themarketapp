@@ -8,7 +8,6 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
-    Rating,
     Stack
 } from "@mui/material";
 import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
@@ -25,6 +24,8 @@ import NearMeOutlinedIcon from '@mui/icons-material/NearMeOutlined';
 import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import Divider from "@mui/material/Divider";
+import MyRatingComponent from "../../Components/MyRating/my-rating.component";
+import * as React from "react";
 const sliderClick =(slider)=>
 {
     return (()=>
@@ -168,7 +169,6 @@ function TimeTable()
  */
 function ShowPerson(data_on_person)
 {
-    const [value, setValue] = useState(2);
 
     return(
         <div>
@@ -182,13 +182,7 @@ function ShowPerson(data_on_person)
                             <Typography variant="h5">
                                 Rating: {data_on_person.rating}
                             </Typography>
-                            <Rating
-                                name="simple-controlled"
-                                value={value}
-                                onChange={(event, newValue) => {
-                                    setValue(newValue);
-                                }}
-                            />
+                            <MyRatingComponent personIdAndBusinessRating={{"read_only_rating":data_on_person.rating, "rating":data_on_person.rating}}/>
                         </Stack>
                         <Typography justifyContent="start" variant="h5">
                            {/* TODO: need to add business address from json*/}

@@ -3,12 +3,12 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import {Button, Stack} from "@mui/material";
+import {Button, Rating, Stack} from "@mui/material";
 import {Link} from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import AvatarGroup from "@mui/material/AvatarGroup";
 import Avatar from "@mui/material/Avatar";
-import MyRatingComponent from "../MyRating/my-rating.component";
+import ReviewDialogComponent from "../ReviewDialog/review-dialog.component";
 
 function GroupAvatars(business) {
     return (
@@ -23,6 +23,9 @@ function GroupAvatars(business) {
 }
 
 export default function CommunityCardComponent({business}) {
+
+
+
     return(
         <div style={{margin: "2px"}}>
             <ListItem alignItems="flex-start" style={{margin: "2px"}}>
@@ -47,7 +50,16 @@ export default function CommunityCardComponent({business}) {
                     }
                 />
             </ListItem>
-            <MyRatingComponent personIdAndBusinessRating={{"read_only_rating":business.rating, "rating":business.rating}}/>
+            <Rating
+                name="simple-controlled"
+                value={business.rating}
+                sx={{
+                    '& .MuiRating-iconFilled': {
+                        color: '#C3ED5B',
+                    },
+                    '& .MuiRating-iconHover': {
+                        color: '#C3ED5B',
+                    }}}/>
             <Stack direction="row" spacing={2} justifyContent="center" marginBottom="1rem">
                 <Button color="primary"
                         disabled={false}
@@ -55,11 +67,7 @@ export default function CommunityCardComponent({business}) {
                         variant="outlined">
                     <Link to={'../BusinessPageComponent'} state={{ from: business.id}} className="link-container" >visit business</Link>
                 </Button>
-                <Button color="primary"
-                        disabled={false}
-                        size="small"
-                        variant="outlined"
-                >see full review</Button>
+                <ReviewDialogComponent business_person={{"reviews": ["Super cool place!"], "id": 0, "name":"yuval" }} />
             </Stack>
             <Divider variant="inset" component="li" />
         </div>
