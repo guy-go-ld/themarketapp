@@ -15,7 +15,6 @@ import {ThemeProvider} from "@mui/material/styles";
 class App extends Component{
     render(){
     return(
-
         <div className="App">
             <ThemeProvider theme={Theme}>
             <Routes>

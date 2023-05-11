@@ -8,7 +8,7 @@ const GoBack= () =>{
     }
     return <>
         <IconButton aria-label="delete" size="large" onClick={goBack} sx={{float:"left"}}>
-            <CloseIcon fontSize="inherit"/>
+            <CloseIcon fontSize="inherit" sx={{color:"white", fontSize:"xxx-large"}}/>
         </IconButton>
     </>;
 }
