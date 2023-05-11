@@ -69,8 +69,8 @@ export default function FullWidthTabs() {
                     aria-label="full width tabs example"
                 >
                     {/*TODO: make the tab responsive*/}
-                    <Tab label="Map" {...a11yProps(0)} />
-                    <Tab label="List" {...a11yProps(1)} />
+                    <Tab label="Map" className="tab-button" {...a11yProps(0)} />
+                    <Tab label="List" className="tab-button" {...a11yProps(1)} />
                     {/*<Tab label="Item Three" {...a11yProps(2)} />*/}
                 </Tabs>
             </AppBar>
