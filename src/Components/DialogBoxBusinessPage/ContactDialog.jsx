@@ -16,6 +16,8 @@ import { ReactComponent as WhatsAppSvg } from '../../Icons/whatsapp-svgrepo-com.
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LanguageIcon from '@mui/icons-material/Language';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
+
 import peopleProfile from "../../databases/PeopleProfile.json"
 
 
@@ -40,21 +42,21 @@ function SimpleDialog(props) {
         <Dialog onClose={handleClose} open={open}>
             <DialogTitle>
                 <Typography variant="h4">Contacts</Typography>
-                </DialogTitle>
+            </DialogTitle>
             <List sx={{ pt: 0 }}>
                 {contact_info.map((info) => (
                     <ListItem disableGutters>
                         <ListItemButton onClick={() => handleListItemClick(info)} key={info}>
                             <ListItemAvatar>
                                 <Avatar sx={{
-                                    bgcolor: blue[100],
-                                    color: blue[600],
+                                    bgcolor: "#ede7f6",
+                                    color: "primary.dark",
                                 }}>
                                     {contact_icon[info]}
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText>
-                            <Typography variant="h5">{info}</Typography>
+                                <Typography variant="h5">{info}</Typography>
                             </ListItemText>
                         </ListItemButton>
                     </ListItem>
@@ -81,10 +83,8 @@ export default function LastActivitiesFriendsDialog(id_param) {
     };
     return (
         <div>
-            <Avatar onClick={handleClickOpen} src={id_param}>
-                {/*<Typography varianr="h3">*/}
-                {/*{id_param}*/}
-                {/*</Typography>*/}
+            <Avatar onClick={handleClickOpen} sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
+                <LocalPhoneRoundedIcon/>
             </Avatar>
             <SimpleDialog
                 open={open}

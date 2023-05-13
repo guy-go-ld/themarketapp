@@ -3,7 +3,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import * as React from "react";
 import {Button} from "@mui/material";
 import Typography from "@mui/material/Typography";
-import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
 
 export interface SimpleDialogProps {
     open: boolean;
@@ -25,19 +25,19 @@ function SimpleDialog(props: SimpleDialogProps) {
         <Dialog onClose={handleClose} open={open} >
             <DialogTitle>
                 <Typography variant="h4">
-                {props.name}'s Review:
+                    Marked as GOTO
                 </Typography>
-                </DialogTitle>
-            <Typography variant="h5" style={{padding: 10, paddingBottom:10, }}>{props.review} </Typography>
-            <FormatQuoteIcon sx={{fontSize:100, alignSelf: "center", color: "primary.main"}}/>
+            </DialogTitle>
+            <WhereToVoteIcon sx={{fontSize: 100, alignSelf: "center", color: "primary.main"}}/>
 
+            {/*<Typography variant="h5" style={{padding: 10, paddingBottom:10, }}>{props.review} </Typography>*/}
         </Dialog>
     );
 }
 
-export default function ReviewDialogComponent({business_person}) {
+export default function GoToDialogComponent({business_person}) {
     const [open, setOpen] = React.useState(false);
-    const review = business_person.reviews[business_person.id];
+    // const review = business_person.reviews[business_person.id];
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -53,11 +53,11 @@ export default function ReviewDialogComponent({business_person}) {
                     size="small"
                     variant="outlined"
                     onClick={handleClickOpen}
-            >see full review</Button>
+            >Mark as goto</Button>
             <SimpleDialog
                 sx={{height: 250, width: 200}}
                 name={business_person.name}
-                review={review}
+                // review={review}
                 open={open}
                 onClose={handleClose}
             />

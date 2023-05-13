@@ -17,14 +17,17 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LanguageIcon from '@mui/icons-material/Language';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import peopleProfile from "../../databases/PeopleProfile.json"
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import NearMeOutlinedIcon from "@mui/icons-material/NearMeOutlined";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 
 // Here we can add more ways to contact, need to check it with the business way of contacting.
 
-const contact_info = ['WhatsApp', 'Official Website', 'Email'];
-const contact_icon = {'WhatsApp':<WhatsAppIcon/>,
-    'Official Website':<LanguageIcon/>,
-    'Email':<AlternateEmailIcon/>};
+const contact_info = ['Waze', 'Google Maps'];
+const contact_icon = {'Waze':<FontAwesomeIcon icon="fa-brands fa-waze" style={{color: "#775cdf", zIndex: 400}} />,
+    'Google Maps':<LocationOnIcon/>};
 function SimpleDialog(props) {
     const { onClose, open } = props;
 
@@ -39,22 +42,22 @@ function SimpleDialog(props) {
     return (
         <Dialog onClose={handleClose} open={open}>
             <DialogTitle>
-                <Typography variant="h4">Contacts</Typography>
-                </DialogTitle>
+                <Typography variant="h4">Navigate With:</Typography>
+            </DialogTitle>
             <List sx={{ pt: 0 }}>
                 {contact_info.map((info) => (
                     <ListItem disableGutters>
                         <ListItemButton onClick={() => handleListItemClick(info)} key={info}>
                             <ListItemAvatar>
                                 <Avatar sx={{
-                                    bgcolor: blue[100],
-                                    color: blue[600],
+                                    bgcolor: "#ede7f6",
+                                    color: "primary.dark",
                                 }}>
                                     {contact_icon[info]}
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText>
-                            <Typography variant="h5">{info}</Typography>
+                                <Typography variant="h5">{info}</Typography>
                             </ListItemText>
                         </ListItemButton>
                     </ListItem>
@@ -69,7 +72,7 @@ SimpleDialog.propTypes = {
     open: PropTypes.bool.isRequired,
 };
 
-export default function LastActivitiesFriendsDialog(id_param) {
+export default function NavigationDialogBox() {
     const [open, setOpen] = React.useState(false);
     // const id_account = id_param;
     const handleClickOpen = () => {
@@ -81,10 +84,9 @@ export default function LastActivitiesFriendsDialog(id_param) {
     };
     return (
         <div>
-            <Avatar onClick={handleClickOpen} src={id_param}>
-                {/*<Typography varianr="h3">*/}
-                {/*{id_param}*/}
-                {/*</Typography>*/}
+            <Avatar onClick={handleClickOpen} sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
+                <NearMeOutlinedIcon sx={{
+                    transform: "rotate(-90deg)"}}/>
             </Avatar>
             <SimpleDialog
                 open={open}

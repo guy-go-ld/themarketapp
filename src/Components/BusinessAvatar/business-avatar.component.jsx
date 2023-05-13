@@ -10,7 +10,9 @@ export default function BusinessAvatar({business}) {
             {(size) ?
                 (profile_pic_exist) ?
                     (<Avatar alt={business.name}
-                             src={require('../../databases/businessPhotos/' + business.id + '/profile.jpg')}>
+                             src={require('../../databases/businessPhotos/' + business.id + '/profile.jpg')}
+                             sx={{ width: 60, height: 60, boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)',
+                                 bgcolor: 'white'}}>
                     </Avatar>) :
                     (<Avatar alt={business.name}
                              src={`https://robohash.org/${business.id}?set=set2&size=180x180`}></Avatar>)

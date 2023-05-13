@@ -9,12 +9,17 @@ import Divider from "@mui/material/Divider";
 import AvatarGroup from "@mui/material/AvatarGroup";
 import Avatar from "@mui/material/Avatar";
 import ReviewDialogComponent from "../ReviewDialog/review-dialog.component";
+import BusinessAvatar from "../BusinessAvatar/business-avatar.component";
 
 function GroupAvatars(business) {
     return (
         <AvatarGroup max={4} >
-            <Avatar sx={{height: 60, width: 60, boxShadow: 3}} alt={`business ${business.name}`} src={`https://robohash.org/${business.id}?set=set2&size=180x180`} />
-            <Avatar sx={{height: 60, width: 60, boxShadow: 3}} alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+            {/*<Avatar sx={{height: 60, width: 60, boxShadow: 3}} alt={`business ${business.name}`} src={`https://robohash.org/${business.id}?set=set2&size=180x180`} />*/}
+            {/*<Avatar sx={{height: 60, width: 60, boxShadow: 3}} alt="Travis Howard" src="/static/images/avatar/2.jpg" />*/}
+
+            <BusinessAvatar business={{"name":"Naama Nahary Nails","id":2,"profile_img":"2","size":true}} />
+            <Avatar sx={{height: 60, width: 60, boxShadow: 3}} alt="Travis Howard" src="/static/images/avatar/1.jpg">T</Avatar>
+
             {/*<Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />*/}
             {/*<Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />*/}
             {/*<Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />*/}
@@ -31,6 +36,8 @@ export default function CommunityCardComponent({business}) {
             <ListItem alignItems="flex-start" style={{margin: "2px"}}>
                 <ListItemAvatar>
                     {GroupAvatars(business)}
+                    {/*<BusinessAvatar business={{"name":"Naama Nahary Nails","id":2,"profile_img":"2","size":true}} />*/}
+                    {/*<Avatar sx={{height: 60, width: 60, boxShadow: 3}} alt="Travis Howard" src="/static/images/avatar/1.jpg">T</Avatar>*/}
 
                 </ListItemAvatar>
                 <ListItemText

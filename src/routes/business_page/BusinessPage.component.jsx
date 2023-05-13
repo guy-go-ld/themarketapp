@@ -6,6 +6,7 @@ import {
 } from "@mui/material";
 import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
 import LastActivitiesFriendsDialog from "../../Components/dialog-box-basic/dialog_box_basic";
+import DialogContactBox from "../../Components/DialogBoxBusinessPage/ContactDialog";
 import ReactCardSlider from "react-card-slider-component";
 import {Typography} from "@mui/material";
 import Box from "@mui/material/Box";
@@ -19,6 +20,10 @@ import MyRatingComponent from "../../Components/MyRating/my-rating.component";
 import * as React from "react";
 import BusinessAvatar from "../../Components/BusinessAvatar/business-avatar.component";
 import TimeTable from "../../Components/TimeTable/time-table.component";
+import ContactDialog from "../../Components/dialog-box-contact/dialog_box_contact";
+import NavigationDialogBox from "../../Components/DialogBoxBusinessPage/NavigationDialog";
+import SocialDialogBox from "../../Components/DialogBoxBusinessPage/SocialDialog";
+import ShareDialogBox from "../../Components/DialogBoxBusinessPage/ShareDialog";
 const sliderClick =(slider)=>
 {
     return (()=>
@@ -116,26 +121,28 @@ function ShowPerson(data_on_person)
                 <Box sx={{position: 'absolute', bottom: -40, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                     <Box sx={{flexDirection: 'column', margin: 'auto'}}>
                         <Avatar sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
-                        <LocalPhoneRoundedIcon />
+                        {/*<LocalPhoneRoundedIcon />*/}
+                            <DialogContactBox/>
                         </Avatar>
                         <Typography variant="body1" color="text.main">Contact</Typography>
                     </Box>
                     <Box sx={{flexDirection: 'column', margin: 'auto'}}>
                         <Avatar sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
-                        <NearMeOutlinedIcon sx={{
-                            transform: "rotate(-90deg)"}}/>
+                        {/*<NearMeOutlinedIcon sx={{*/}
+                        {/*    transform: "rotate(-90deg)"}}/>*/}
+                            <NavigationDialogBox/>
                         </Avatar>
                         <Typography variant="body1" color="text.main">Navigate</Typography>
                     </Box>
                     <Box sx={{flexDirection: 'column', margin: 'auto'}}>
                         <Avatar sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
-                        <PeopleOutlineOutlinedIcon/>
+                        <SocialDialogBox/>
                         </Avatar>
                         <Typography variant="body1" color="text.main">Socials</Typography>
                     </Box>
                     <Box sx={{flexDirection: 'column', margin: 'auto'}}>
                         <Avatar sx={{color: "primary.main", width: 40, height: 40, margin: '0 8px', background: '#ffffff', boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'}}>
-                        <ShareOutlinedIcon/>
+                        <ShareDialogBox/>
                         </Avatar>
                         <Typography variant="body1" color="text.main">Share</Typography>
                     </Box>

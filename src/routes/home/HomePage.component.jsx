@@ -25,12 +25,13 @@ class HomePageComponent extends Component{
             }}>
 
                 <br/>
-                <Typography variant="h4" justifyItems="start" textAlign="left" marginBottom="1rem">My visits</Typography>
+                <Typography variant="h4" justifyItems="start" textAlign="left" marginBottom="1rem">My friends top visits</Typography>
                 <Divider/>
                 <br/>
                 <HomePageCards/>
                 <br/>
                 <Divider />
+                <br/>
                 {/*<button>Show all visits</button>*/}
                 {/*<div className="Last-Activities-Friends">*/}
                 {/*    <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>*/}

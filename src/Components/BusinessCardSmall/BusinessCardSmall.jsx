@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import data from "../../databases/BusinessAllData.json";
 import {Link} from "react-router-dom";
+import BusinessAvatar from "../BusinessAvatar/business-avatar.component";
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -44,11 +45,13 @@ export default function BudinessCardSmall() {
                 p: 2,
                  }}>
                     <Stack spacing={2} direction="row" alignItems="center">
-                         <Avatar alt={businesses.name}
-                                 // src={businesses.img}
-                                 src={`https://robohash.org/${businesses.id}?set=set2&size=180x180`}></Avatar>
+                        <BusinessAvatar business={{"name":businesses.name,"id":businesses.id,"profile_img":businesses.profile_img,"size":true}} />
+
+                        {/*<Avatar alt={businesses.name}*/}
+                        {/*         // src={businesses.img}*/}
+                        {/*         src={`https://robohash.org/${businesses.id}?set=set2&size=180x180`}></Avatar>*/}
                         <Stack spacing={2} direction="column" alignItems="start">
-                             <Typography variant="h5" noWrap>{businesses.name}</Typography>
+                             <Typography variant="h5" display="flex" flexWrap="wrap" textAlign="left">{businesses.name}</Typography>
                              <Typography variant="h6" noWrap>{businesses.title}</Typography>
                         </Stack>
 

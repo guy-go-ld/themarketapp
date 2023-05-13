@@ -3,6 +3,7 @@ import L from 'leaflet';
 import MapLocations from "../../databases/MapLocations.json";
 import "leaflet/dist/leaflet.css"
 import "./Mapi.css";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 // import {Typography} from "@mui/material";
 
 
@@ -13,6 +14,12 @@ const IconLocation = new L.Icon({
     popupAnchor: [0, -46]
 
 })
+
+// const LocationIcon = new L.divIcon({
+//     createIcon(
+//         <LocationOnIcon/>
+//     )
+// })
 
 // TODO: this function does not recognize the Typography tag, why??
 function popUpContent (mapDat) {
@@ -35,7 +42,7 @@ const Mapi = () => {
     const mapRef = useRef(null);
     useEffect(() => {
         if (!mapRef.current) {
-            const map = L.map(mapContainer.current).setView([31.777587, 35.215094], 13);
+            const map = L.map(mapContainer.current).setView([31.777587, 35.215094], 14);
 
             L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
