@@ -24,13 +24,13 @@
       "latitude": 31.780366880203907,
       "longitude": 35.222080437229
     },
-    "NumOfPeople": 1
+    "NumOfPeople": 10
   },
   {
     "id": 2,
     "name": "Naama Nahary Nails",
     "title": "Cosmetics",
-    "rating": 4.6,
+    "rating": 4.3,
     "address": "Arnona, Jerusalem",
     "opening_hours": {
       "Sunday": "09:00-19:00",
