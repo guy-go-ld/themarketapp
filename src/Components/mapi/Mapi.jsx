@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import L from 'leaflet';
-import MapLocations from "../../databases/MapLocations.json";
+import MapLocations from "../../databases/BusinessAllData.json";
 import "leaflet/dist/leaflet.css"
 import "./Mapi.css";
 // import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -25,15 +25,15 @@ const IconLocation = new L.Icon({
 function popUpContent (mapDat) {
     return (
         "<div id='popup'> " +
-        "<Typography variant='h3' id='businessName'>"+mapDat.BusinessName+"</Typography>" +
+        "<Typography variant='h3' id='businessName'>"+mapDat.name+"</Typography>" +
             "<br />"+
-        "<Typography variant='h1' id='businessAddress'>"+mapDat.Address+"</Typography>" +
+        "<Typography variant='h1' id='businessAddress'>"+mapDat.address+"</Typography>" +
         "<br />"+
-        "<Typography variant='body1' id='description'>"+mapDat.Description+"</Typography>" +
+        "<Typography variant='body1' id='description'>"+mapDat.title+"</Typography>" +
         "<br />"+
-        "<Typography variant='body1' id='numOfPeople'>"+mapDat.NumOfPeople+" people you connect with visited here recently</Typography>" +
+        "<Typography variant='body1' id='numOfPeople'>"+mapDat.NumOfPeople+" friends visited here recently</Typography>" +
         "<br />"+
-        "<a id='URLlink' href={mapDat.URL}>business page</a>" +
+        // "<a id='URLlink' href={mapDat.URL}>business page</a>" +
         "</div>"
      )
 }
@@ -48,7 +48,7 @@ const Mapi = () => {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
                 maxZoom: 18,
             }).addTo(map);
-            MapLocations.map(mapDat=> L.marker([mapDat.Coord.latitude, mapDat.Coord.longitude], {size: [80,20],icon: IconLocation}).bindPopup(popUpContent(mapDat), { maxWidthXs: 100, maxWidthSm:200, maxWidthMd: 300, maxWidthLg:400, maxWidthXl: 500, maxWidth: 300}).addTo(map));
+            MapLocations.map(mapDat=> L.marker([mapDat.coord.latitude, mapDat.coord.longitude], {size: [80,20],icon: IconLocation}).bindPopup(popUpContent(mapDat), { maxWidthXs: 100, maxWidthSm:200, maxWidthMd: 300, maxWidthLg:400, maxWidthXl: 500, maxWidth: 300}).addTo(map));
             // const marker1 = L.marker([31.777587, 35.215094], {size: [80,20],icon: IconPerson}).bindPopup(popUpContent()).addTo(map);
             // popUpContent();
             mapRef.current = map;
