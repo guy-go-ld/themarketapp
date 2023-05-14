@@ -73,6 +73,7 @@ export default function MyRatingComponent({personIdAndBusinessRating}) {
                     '& .MuiRating-iconHover': {
                         color: '#C3ED5B',
                     }}}
+                precision={0.5}
             />
 
             <SimpleDialog
