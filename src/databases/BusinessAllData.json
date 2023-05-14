@@ -19,7 +19,12 @@
     },
     "contact": "none",
     "profile_img": "1",
-    "business_imgs": "none"
+    "business_imgs": "none",
+    "coord": {
+      "latitude": 31.780366880203907,
+      "longitude": 35.222080437229
+    },
+    "NumOfPeople": 1
   },
   {
     "id": 2,
@@ -41,7 +46,12 @@
     },
     "contact": "050-4441795",
     "profile_img": "2",
-    "business_imgs": "none"
+    "business_imgs": "none",
+    "coord": {
+      "latitude": 31.78163621434146,
+      "longitude": 35.217435221663656
+    },
+    "NumOfPeople": 5
   },
   {
     "id": 3,
@@ -63,7 +73,12 @@
     },
     "contact": "0542121872",
     "profile_img": "3",
-    "business_imgs": "none"
+    "business_imgs": "none",
+    "coord": {
+      "latitude": 31.750859777677704,
+      "longitude": 35.200385064015016
+    },
+    "NumOfPeople": 2
   },
   {
     "id": 4,
@@ -85,7 +100,12 @@
     },
     "contact": "+972 54-635-6939",
     "profile_img": "4",
-    "business_imgs": "none"
+    "business_imgs": "none",
+    "coord": {
+      "latitude": 31.77917099646156,
+      "longitude": 35.21215228614416
+    },
+    "NumOfPeople": 4
   },
   {
     "id": 5,
@@ -99,7 +119,12 @@
     },
     "contact": "+972 50-311-3418",
     "profile_img": "5",
-    "business_imgs": "none"
+    "business_imgs": "none",
+    "coord": {
+      "latitude": 31.78360707310446,
+      "longitude": 35.21090181285521
+    },
+    "NumOfPeople": 0
   },
   {
     "id": 6,
@@ -114,7 +139,12 @@
     },
     "contact": "none",
     "profile_img": "6",
-    "business_imgs": "none"
+    "business_imgs": "none",
+    "coord": {
+      "latitude": 31.782270492013442,
+      "longitude": 35.20888887075022
+    },
+    "NumOfPeople": 10
   },
   {
     "id": 7,
@@ -126,7 +156,12 @@
     "socials": "none",
     "contact": "none",
     "profile_img": "none",
-    "business_imgs": "none"
+    "business_imgs": "none",
+    "coord": {
+      "latitude": 31.811023372239024,
+      "longitude": 35.19791153782652
+    },
+    "NumOfPeople": 18
   },
   {
     "id": 8,
@@ -138,7 +173,12 @@
     "socials": "none",
     "contact": "none",
     "profile_img": "none",
-    "business_imgs": "none"
+    "business_imgs": "none",
+    "coord": {
+      "latitude": 31.7926192453181,
+      "longitude": 35.20555078727828
+    },
+    "NumOfPeople": 7
   },
   {
     "id": 9,
@@ -150,7 +190,12 @@
     "socials": "none",
     "contact": "none",
     "profile_img": "none",
-    "business_imgs": "none"
+    "business_imgs": "none",
+    "coord": {
+      "latitude": 31.773675628028954,
+      "longitude": 35.21601294607069
+    },
+    "NumOfPeople": 0
   },
   {
     "id": 10,
@@ -162,7 +207,12 @@
     "socials": "none",
     "contact": "none",
     "profile_img": "none",
-    "business_imgs": "none"
+    "business_imgs": "none",
+    "coord": {
+      "latitude": 31.768731181850306,
+      "longitude": 35.20342115117863
+    },
+    "NumOfPeople": 0
   },
   {
     "id": 11,
@@ -174,6 +224,11 @@
     "socials": "none",
     "contact": "none",
     "profile_img": "none",
-    "business_imgs": "none"
+    "business_imgs": "none",
+    "coord": {
+      "latitude": 31.790734393096695,
+      "longitude": 35.192787755588085
+    },
+    "NumOfPeople": 0
   }
 ]
