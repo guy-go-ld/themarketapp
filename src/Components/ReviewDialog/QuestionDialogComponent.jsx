@@ -3,7 +3,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import * as React from "react";
 import {Button} from "@mui/material";
 import Typography from "@mui/material/Typography";
-import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+// import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 
 export interface SimpleDialogProps {

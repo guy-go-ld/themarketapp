@@ -4,7 +4,6 @@ import peopleProfile from "../../databases/Profiles.json"
 import {
     Avatar, Grid, Stack
 } from "@mui/material";
-import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
 import LastActivitiesFriendsDialog from "../../Components/dialog-box-basic/dialog_box_basic";
 import DialogContactBox from "../../Components/DialogBoxBusinessPage/ContactDialog";
 import ReactCardSlider from "react-card-slider-component";
@@ -12,15 +11,17 @@ import {Typography} from "@mui/material";
 import Box from "@mui/material/Box";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import MailOutlineTwoToneIcon from '@mui/icons-material/MailOutlineTwoTone';
-import NearMeOutlinedIcon from '@mui/icons-material/NearMeOutlined';
-import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
-import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
+// import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
+// import NearMeOutlinedIcon from '@mui/icons-material/NearMeOutlined';
+// import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
+// import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
+// import ContactDialog from "../../Components/dialog-box-contact/dialog_box_contact";
+
 import Divider from "@mui/material/Divider";
 import MyRatingComponent from "../../Components/MyRating/my-rating.component";
 import * as React from "react";
 import BusinessAvatar from "../../Components/BusinessAvatar/business-avatar.component";
 import TimeTable from "../../Components/TimeTable/time-table.component";
-import ContactDialog from "../../Components/dialog-box-contact/dialog_box_contact";
 import NavigationDialogBox from "../../Components/DialogBoxBusinessPage/NavigationDialog";
 import SocialDialogBox from "../../Components/DialogBoxBusinessPage/SocialDialog";
 import ShareDialogBox from "../../Components/DialogBoxBusinessPage/ShareDialog";

@@ -8,20 +8,20 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
-import { blue } from '@mui/material/colors';
 import {Typography} from "@mui/material";
-import { ReactComponent as EmailSvg } from '../../Icons/email-svgrepo-com.svg';
-import { ReactComponent as ChromeSvg } from '../../Icons/chrome-svgrepo-com.svg';
-import { ReactComponent as WhatsAppSvg } from '../../Icons/whatsapp-svgrepo-com.svg';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import LanguageIcon from '@mui/icons-material/Language';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
-import business from "../../databases/BusinessAllData.json";
+// import { blue } from '@mui/material/colors';
+// import { ReactComponent as EmailSvg } from '../../Icons/email-svgrepo-com.svg';
+// import { ReactComponent as ChromeSvg } from '../../Icons/chrome-svgrepo-com.svg';
+// import { ReactComponent as WhatsAppSvg } from '../../Icons/whatsapp-svgrepo-com.svg';
+// import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+// import LanguageIcon from '@mui/icons-material/Language';
+// import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+// import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
+// import business from "../../databases/BusinessAllData.json";
+// import peopleProfile from "../../databases/PeopleProfile.json"
+// import {Link} from "react-router-dom";
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import peopleProfile from "../../databases/PeopleProfile.json"
-import {Link} from "react-router-dom";
 import PeopleOutlineOutlinedIcon from "@mui/icons-material/PeopleOutlineOutlined";
 
 

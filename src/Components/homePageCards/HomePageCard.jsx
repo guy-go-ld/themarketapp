@@ -4,7 +4,7 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import data from "../../databases/BusinessAllData.json";
+// import data from "../../databases/BusinessAllData.json";
 import {Link} from "react-router-dom";
 import BusinessAvatar from "../BusinessAvatar/business-avatar.component";
 import Avatar from "@mui/material/Avatar";

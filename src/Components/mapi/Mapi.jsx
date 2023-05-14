@@ -3,7 +3,7 @@ import L from 'leaflet';
 import MapLocations from "../../databases/MapLocations.json";
 import "leaflet/dist/leaflet.css"
 import "./Mapi.css";
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+// import LocationOnIcon from '@mui/icons-material/LocationOn';
 // import {Typography} from "@mui/material";
 
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from "@mui/material/Box";
-import AlignItemsList from "../BusinessCardTest/BusinessCardTest";
+// import AlignItemsList from "../BusinessCardTest/BusinessCardTest";
 import BusinessCardLarge from "../bigBusinessCardTest/BigBusinessCard";
 import BudinessCardSmall from "../BusinessCardSmall/BusinessCardSmall"
 function ResponsiveCard() {

@@ -8,15 +8,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
-import { blue } from '@mui/material/colors';
 import {Typography} from "@mui/material";
-import { ReactComponent as EmailSvg } from '../../Icons/email-svgrepo-com.svg';
-import { ReactComponent as ChromeSvg } from '../../Icons/chrome-svgrepo-com.svg';
-import { ReactComponent as WhatsAppSvg } from '../../Icons/whatsapp-svgrepo-com.svg';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import LanguageIcon from '@mui/icons-material/Language';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import peopleProfile from "../../databases/PeopleProfile.json"
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import NearMeOutlinedIcon from "@mui/icons-material/NearMeOutlined";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
