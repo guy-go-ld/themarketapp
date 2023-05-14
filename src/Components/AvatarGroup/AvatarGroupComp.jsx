@@ -1,9 +1,9 @@
 import * as React from 'react';
 // import data_on_person from "../../databases/BusinessAllData.json";
+// import data from "../../databases/BusinessAllData.json";
+// import CommunityCard from '../CommunityCard/community-card.component';
 import List from "@mui/material/List";
-import data from "../../databases/BusinessAllData.json";
 import './AvatarGroupComp.styles.css';
-import CommunityCard from '../CommunityCard/community-card.component';
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import BusinessAvatar from "../BusinessAvatar/business-avatar.component";
