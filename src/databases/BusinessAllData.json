@@ -24,7 +24,8 @@
       "latitude": 31.780366880203907,
       "longitude": 35.222080437229
     },
-    "NumOfPeople": 10
+    "NumOfPeople": 10,
+    "distance" : 500
   },
   {
     "id": 2,
@@ -51,7 +52,9 @@
       "latitude": 31.78163621434146,
       "longitude": 35.217435221663656
     },
-    "NumOfPeople": 5
+    "NumOfPeople": 5,
+    "distance" : 1000
+
   },
   {
     "id": 3,
@@ -78,7 +81,9 @@
       "latitude": 31.750859777677704,
       "longitude": 35.200385064015016
     },
-    "NumOfPeople": 2
+    "NumOfPeople": 2,
+    "distance" : 500
+
   },
   {
     "id": 4,
@@ -105,7 +110,9 @@
       "latitude": 31.77917099646156,
       "longitude": 35.21215228614416
     },
-    "NumOfPeople": 4
+    "NumOfPeople": 4,
+    "distance" : 250
+
   },
   {
     "id": 5,
@@ -124,7 +131,9 @@
       "latitude": 31.78360707310446,
       "longitude": 35.21090181285521
     },
-    "NumOfPeople": 0
+    "NumOfPeople": 0,
+    "distance" : 750
+
   },
   {
     "id": 6,
@@ -144,7 +153,9 @@
       "latitude": 31.782270492013442,
       "longitude": 35.20888887075022
     },
-    "NumOfPeople": 10
+    "NumOfPeople": 10,
+    "distance" : 250
+
   },
   {
     "id": 7,
@@ -161,7 +172,9 @@
       "latitude": 31.811023372239024,
       "longitude": 35.19791153782652
     },
-    "NumOfPeople": 18
+    "NumOfPeople": 18,
+    "distance" : 750
+
   },
   {
     "id": 8,
@@ -178,7 +191,9 @@
       "latitude": 31.7926192453181,
       "longitude": 35.20555078727828
     },
-    "NumOfPeople": 7
+    "NumOfPeople": 7,
+    "distance" : 1750
+
   },
   {
     "id": 9,
@@ -195,7 +210,9 @@
       "latitude": 31.773675628028954,
       "longitude": 35.21601294607069
     },
-    "NumOfPeople": 0
+    "NumOfPeople": 0,
+    "distance" : 1250
+
   },
   {
     "id": 10,
@@ -212,7 +229,9 @@
       "latitude": 31.768731181850306,
       "longitude": 35.20342115117863
     },
-    "NumOfPeople": 0
+    "NumOfPeople": 0,
+    "distance" : 1500
+
   },
   {
     "id": 11,
@@ -229,6 +248,8 @@
       "latitude": 31.790734393096695,
       "longitude": 35.192787755588085
     },
-    "NumOfPeople": 0
+    "NumOfPeople": 0,
+    "distance" : 2750
+
   }
 ]

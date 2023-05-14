@@ -37,7 +37,7 @@ export default function AlignItemsList() {
                         {/*{GroupAvatars(business)}*/}
                         <AvatarGroup>
                         <BusinessAvatar business={{"name":"Naama Nahary Nails","id":2,"profile_img":"2","size":true}} />
-                        <Avatar sx={{height: 60, width: 60, boxShadow: 3}} alt="Travis Howard" src="/static/images/avatar/1.jpg">T</Avatar>
+                        <Avatar sx={{height: 60, width: 60, boxShadow: 3}} alt="Travis Howard" src={require("../../databases/businessPhotos/avatarphotos/1.jpeg")}>T</Avatar>
                         </AvatarGroup>
                     </ListItemAvatar>
                     <ListItemText sx={{paddingLeft: 2}}
@@ -90,7 +90,7 @@ export default function AlignItemsList() {
                         {/*{GroupAvatars(business)}*/}
                         <AvatarGroup>
                             <BusinessAvatar business={{"name":"Masperafi","id":4,"profile_img":"4","size":true}} />
-                            <Avatar sx={{height: 60, width: 60, boxShadow: 3}} alt="Travis Howard" src="/static/images/avatar/1.jpg">G</Avatar>
+                            <Avatar sx={{height: 60, width: 60, boxShadow: 3}} alt="Travis Howard" src={require("../../databases/businessPhotos/avatarphotos/2.jpeg")}>G</Avatar>
                         </AvatarGroup>
                     </ListItemAvatar>
                     <ListItemText sx={{paddingLeft: 2}}
@@ -210,7 +210,7 @@ export default function AlignItemsList() {
                         {/*{GroupAvatars(business)}*/}
                         <AvatarGroup>
                             <BusinessAvatar business={{"name":"Yahav Nails Jerusalem","id":3,"profile_img":"3","size":true}} />
-                            <Avatar sx={{height: 60, width: 60, boxShadow: 3}} alt="Travis Howard" src="/static/images/avatar/1.jpg">H</Avatar>
+                            <Avatar sx={{height: 60, width: 60, boxShadow: 3}} alt="Travis Howard" src={require("../../databases/businessPhotos/avatarphotos/3.jpeg")}>H</Avatar>
                         </AvatarGroup>
                     </ListItemAvatar>
                     <ListItemText sx={{paddingLeft: 2}}

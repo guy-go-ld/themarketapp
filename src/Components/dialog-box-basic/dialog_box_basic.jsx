@@ -8,7 +8,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
-import { blue } from '@mui/material/colors';
+import {blue} from '@mui/material/colors';
 import {Typography} from "@mui/material";
 // import { ReactComponent as EmailSvg } from '../../Icons/email-svgrepo-com.svg';
 // import { ReactComponent as ChromeSvg } from '../../Icons/chrome-svgrepo-com.svg';
@@ -23,11 +23,14 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 // Here we can add more ways to contact, need to check it with the business way of contacting.
 
 const contact_info = ['WhatsApp', 'Official Website', 'Email'];
-const contact_icon = {'WhatsApp':<WhatsAppIcon/>,
-    'Official Website':<LanguageIcon/>,
-    'Email':<AlternateEmailIcon/>};
+const contact_icon = {
+    'WhatsApp': <WhatsAppIcon/>,
+    'Official Website': <LanguageIcon/>,
+    'Email': <AlternateEmailIcon/>
+};
+
 function SimpleDialog(props) {
-    const { onClose, open } = props;
+    const {onClose, open} = props;
 
     const handleClose = () => {
         onClose();
@@ -41,8 +44,8 @@ function SimpleDialog(props) {
         <Dialog onClose={handleClose} open={open}>
             <DialogTitle>
                 <Typography variant="h4">Contacts</Typography>
-                </DialogTitle>
-            <List sx={{ pt: 0 }}>
+            </DialogTitle>
+            <List sx={{pt: 0}}>
                 {contact_info.map((info) => (
                     <ListItem disableGutters>
                         <ListItemButton onClick={() => handleListItemClick(info)} key={info}>
@@ -55,7 +58,7 @@ function SimpleDialog(props) {
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText>
-                            <Typography variant="h5">{info}</Typography>
+                                <Typography variant="h5">{info}</Typography>
                             </ListItemText>
                         </ListItemButton>
                     </ListItem>
@@ -82,15 +85,23 @@ export default function LastActivitiesFriendsDialog(id_param) {
     };
     return (
         <div>
-            <Avatar onClick={handleClickOpen} src={id_param}>
-                {/*<Typography varianr="h3">*/}
-                {/*{id_param}*/}
-                {/*</Typography>*/}
-            </Avatar>
-            <SimpleDialog
-                open={open}
-                onClose={handleClose}
-            />
+            {
+                (!(Number.isInteger(id_param.props))) ?
+                    (<div><Avatar onClick={handleClickOpen}
+                                  src={id_param}></Avatar>
+                        <SimpleDialog
+                            open={open}
+                            onClose={handleClose}
+                        /></div>)
+                    :
+                    (<div>
+                        <Avatar onClick={handleClickOpen}
+                                src={require("../../databases/businessPhotos/avatarphotos/" + id_param.props + ".jpeg")}></Avatar>
+                        <SimpleDialog
+                            open={open}
+                            onClose={handleClose}
+                        /></div>)}
         </div>
-    );
+)
+    ;
 }

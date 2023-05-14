@@ -25,7 +25,7 @@ class HomePageComponent extends Component{
             }}>
 
                 <br/>
-                <Typography variant="h4" justifyItems="start" textAlign="left" marginBottom="1rem">My friends top visits</Typography>
+                <Typography variant="h4" justifyItems="start" textAlign="left" marginBottom="1rem">My Friends Top Visits</Typography>
                 <Divider/>
                 <br/>
                 <HomePageCards/>

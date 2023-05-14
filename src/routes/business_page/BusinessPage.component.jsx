@@ -25,6 +25,8 @@ import TimeTable from "../../Components/TimeTable/time-table.component";
 import NavigationDialogBox from "../../Components/DialogBoxBusinessPage/NavigationDialog";
 import SocialDialogBox from "../../Components/DialogBoxBusinessPage/SocialDialog";
 import ShareDialogBox from "../../Components/DialogBoxBusinessPage/ShareDialog";
+import FileList from "../../Components/FileList/file-list.component";
+
 const sliderClick =(slider)=>
 {
     return (()=>
@@ -38,25 +40,25 @@ const sliderClick =(slider)=>
 //  2. create json file that contains the pictures and descriptions of each business.
 const slides = [
     {
-        image: "https://picsum.photos/200/300",
-        title: "This is a title",
-        description: "This is a description",
+        image: (require('../../databases/businessPhotos/1/IMG-0174.jpg')),
+        title: "Orange Nails",
+        description: "Orange is da best",
         clickEvent: sliderClick(1)
     },
     {
-        image: "https://picsum.photos/600/500",
-        title: "This is a second title",
-        description: "This is a second description",
+        image: require('../../databases/businessPhotos/1/IMG-0175.jpg'),
+        title: "White and sunflower",
+        description: "Now with a discount!",
         clickEvent: sliderClick(2)
     },
     {
-        image: "https://picsum.photos/700/600",
-        title: "This is a third title",
-        description: "This is a third description",
+        image: require('../../databases/businessPhotos/1/IMG-0176.jpg'),
+        title: "Elegant purple",
+        description: "Elegant is the best",
         clickEvent: sliderClick(3)
     },
     {
-        image: "https://picsum.photos/500/400",
+        image: require('../../databases/businessPhotos/1/IMG-0177.jpg'),
         title: "This is a fourth title",
         description: "This is a fourth description",
         clickEvent: sliderClick(4)
