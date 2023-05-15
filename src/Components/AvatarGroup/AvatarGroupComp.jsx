@@ -150,7 +150,7 @@ export default function AlignItemsList() {
                         {/*{GroupAvatars(business)}*/}
                         <AvatarGroup>
                             <BusinessAvatar business={{"name":"Handylock","id":5,"profile_img":"5","size":true}} />
-                            <Avatar sx={{height: 60, width: 60, boxShadow: 3}} alt="Travis Howard" src="/static/images/avatar/1.jpg">H</Avatar>
+                            <Avatar sx={{height: 60, width: 60, boxShadow: 3}} alt="Travis Howard" src="/static/images/avatar/1.jpg">N</Avatar>
                         </AvatarGroup>
                     </ListItemAvatar>
                     <ListItemText sx={{paddingLeft: 2}}
