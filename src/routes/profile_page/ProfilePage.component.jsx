@@ -1,8 +1,9 @@
 import {Component, useEffect, useState} from "react";
 import {Typography} from "@mui/material";
 import {Auth} from "../../Components/Auth/auth";
-import {db, auth} from "../../config/firebase";
+import {db, auth, storage} from "../../config/firebase";
 import {getDocs, collection, addDoc, deleteDoc, doc, updateDoc} from "firebase/firestore";
+import {ref, uploadBytes } from "firebase/storage";
 // import data from "../../databases/BusinessAllData.json";
 
 const UsersList = () =>
@@ -14,10 +15,13 @@ const UsersList = () =>
     const [ newUserLocation, setNewUserLocation] = useState([0,0]);
     const [ newUserPass, setNewUserPass] = useState(0);
 
+    // Update User First Name State
     const [userFirstName, setUserFirstName] = useState("");
 
+    // File Upload State
+    const [file, setFile] = useState(null);
 
-
+    // List of all Users
     const [userList, setUserList] = useState([]);
     const usersCollectionRef = collection(db, "Users");
 
@@ -73,7 +77,24 @@ const UsersList = () =>
         await getUserList();
     };
 
+    const uploadFile = async () => {
+        if (!file) return;
+        const filesFolderRef = ref(storage, `projectFiles/${file.name}`);
+        try{
+            await uploadBytes(filesFolderRef, file);
+            console.log(file);
+        } catch (err){
+            console.log(err);
+        }
+
+    }
+
     return(<div>
+        <p><input
+            type="file"
+            onChange={(e) => setFile(e.target.files[0])}/>
+            <button onClick={uploadFile}> Upload File</button>
+        </p>
         List len: {userList.length}
         <p></p>
         <input placeholder="First Name..." onChange={(e) => setNewUserFirstName(e.target.value)}/>
@@ -94,6 +115,8 @@ const UsersList = () =>
                  </button>
             </div>
         ))}
+        <p></p>
+
     </div>);
 }
 
