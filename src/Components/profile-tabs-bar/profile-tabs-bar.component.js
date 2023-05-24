@@ -4,28 +4,32 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 
 export default function ProfileTabsBarComponent() {
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = React.useState('one');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
     return (
-        <Box sx={{ maxWidth: { xs: 320, sm: 480 }, bgcolor: 'background.paper' }}>
+        <Box sx={{ width: '100%',
+                position:'absolute',
+                left: 0,
+                right: 0,
+                display:'flex',
+                marginBottom: '-50px'
+                }}>
             <Tabs
                 value={value}
                 onChange={handleChange}
-                variant="scrollable"
-                scrollButtons="auto"
-                aria-label="scrollable auto tabs example"
+                textColor="secondary"
+                indicatorColor="secondary"
+                aria-label="secondary tabs example"
             >
-                <Tab label="Item One" />
-                <Tab label="Item Two" />
-                <Tab label="Item Three" />
-                <Tab label="Item Four" />
-                <Tab label="Item Five" />
-                <Tab label="Item Six" />
-                <Tab label="Item Seven" />
+                <Tab value="Go-To's" label="Go-To's" />
+                <Tab value="Trailback" label="Trailback" />
+                <Tab value="Reviews" label="Reviews" />
+                <Tab value="Circles" label="Circles" />
+                <Tab value="Friends" label="Friends" />
             </Tabs>
         </Box>
     );

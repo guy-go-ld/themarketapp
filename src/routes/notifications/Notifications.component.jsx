@@ -35,19 +35,20 @@ class Notifications extends Component{
                                 color: "primary.main",
                                 width: 70,
                                 height: 70,
-                                margin: '0 8px',
+                                margin: '0 50px',
                                 background: '#ffffff',
                                 boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'
                             }}>
                                 <SupervisedUserCircleIcon sx={{width: 50, height: 50}}/>
                             </Avatar>
-                            <Typography variant="h2" color="white" boxShadow="unset">User</Typography>
+                            <Typography variant="h2" color="white" boxShadow="unset">Username</Typography>
+                            <ProfileTabsBarComponent>
+
+                            </ProfileTabsBarComponent>
                         </Box>
                     </Box>
                 </Box>
-                <ProfileTabsBarComponent>
 
-                </ProfileTabsBarComponent>
 
 
             </div>
