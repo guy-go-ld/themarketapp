@@ -1,6 +1,8 @@
 import {auth, googleProvider} from "../../config/firebase";
 import {createUserWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth";
 import {useState} from "react";
+import {getAnalytics, setUserProperties} from "firebase/analytics";
+
 export const Auth = () =>
 {
     const [email, setEmail] = useState("");
@@ -36,6 +38,16 @@ export const Auth = () =>
         handleRefresh();
 
     }
+    const user = auth?.currentUser;
+    if (user)
+    {
+        user.displayName = 'Yuval Lavie';
+        const analytics = getAnalytics();
+        setUserProperties(analytics, { geoLocation: [0,0] });
+        user.geoLocation = [5,5];
+        // Update the user's profile ??
+
+    }
 
     const handleRefresh = () => {
         window.location.reload();
@@ -53,6 +65,10 @@ export const Auth = () =>
             <button onClick={signInWithGoogle}>Sign In With Google</button>
             <button onClick={logout}>Log out</button>
             <p>{auth?.currentUser?.email}</p>
+            <p>{auth?.currentUser?.phoneNumber}</p>
+            <p>{auth?.currentUser?.geoLocation}</p>
+
+            <p>hello</p>
         </div>
     )
 }
