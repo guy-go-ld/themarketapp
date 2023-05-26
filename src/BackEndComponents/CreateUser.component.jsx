@@ -79,6 +79,7 @@ export default function CreateUser()
         const filesFolderRef = ref(storage, `projectFiles/${file.name}`);
         try{
             await uploadBytes(filesFolderRef, file);
+
             console.log(file);
         } catch (err){
             console.log(err);

@@ -17,6 +17,7 @@
     "react": "^18.2.0",
     "react-card-slider-component": "^1.0.9",
     "react-dom": "^18.2.0",
+    "react-geocode": "^0.2.3",
     "react-leaflet": "^4.2.1",
     "react-leaflet-marker": "^2.1.0",
     "react-router-dom": "^6.10.0",

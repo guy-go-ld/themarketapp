@@ -6,6 +6,7 @@ import {Auth} from "../../Components/Auth/auth";
 // import {ref, uploadBytes } from "firebase/storage";
 import CreateUser from "../../BackEndComponents/CreateUser.component";
 // import data from "../../databases/BusinessAllData.json";
+import CreateBusiness from "../../BackEndComponents/CreateBusiness.component";
 
 
 class ProfilePageComponent extends Component{
@@ -22,8 +23,8 @@ class ProfilePageComponent extends Component{
                 <Typography variant="h2">
                     My Profile Page
                     <Auth/>
-                    <CreateUser/>
-
+                    {/*<CreateUser/>*/}
+                    <CreateBusiness/>
                 </Typography>
             </div>
         );
