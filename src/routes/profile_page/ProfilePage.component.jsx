@@ -15,7 +15,7 @@ import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
 import ProfileTabsBarComponent from "../../Components/profile-tabs-bar/profile-tabs-bar.component";
 import {useEffect, useState} from "react";
 import {collection, doc, getDocs} from "firebase/firestore";
-import {db} from "../../config/firebase";
+import {auth, db} from "../../config/firebase";
 
 
 function ShowProfile(data_on_person)
@@ -83,7 +83,14 @@ function ShowProfile(data_on_person)
                         }}>
                             <SupervisedUserCircleIcon sx={{width: 50, height: 50}}/>
                         </Avatar>
-                        <Typography variant="h2" color="white" boxShadow="unset">{user.FirstName}</Typography>
+                        <Typography variant="h2" color="white" boxShadow="unset">
+                            {
+                                (user != null) ?
+                                    (<div> {user.FirstName} </div>) :
+                                    (<div> UserName </div>)
+                            }
+
+                        </Typography>
                         <ProfileTabsBarComponent>
 
                         </ProfileTabsBarComponent>
@@ -93,7 +100,11 @@ function ShowProfile(data_on_person)
             </Box>
 
 
-
+            {
+                (user != null && auth?.currentUser?.uid === user.id) ?
+                    (<div> It's your page!</div>) :
+                    (<div> It's another one's page!</div>)
+            }
         </div>
     );
 }
@@ -110,7 +121,7 @@ export default function ProfilePageComponent(){
     //     };
     // }
         return(
-            <div style={{paddingTop: "3.5rem"}}>
+            <div >
                 <Typography variant="h2">
                     My Profile Page
 
