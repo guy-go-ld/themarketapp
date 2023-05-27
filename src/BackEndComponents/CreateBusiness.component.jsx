@@ -3,7 +3,11 @@ import {addDoc, collection, deleteDoc, doc, getDocs, updateDoc} from "firebase/f
 import {auth, db, storage} from "../config/firebase";
 import {ref, uploadBytes} from "firebase/storage";
 import dropdownSocials from "../Components/dropDownBusinessSocial.component";
-import Geocode from "react-geocode";
+// import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+// import dayjs from 'dayjs';
+
+
+// import Geocode from "react-geocode";
 
 // function ConvertAddressToCoord(address) {
 //     Geocode.fromAddress(address).then(
@@ -28,14 +32,15 @@ export default function CreateBusiness()
     const [ newBusinessAddress, setNewBusinessAddress] = useState("");
     const [ newBusinessCoord, setNewBusinessCoord] = useState([0,0]);
     const [ newBusinessRank, setNewBusinessRank] = useState(0);
-    // const [ newBusinessOpenHours, setNewBusinessOpenHours] = useState() TODO: how to initialize timestamp??
+    const [ newBusinessOpenHours, setNewBusinessOpenHours] = useState({})
+    // TODO: how to initialize timestamp??
     const [ newBusinessEmail, setNewBusinessEmail] = useState("");
     const [ newBusinessPhoneNumber, setNewBusinessPhoneNumber] = useState(0);
     const [ newBusinessWeb, setNewBusinessWeb] = useState("");
 
     const [ newBusinessSocial, setNewBusinessSocial] = useState({"facebook": "", "instagram": ""});
     const [ newBusinessProfilePicture, setNewBusinessProfilePicture] = useState("");
-    const [ newBusinessPictures, setNewBusinessPictures] = useState([""]);
+    const [ newBusinessPictures, setNewBusinessPictures] = useState([]);
     const [ newBusinessVisits, setNewBusinessVisits] = useState([""]); // TODO: need to sort it by time, and need to connect to users database
 
     const [ newBusinessPass, setNewBusinessPass] = useState(0);
@@ -98,6 +103,7 @@ export default function CreateBusiness()
                 BusinessArea: newBusinessArea,
                 Address: newBusinessAddress,
                 Coordinate: newBusinessCoord,
+                OpenHours: newBusinessOpenHours,
                 Ranking: newBusinessRank,
                 password: newBusinessPass,
                 Email: newBusinessEmail,
@@ -138,6 +144,11 @@ export default function CreateBusiness()
     //     findLatLong();
     // }, [newBusinessAddress]);
 
+    function updateOpenHours(day, hours) {
+        newBusinessOpenHours[day] = hours;
+        setNewBusinessOpenHours(newBusinessOpenHours);
+    }
+
     const uploadBusinessPictures = async () => {
         if (!file) return;
         const filesFolderRef = ref(storage, `projectFiles/${file.name}`);
@@ -159,7 +170,7 @@ export default function CreateBusiness()
             accept="image/*"
             onChange={(e) => setFile(e.target.files[0])}/>
             <button onClick={uploadBusinessPictures}> Upload Pictures</button>
-            { newBusinessPictures.map(imageSrc => <img src={imageSrc}  alt="business pictures"/>) }
+            {/*{ newBusinessPictures.map(imageSrc => <img src={imageSrc}  alt="business pictures"/>) }*/}
             {/*TODO: not good, need to find different and better way of doing that*/}
         </p>
         List len: {businessList.length}
@@ -168,6 +179,56 @@ export default function CreateBusiness()
         <input placeholder="Business Area..." onChange={(e) => setNewBusinessArea(e.target.value)}/>
         <input placeholder="Password..." onChange={(e) => setNewBusinessPass(e.target.value)}/>
         <input placeholder="Business Type..." onChange={(e) => setNewBusinessType(e.target.value)}/>
+        <br/>
+        <label style={{fontSize: 20}}>sunday opening hour
+            <input type="time" onChange={(e) => updateOpenHours("Sunday- open", e.target.value)}/>
+        </label>
+        <br/>
+        <label style={{fontSize: 20}}>sunday closing hour
+            <input type="time" onChange={(e) => updateOpenHours("Sunday - close", e.target.value)}/>
+        </label>
+        <br/>
+        <label style={{fontSize: 20}}>Monday opening hour
+            <input type="time" onChange={(e) => updateOpenHours("Monday- open", e.target.value)}/>
+        </label>
+        <br/>
+        <label style={{fontSize: 20}}>Monday closing hour
+            <input type="time" onChange={(e) => updateOpenHours("Monday - close", e.target.value)}/>
+        </label>
+        <br/>
+        <label style={{fontSize: 20}}>Tuesday opening hour
+            <input type="time" onChange={(e) => updateOpenHours("Tuesday- open", e.target.value)}/>
+        </label>
+        <br/>
+        <label style={{fontSize: 20}}>Tuesday closing hour
+            <input type="time" onChange={(e) => updateOpenHours("Tuesday - close", e.target.value)}/>
+        </label>
+        <br/>
+        <label style={{fontSize: 20}}>Wednesday opening hour
+            <input type="time" onChange={(e) => updateOpenHours("Wednesday- open", e.target.value)}/>
+        </label>
+        <br/>
+        <label style={{fontSize: 20}}>Wednesday closing hour
+            <input type="time" onChange={(e) => updateOpenHours("Wednesday - close", e.target.value)}/>
+        </label>
+        <br/>
+        <label style={{fontSize: 20}}>Thursday opening hour
+            <input type="time" onChange={(e) => updateOpenHours("Thursday- open", e.target.value)}/>
+        </label>
+        <br/>
+        <label style={{fontSize: 20}}>Thursday closing hour
+            <input type="time" onChange={(e) => updateOpenHours("Thursday - close", e.target.value)}/>
+        </label>
+        <br/>
+
+        {/*<input aria-label="Monday open hours: " type="time" onChange={(e) => updateOpenHours("Monday", e.target.value)}/>*/}
+        {/*<input aria-label="Tuesday open hours: " type="time" onChange={(e) => updateOpenHours("Tuesday", e.target.value)}/>*/}
+        {/*<input aria-label="Wednesday open hours: " type="time" onChange={(e) => updateOpenHours("Wednesday", e.target.value)}/>*/}
+        {/*<input aria-label="Thursday open hours: " type="time" onChange={(e) => updateOpenHours("Thursday", e.target.value)}/>*/}
+        {/*<input aria-label="Friday open hours: " type="time" onChange={(e) => updateOpenHours("Friday", e.target.value)}/>*/}
+        {/*<label>Responsive variant*/}
+        {/*    <TimePicker />*/}
+        {/*</label>*/}
         <input placeholder="Address..." onChange={(e) => setNewBusinessAddress(e.target.value)}/>
         <input placeholder="Business Ranking..." onChange={(e) => setNewBusinessRank(Number(e.target.value))}/>
         <input placeholder="E-mail..." onChange={(e) => setNewBusinessEmail(e.target.value)}/>
