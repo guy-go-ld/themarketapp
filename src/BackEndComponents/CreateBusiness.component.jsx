@@ -144,9 +144,22 @@ export default function CreateBusiness()
     //     findLatLong();
     // }, [newBusinessAddress]);
 
+
     function updateOpenHours(day, hours) {
+        // if we want that open hour and closing hour will save in different key:
+
         newBusinessOpenHours[day] = hours;
         setNewBusinessOpenHours(newBusinessOpenHours);
+
+        // if we want to put open and close hours of the same day on array :
+
+        // if (day in newBusinessOpenHours) {
+        //     newBusinessOpenHours[day].push(hours);
+        // }
+        // else {
+        //     newBusinessOpenHours[day] = [hours];
+        // }
+        // setNewBusinessOpenHours(newBusinessOpenHours);
     }
 
     const uploadBusinessPictures = async () => {
