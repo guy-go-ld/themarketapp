@@ -25,7 +25,7 @@ import TimeTable from "../../Components/TimeTable/time-table.component";
 import NavigationDialogBox from "../../Components/DialogBoxBusinessPage/NavigationDialog";
 import SocialDialogBox from "../../Components/DialogBoxBusinessPage/SocialDialog";
 import ShareDialogBox from "../../Components/DialogBoxBusinessPage/ShareDialog";
-import FileList from "../../Components/FileList/file-list.component";
+// import FileList from "../../Components/FileList/file-list.component";
 
 const sliderClick =(slider)=>
 {
