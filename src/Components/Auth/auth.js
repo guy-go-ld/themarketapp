@@ -1,27 +1,46 @@
-import {auth, googleProvider} from "../../config/firebase";
+import {auth, db, googleProvider} from "../../config/firebase";
 import {createUserWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth";
 import {useState} from "react";
 import {getAnalytics, setUserProperties} from "firebase/analytics";
+import {doc, setDoc, collection} from "firebase/firestore";
+
 
 export const Auth = () =>
 {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const usersCollectionRef = collection(db, "Users");
     console.log(auth?.currentUser?.email);
     const signIn = async ()=>{
         try
         {
-            await createUserWithEmailAndPassword(auth, email, password);
+            await createUserWithEmailAndPassword(auth, email, password).then(async cred => {
+                // Adds a user with the same uid
+                await setDoc(doc(db, "Users", cred.user.uid),
+                    {
+                    FirstName: email,
+                    password: password,
+                });
+
+            });
         } catch (err) {
             console.error(err);
         }
-        handleRefresh();
+        // handleRefresh();
     };
 
     const signInWithGoogle = async ()=>{
         try
         {
-            await signInWithPopup(auth, googleProvider);
+            await signInWithPopup(auth, googleProvider).then(async cred =>{
+                await setDoc(doc(db, "Users", cred.user.uid),
+                    {
+                        FirstName: cred.user.displayName,
+                        ProfilePhoto: cred.user.photoURL,
+                    });
+            });
+
         } catch (err) {
             console.error(err);
         }

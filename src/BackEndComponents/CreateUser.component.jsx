@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {addDoc, collection, deleteDoc, doc, getDocs, updateDoc} from "firebase/firestore";
 import {auth, db, storage} from "../config/firebase";
 import {ref, uploadBytes} from "firebase/storage";
-
+import {onSubmitUser} from "./SubmitUser";
 export default function CreateUser()
 {
     // New User States
@@ -43,7 +43,6 @@ export default function CreateUser()
 
         getUserList();
     }, []);
-
     const onSubmitUser = async () => {
         try {
             await addDoc(usersCollectionRef, {
@@ -54,7 +53,7 @@ export default function CreateUser()
                 password: newUserPass,
                 userId: auth?.currentUser?.uid,
             });
-            getUserList();
+            await getUserList();
         }catch (err)
         {
             console.log(err);

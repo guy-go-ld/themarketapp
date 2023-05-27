@@ -3,6 +3,7 @@ import {Component} from "react";
 import {Auth} from "../../Components/Auth/auth";
 import * as React from "react";
 import CreateBusiness from "../../BackEndComponents/CreateBusiness.component";
+import CreateUser from "../../BackEndComponents/CreateUser.component";
 
 class Notifications extends Component{
     render() {
@@ -10,8 +11,8 @@ class Notifications extends Component{
             <div style={{paddingTop: "10rem"}}>
 
             <Auth/>
-            {/*<CreateUser/>*/}
-            <CreateBusiness/>
+            <CreateUser/>
+            {/*<CreateBusiness/>*/}
             </div>
         )
     }

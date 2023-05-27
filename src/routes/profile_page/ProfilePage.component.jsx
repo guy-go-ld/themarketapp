@@ -7,16 +7,49 @@ import {Typography} from "@mui/material";
 // import data from "../../databases/BusinessAllData.json";
 // import CreateBusiness from "../../BackEndComponents/CreateBusiness.component";
 import * as React from "react";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import data from "../../databases/BusinessAllData.json";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
 import ProfileTabsBarComponent from "../../Components/profile-tabs-bar/profile-tabs-bar.component";
+import {useEffect, useState} from "react";
+import {collection, doc, getDocs} from "firebase/firestore";
+import {db} from "../../config/firebase";
 
 
 function ShowProfile(data_on_person)
 {
+    const [user, setUser] = useState(null);
+    const usersCollectionRef = collection(db, "Users");
+
+    const getUserList = async () => {
+        // READ THE DATA
+        // SET THE MOVIE LIST
+        try
+        {
+            const data = await getDocs(usersCollectionRef);
+            const filteredData = data.docs.map((doc) =>
+                ({...doc.data(), id: doc.id,})
+            );
+            console.log(filteredData);
+            // TODO make this shit better
+            const userData = filteredData.filter((document) =>
+                (document.id === data_on_person)
+            );
+            console.log(userData);
+            setUser(userData[0]);
+
+        } catch (err){
+            console.error(err);
+        }
+    }
+
+    useEffect(()=>{
+
+        getUserList();
+    }, []);
+
     return(
         <div style={{paddingTop: "5.0rem"}}>
             <Box sx={{
@@ -50,10 +83,11 @@ function ShowProfile(data_on_person)
                         }}>
                             <SupervisedUserCircleIcon sx={{width: 50, height: 50}}/>
                         </Avatar>
-                        <Typography variant="h2" color="white" boxShadow="unset">Username</Typography>
+                        <Typography variant="h2" color="white" boxShadow="unset">{user.FirstName}</Typography>
                         <ProfileTabsBarComponent>
 
                         </ProfileTabsBarComponent>
+
                     </Box>
                 </Box>
             </Box>
@@ -68,7 +102,6 @@ export default function ProfilePageComponent(){
     const location = useLocation()
     const check_null = location.state === null;
     let {from} = (check_null === true) ? 0 : location.state;
-    const data_on_person = data.filter((business) => business.id === from)[0]; // TODO better this stuff
 
     // constructor(id) {
     //     super();
@@ -84,7 +117,7 @@ export default function ProfilePageComponent(){
                     {(check_null === true) ?
                         (<div><h2> Error - profile page doesn't exists</h2></div>)
                         :
-                        (<div>{ShowProfile(data_on_person)}</div>)
+                        (<div>{ShowProfile(from)}</div>)
                     }
                 </Typography>
             </div>
