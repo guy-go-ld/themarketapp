@@ -25,11 +25,17 @@ import ToggleButton from "@mui/material/ToggleButton";
 //     );
 // }
 
-
+function GetBusinessName(flag = true)
+{
+    const [ newBusinessName, setNewBusinessName] = useState("");
+    return (flag) ? (
+        <input placeholder="Business Name..." onChange={(e) => setNewBusinessName(e.target.value)}/>
+    ) : newBusinessName;
+}
 export default function CreateBusiness()
 {
     // New User States
-    const [ newBusinessType, setNewBusinessType] = useState([]);
+    const [ newBusinessType, setNewBusinessType] = useState([""]);
     const [ newBusinessName, setNewBusinessName] = useState("");
     const [ newBusinessArea, setNewBusinessArea] = useState("");
     const [ newBusinessAddress, setNewBusinessAddress] = useState("");
@@ -102,7 +108,10 @@ export default function CreateBusiness()
     }, []);
 
     const onSubmitBusiness = async () => {
+        // let name = GetBusinessName(false);
+        // console.log(name);
         try {
+
             await addDoc(businessesCollectionRef, {
                 BusinessType: newBusinessType,
                 Name: newBusinessName,
@@ -269,12 +278,14 @@ export default function CreateBusiness()
         </p>
         List len: {businessList.length}
         <p></p>
+        {/*{GetBusinessName(true)}*/}
         <input placeholder="Business Name..." onChange={(e) => setNewBusinessName(e.target.value)}/>
         <input placeholder="Business Area..." onChange={(e) => setNewBusinessArea(e.target.value)}/>
         <input placeholder="Password..." onChange={(e) => setNewBusinessPass(e.target.value)}/>
         {/*<input placeholder="Business Type..." onChange={(e) => setNewBusinessType(e.target.value)}/>*/}
         <br/>
         {BusinessTypesSelection(['cosmetics', 'nails', 'barber', 'hair'])}
+
         <br/>
         <label style={{fontSize: 20}}>sunday opening hour
             <input type="time" onChange={(e) => updateOpenHours("Sunday- open", e.target.value)}/>
