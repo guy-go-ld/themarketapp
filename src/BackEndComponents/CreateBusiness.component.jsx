@@ -3,6 +3,9 @@ import {addDoc, collection, deleteDoc, doc, getDocs, updateDoc} from "firebase/f
 import {auth, db, storage} from "../config/firebase";
 import {ref, uploadBytes} from "firebase/storage";
 import dropdownSocials from "../Components/dropDownBusinessSocial.component";
+import * as React from "react";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import ToggleButton from "@mui/material/ToggleButton";
 // import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 // import dayjs from 'dayjs';
 
@@ -26,7 +29,7 @@ import dropdownSocials from "../Components/dropDownBusinessSocial.component";
 export default function CreateBusiness()
 {
     // New User States
-    const [ newBusinessType, setNewBusinessType] = useState([""]);
+    const [ newBusinessType, setNewBusinessType] = useState([]);
     const [ newBusinessName, setNewBusinessName] = useState("");
     const [ newBusinessArea, setNewBusinessArea] = useState("");
     const [ newBusinessAddress, setNewBusinessAddress] = useState("");
@@ -151,6 +154,29 @@ export default function CreateBusiness()
     //     findLatLong();
     // }, [newBusinessAddress]);
 
+    function BusinessTypesSelection(businesses_types) {
+        const [formats, setFormats] = useState(() => []);
+
+        const handleFormat = (event, newFormats) => {
+            setFormats(newFormats);
+            setNewBusinessType(formats)
+            // newBusinessType.push(newFormats)
+            // setNewBusinessType(newBusinessType)
+        };
+
+        return (
+            <ToggleButtonGroup
+                value={formats}
+                onChange={handleFormat}
+                aria-label="business types"
+            >
+                {businesses_types.map(btype =>
+                    <ToggleButton value={btype} aria-label={btype}>
+                        {btype}
+                    </ToggleButton>)}
+            </ToggleButtonGroup>
+        );
+    }
 
     function updateOpenHours(day, hours) {
         // if we want that open hour and closing hour will save in different key:
@@ -246,7 +272,9 @@ export default function CreateBusiness()
         <input placeholder="Business Name..." onChange={(e) => setNewBusinessName(e.target.value)}/>
         <input placeholder="Business Area..." onChange={(e) => setNewBusinessArea(e.target.value)}/>
         <input placeholder="Password..." onChange={(e) => setNewBusinessPass(e.target.value)}/>
-        <input placeholder="Business Type..." onChange={(e) => setNewBusinessType(e.target.value)}/>
+        {/*<input placeholder="Business Type..." onChange={(e) => setNewBusinessType(e.target.value)}/>*/}
+        <br/>
+        {BusinessTypesSelection(['cosmetics', 'nails', 'barber', 'hair'])}
         <br/>
         <label style={{fontSize: 20}}>sunday opening hour
             <input type="time" onChange={(e) => updateOpenHours("Sunday- open", e.target.value)}/>
