@@ -45,6 +45,9 @@ export default function CreateBusiness()
 
     const [ newBusinessPass, setNewBusinessPass] = useState(0);
 
+    const [newPreviewUrl, setNewPreviewUrl] = useState([null]);
+
+
     // Update Business Name State
     const [businessName, setBusinessName] = useState(""); // TODO: in the future- need to make edit component
 
@@ -111,10 +114,14 @@ export default function CreateBusiness()
                 Website: newBusinessWeb,
                 Socials: newBusinessSocial,
                 ProfilePicture: newBusinessProfilePicture,
+                // Pictures: newBusinessPictures,
                 Pictures: newBusinessPictures,
+
                 LastVisits: newBusinessVisits,
                 userId: auth?.currentUser?.uid,
             });
+            // let previewImg = document.getElementById("previewImg");
+            // previewImg.remove();
             // console.log("Before find");
             // findLatLong();
             // console.log("After find");
@@ -162,14 +169,59 @@ export default function CreateBusiness()
         // setNewBusinessOpenHours(newBusinessOpenHours);
     }
 
+    const handleFileChange = (event) => {
+        const file_upload = event.target.files[0];
+        setFile(file_upload);
+
+        const reader = new FileReader();
+        reader.onload = () => {
+            newPreviewUrl.push(reader.result)
+            setNewPreviewUrl(newPreviewUrl);
+        };
+        reader.readAsDataURL(file_upload);
+    };
+
+    // useEffect(() => {
+    //     handleFileChange();
+    // },
+    //     [])
+
+    const handleUpload = () => {
+        const storageRef = storage.ref();
+        const fileRef = storageRef.child(file.name);
+        const url_file = URL.createObjectURL(file);
+        newBusinessPictures.push(url_file);
+
+        // newBusinessPictures.push(`projectFiles/${file.name}`);
+        setNewBusinessPictures(newBusinessPictures);
+        fileRef.put(file).then(() => {
+            console.log('File uploaded successfully');
+            // Perform any additional actions after the upload
+        }).catch((error) => {
+            console.error('Error uploading file:', error);
+        });
+    };
+
     const uploadBusinessPictures = async () => {
         if (!file) return;
         const filesFolderRef = ref(storage, `projectFiles/${file.name}`);
         try{
             await uploadBytes(filesFolderRef, file);
-            newBusinessPictures.push(`projectFiles/${file.name}`);
+            const url_file = URL.createObjectURL(file);
+            newBusinessPictures.push(url_file);
+
+            // newBusinessPictures.push(`projectFiles/${file.name}`);
             setNewBusinessPictures(newBusinessPictures);
+            // const url_file = URL.createObjectURL(file);
+            // if (newBusinessPictures.target.files.length > 0) {
+            //     const file = URL.createObjectURL(newBusinessPictures.target.files[0]);
+            //     setNewBusinessPictures(file);
+            // }
             console.log(file);
+             // return (
+             //     newBusinessPictures.map(imageSrc => <img id="previewImg" src={imageSrc}  alt="business pictures"/>)
+             // )
+
         } catch (err){
             console.log(err);
         }
@@ -181,9 +233,12 @@ export default function CreateBusiness()
             type="file"
             multiple
             accept="image/*"
-            onChange={(e) => setFile(e.target.files[0])}/>
+            onChange={handleFileChange}/>
+            {/*// onChange={(e) => setFile(e.target.files[0])}/>*/}
+            {newPreviewUrl && newPreviewUrl.map(imageSrc => <img id="previewImg" src={imageSrc} alt="Preview" />)}
+
             <button onClick={uploadBusinessPictures}> Upload Pictures</button>
-            {/*{ newBusinessPictures.map(imageSrc => <img src={imageSrc}  alt="business pictures"/>) }*/}
+            {/*{ newBusinessPictures.map(imageSrc => <img id="previewImg" src={imageSrc}  alt="business pictures"/>) }*/}
             {/*TODO: not good, need to find different and better way of doing that*/}
         </p>
         List len: {businessList.length}

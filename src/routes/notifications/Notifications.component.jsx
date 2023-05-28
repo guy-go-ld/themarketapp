@@ -11,8 +11,8 @@ class Notifications extends Component{
             <div style={{paddingTop: "10rem"}}>
 
             <Auth/>
-            <CreateUser/>
-            {/*<CreateBusiness/>*/}
+            {/*<CreateUser/>*/}
+            <CreateBusiness/>
             </div>
         )
     }
