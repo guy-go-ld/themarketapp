@@ -111,9 +111,8 @@ export default function CreateBusiness()
         // let name = GetBusinessName(false);
         // console.log(name);
         try {
-
             await addDoc(businessesCollectionRef, {
-                BusinessType: newBusinessType,
+                BusinessType: businessTypes,
                 Name: newBusinessName,
                 BusinessArea: newBusinessArea,
                 Address: newBusinessAddress,
@@ -162,21 +161,26 @@ export default function CreateBusiness()
     // useEffect(() => {
     //     findLatLong();
     // }, [newBusinessAddress]);
-
+    const [businessTypes, setBusinessTypes] = useState(() => []);
     function BusinessTypesSelection(businesses_types) {
-        const [formats, setFormats] = useState(() => []);
 
-        const handleFormat = (event, newFormats) => {
-            setFormats(newFormats);
-            setNewBusinessType(formats)
+
+        const handleTypes = (event, newFormats) => {
+            setBusinessTypes(newFormats);
+            // newBusinessType.push(newFormats)
+            // setNewBusinessType(newBusinessType)
+            // console.log(newBusinessType);
+            // console.log("WAK");
+            console.log(businessTypes);
+
             // newBusinessType.push(newFormats)
             // setNewBusinessType(newBusinessType)
         };
 
         return (
             <ToggleButtonGroup
-                value={formats}
-                onChange={handleFormat}
+                value={businessTypes}
+                onChange={handleTypes}
                 aria-label="business types"
             >
                 {businesses_types.map(btype =>
