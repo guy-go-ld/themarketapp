@@ -84,6 +84,28 @@ export default function CreateBusiness()
         }
     }
 
+    const handleAddressChange = (event) => {
+        setNewBusinessAddress(event.target.value);
+    };
+
+    const handleGeocode = async () => {
+        try {
+            const response = await fetch(
+                `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
+                    newBusinessAddress
+                )}&format=json&limit=1`
+            );
+            const data = await response.json();
+            if (data.length > 0) {
+                const { lat, lon } = data[0];
+                setNewBusinessCoord([parseFloat(lat), parseFloat(lon)]);
+                console.log(newBusinessAddress);
+                console.log([parseFloat(lat), parseFloat(lon)]);
+            }
+        } catch (error) {
+            console.error('Error geocoding address:', error);
+        }
+    };
     // const findLatLong = () => { // TODO: not working for some reason
     //     console.log("Findings");
     //     Geocode.fromAddress(newBusinessAddress).then(
@@ -167,14 +189,7 @@ export default function CreateBusiness()
 
         const handleTypes = (event, newFormats) => {
             setBusinessTypes(newFormats);
-            // newBusinessType.push(newFormats)
-            // setNewBusinessType(newBusinessType)
-            // console.log(newBusinessType);
-            // console.log("WAK");
             console.log(businessTypes);
-
-            // newBusinessType.push(newFormats)
-            // setNewBusinessType(newBusinessType)
         };
 
         return (
@@ -182,9 +197,10 @@ export default function CreateBusiness()
                 value={businessTypes}
                 onChange={handleTypes}
                 aria-label="business types"
+                style={{flexWrap: "wrap", display: "flex", justifyContent: "center"}}
             >
                 {businesses_types.map(btype =>
-                    <ToggleButton value={btype} aria-label={btype}>
+                    <ToggleButton value={btype} aria-label={btype} style={{margin: "1rem", width: 100}}>
                         {btype}
                     </ToggleButton>)}
             </ToggleButtonGroup>
@@ -288,7 +304,7 @@ export default function CreateBusiness()
         <input placeholder="Password..." onChange={(e) => setNewBusinessPass(e.target.value)}/>
         {/*<input placeholder="Business Type..." onChange={(e) => setNewBusinessType(e.target.value)}/>*/}
         <br/>
-        {BusinessTypesSelection(['cosmetics', 'nails', 'barber', 'hair'])}
+        {BusinessTypesSelection(['cosmetics', 'nails', 'barber', 'hair', 'sport', 'art', 'lifestyle', 'music'])}
 
         <br/>
         <label style={{fontSize: 20}}>sunday opening hour
@@ -340,7 +356,8 @@ export default function CreateBusiness()
         {/*<label>Responsive variant*/}
         {/*    <TimePicker />*/}
         {/*</label>*/}
-        <input placeholder="Address..." onChange={(e) => setNewBusinessAddress(e.target.value)}/>
+        <input placeholder="Address..." onChange={handleAddressChange}/>
+        <button onClick={handleGeocode}>create coordinate</button>
         <input placeholder="Business Ranking..." onChange={(e) => setNewBusinessRank(Number(e.target.value))}/>
         <input placeholder="E-mail..." onChange={(e) => setNewBusinessEmail(e.target.value)}/>
         <input placeholder="Phone Number..." onChange={(e) =>setNewBusinessPhoneNumber(e.target.value)}/>
