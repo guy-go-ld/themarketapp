@@ -7,14 +7,14 @@ import {Typography} from "@mui/material";
 // import data from "../../databases/BusinessAllData.json";
 // import CreateBusiness from "../../BackEndComponents/CreateBusiness.component";
 import * as React from "react";
-import {Link, useLocation} from "react-router-dom";
-import data from "../../databases/BusinessAllData.json";
+import {useLocation} from "react-router-dom";
+// import data from "../../databases/BusinessAllData.json";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
 import ProfileTabsBarComponent from "../../Components/profile-tabs-bar/profile-tabs-bar.component";
 import {useEffect, useState} from "react";
-import {collection, doc, getDocs} from "firebase/firestore";
+import {collection, getDocs} from "firebase/firestore";
 import {auth, db} from "../../config/firebase";
 
 
@@ -121,7 +121,7 @@ export default function ProfilePageComponent(){
     //     };
     // }
         return(
-            <div >
+            <div>
                 <Typography variant="h2">
                     My Profile Page
 
