@@ -10,7 +10,7 @@ export default function BusinessRegistration1() {
     // {
         return(
 
-            <div style={{paddingTop: "10rem"}}>
+            <div style={{paddingTop: "8rem", paddingBottom: "7rem"}}>
                 <BusinessStepper/>
 
                 {/*<Auth/>*/}

@@ -6,8 +6,11 @@ import * as React from 'react';
 // import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import Box from "@mui/material/Box";
 
-export default function BusinessTypesSelection(businesses_types) {
+const businessTypes = ['cosmetics', 'nails', 'barber', 'hair', 'sport', 'art', 'lifestyle', 'music']
+
+export default function BusinessTypesSelection({businesses_types}) {
     const [formats, setFormats] = React.useState(() => []);
 
     const handleFormat = (event, newFormats) => {
@@ -15,15 +18,19 @@ export default function BusinessTypesSelection(businesses_types) {
     };
 
     return (
+        <Box sx={{maxWidth: 600, bgcolor: "primary.main", borderColor: "secondary.main", border: 2, borderRadius: 2}}>
         <ToggleButtonGroup
             value={formats}
             onChange={handleFormat}
             aria-label="business types"
+            style={{display: "flex", flexWrap: "wrap", margin: "1rem", justifyContent: "center"}}
         >
-            {businesses_types.map(btype =>
-                <ToggleButton value={btype} aria-label={btype}>
+            {businesses_types.map((btype) => (
+                <ToggleButton value={btype} aria-label={btype} style={{margin: "1rem", width: 100, background: "white", borderRadius: 6, boxShadow: "1px 2px 4px #000000"}}
+                >
                     {btype}
-            </ToggleButton>)}
+                </ToggleButton>))}
+
             {/*<ToggleButton value="bold" aria-label="bold">*/}
             {/*    <FormatBoldIcon />*/}
             {/*</ToggleButton>*/}
@@ -38,5 +45,6 @@ export default function BusinessTypesSelection(businesses_types) {
             {/*    <ArrowDropDownIcon />*/}
             {/*</ToggleButton>*/}
         </ToggleButtonGroup>
+        </Box>
     );
 }
