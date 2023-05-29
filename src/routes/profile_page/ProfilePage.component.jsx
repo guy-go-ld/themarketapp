@@ -58,7 +58,7 @@ function ShowProfile(data_on_person)
                 (user != null && auth?.currentUser?.uid === user.id) ?
                     (<div>
 
-                            <div style={{paddingTop: "3.0rem"}}>
+                            <div>
                                 <Box sx={{
                                     paddingRight: '1rem',
                                     paddingLeft: '1rem',
@@ -125,8 +125,6 @@ export default function ProfilePageComponent(){
         return(
             <div>
                 <Typography variant="h2">
-                    My Profile Page
-
                     {(check_null === true) ?
                         (<div><h2> Error - profile page doesn't exists</h2></div>)
                         :
