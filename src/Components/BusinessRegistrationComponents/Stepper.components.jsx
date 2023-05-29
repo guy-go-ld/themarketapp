@@ -8,6 +8,10 @@ import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import FirstPageBusinessRegistration from './FirstPageOfBusinessRegistration/FirstPageBusinessRegistration';
+import SecondPageBusinessRegistration from './SecondPageBusinessRegistration';
+import ThirdPageBusinessRegistration from './ThirdPageBusinessRegistration';
+import FourthPageBusinessRegistration from './FourthPageBusinessRegistration';
+
 
 // const steps = [
 //     {label: 'Basic Details',
@@ -104,13 +108,13 @@ const steps = [
         content: <FirstPageBusinessRegistration/>,
     },
     {label: 'Socials',
-        content: null,
+        content: <SecondPageBusinessRegistration/>,
     },
     {label: 'More Details',
-        content: null,
+        content: <ThirdPageBusinessRegistration/>,
     },
     {label: 'Approving',
-        content: null,
+        content: <FourthPageBusinessRegistration/>,
     },
     // 'Basic Details': {firstPageBusinessRegistration},
     // 'Socials': null,
