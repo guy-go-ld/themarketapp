@@ -13,7 +13,7 @@ import logoNew from "../../Icons/logo-all-white.png";
 import HomeIcon from '@mui/icons-material/Home';
 import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-
+import { auth} from "../../config/firebase";
 
 const NavigationComponent = () => {
     const [value, setValue] = useState(0);
@@ -108,7 +108,7 @@ const NavigationComponent = () => {
                                                     sm: "5rem"
                                                 }
                                             }}/>}/>
-                    <BottomNavigationAction component={Link} to="/ProfilePageComponent" label="Profile"
+                    <BottomNavigationAction component={Link} to="/ProfilePageComponent" state={{ from: auth?.currentUser?.uid }}label="Profile"
                                             icon={<PersonRoundedIcon sx={{
                                                 fontSize: {
                                                     xs: "3rem",
