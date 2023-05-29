@@ -1,5 +1,5 @@
 import {createTheme, responsiveFontSizes} from '@mui/material/styles';
-import "../../App.css";
+import "../App.css";
 
 
 let theme = createTheme({

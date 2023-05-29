@@ -5,28 +5,35 @@ import FullWidthTabs from "../../Components/AroundMeTab/TabAroundMe"
 // import Box from '@mui/material/Box';
 // import {AppBar, Typography} from "@mui/material";
 // import { palette } from '@mui/system';
-
+import CityCircleTheme from "../../Theme/CityCircle_theme";
 
 
 class AroundMe extends Component{
 render() {
     return(
-        <div style={{paddingTop: "3.5rem"}}>
-            {/*<AppBar>*/}
-            {/*<Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText',p: 2}}>*/}
-            {/*    /!*TODO: 1. apply design like the tab bar. 2. make the h1 tag centered.*!/*/}
+        <fragment>
+            <CityCircleTheme>
+                <h1>h1</h1>
+                <h2>h2</h2>
+                <h3>h3</h3>
+            </CityCircleTheme>
+            <div style={{paddingTop: "3.5rem"}}>
+                {/*<AppBar>*/}
+                {/*<Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText',p: 2}}>*/}
+                {/*TODO: 1. apply design like the tab bar. 2. make the h1 tag centered.*/}
+                {/*    /!*<Typography variant="h2">Around me</Typography>*!/*/}
 
-            {/*    /!*<Typography variant="h2">Around me</Typography>*!/*/}
+                {/*    /!*<h1 style={{justifyContent: 'center', alignItems: 'center', margin: 'auto'}}>*!/*/}
+                {/*    /!*    Around Me*!/*/}
+                {/*    /!*</h1>*!/*/}
+                {/*</Box>*/}
+                {/*</AppBar>*/}
+                <FullWidthTabs/>
+                {/*<ResizableMap/>*/}
 
-            {/*    /!*<h1 style={{justifyContent: 'center', alignItems: 'center', margin: 'auto'}}>*!/*/}
-            {/*    /!*    Around Me*!/*/}
-            {/*    /!*</h1>*!/*/}
-            {/*</Box>*/}
-            {/*</AppBar>*/}
-            <FullWidthTabs/>
-            {/*<ResizableMap/>*/}
+            </div>
+        </fragment>
 
-        </div>
     )
 }
 }
