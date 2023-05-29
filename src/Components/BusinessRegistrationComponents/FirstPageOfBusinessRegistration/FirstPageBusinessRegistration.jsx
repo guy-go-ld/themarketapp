@@ -62,17 +62,19 @@ export default function FirstPageBusinessRegistration() {
         };
 
         return (
+            <Box sx={{maxWidth: 600, bgcolor: "primary.light", borderColor: "secondary.main", border: 2, borderRadius: 2}}>
             <ToggleButtonGroup
                 value={businessTypes}
                 onChange={handleTypes}
                 aria-label="business types"
-                style={{flexWrap: "wrap", display: "flex", justifyContent: "center"}}
+                style={{display: "flex", flexWrap: "wrap", margin: "1rem", justifyContent: "center"}}
             >
                 {businesses_types.map(btype =>
-                    <ToggleButton value={btype} aria-label={btype} style={{margin: "1rem", width: 100}}>
+                    <ToggleButton value={btype} aria-label={btype} style={{margin: "1rem", width: 100, borderRadius: 6, boxShadow: "1px 2px 4px #000000"}}>
                         {btype}
                     </ToggleButton>)}
             </ToggleButtonGroup>
+            </Box>
         );
     }
 
