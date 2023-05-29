@@ -58,7 +58,7 @@ function ShowProfile(data_on_person)
                 (user != null && auth?.currentUser?.uid === user.id) ?
                     (<div>
 
-                            <div style={{paddingTop: "5.0rem"}}>
+                            <div style={{paddingTop: "3.0rem"}}>
                                 <Box sx={{
                                     paddingRight: '1rem',
                                     paddingLeft: '1rem',
@@ -105,7 +105,7 @@ function ShowProfile(data_on_person)
                                         </Box>
                                     </Box>
                                 </Box></div></div>) :
-                    (<div> It's another one's page!</div>)
+                    (<div style={{paddingTop: "5.0rem"}}> It's another one's page!</div>)
             }
         </div>
     );
