@@ -1,20 +1,23 @@
-import './Notifications.styles.css';
 import {Component} from "react";
 import {Auth} from "../../Components/Auth/auth";
 import * as React from "react";
 import CreateBusiness from "../../BackEndComponents/CreateBusiness.component";
-import CreateUser from "../../BackEndComponents/CreateUser.component";
 import BusinessStepper from "../../Components/BusinessRegistrationComponents/Stepper.components";
+import {render} from "react-dom";
 
-class Notifications extends Component{
-    render() {
+export default function BusinessRegistration1() {
+    // render()
+    // {
         return(
+
             <div style={{paddingTop: "10rem"}}>
-            <Auth/>
-            {/*<CreateUser/>*/}
-            <CreateBusiness/>
+                <BusinessStepper/>
+
+                {/*<Auth/>*/}
+                {/*<CreateUser/>*/}
+                {/*<CreateBusiness/>*/}
             </div>
         )
-    }
+    // }
 }
-export default Notifications;
+// export default BusinessRegistration1();

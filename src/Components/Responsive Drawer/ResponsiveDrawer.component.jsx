@@ -9,9 +9,13 @@ import {
     ListItemText,
     Toolbar
 } from "@mui/material";
+import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import InboxIcon from "@mui/icons-material/Inbox";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
+import {Link} from "react-router-dom";
+import BusinessRegistration1 from "../../routes/business_registratin_pages/BusinessRegistrationPage1";
+
 
 const drawerWidth = '35%';
 function ResponsiveDrawer(props) {
@@ -22,16 +26,21 @@ function ResponsiveDrawer(props) {
         setMobileOpen(!mobileOpen);
     };
 
+    function sendToCreateBusiness() {
+        window.location.replace('/BusinessRegistration1');
+    }
+
     const drawer = (
         <div>
             <Toolbar />
             <Divider />
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                {['Add a new business', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                     <ListItem key={text} disablePadding>
-                        <ListItemButton>
+
+                        <ListItemButton onClick={sendToCreateBusiness}>
                             <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                {index % 2 === 0 ? <AddBoxOutlinedIcon /> : <MailIcon />}
                             </ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItemButton>
