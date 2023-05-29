@@ -5,18 +5,25 @@ import FullWidthTabs from "../../Components/AroundMeTab/TabAroundMe"
 // import Box from '@mui/material/Box';
 // import {AppBar, Typography} from "@mui/material";
 // import { palette } from '@mui/system';
-import CityCircleTheme from "../../Theme/CityCircle_theme";
-
-
+import theme from "../../Theme/Theme";
+import Box from "@mui/material/Box";
+import {Button, Stack, Typography} from "@mui/material";
+import {ThemeProvider} from "@mui/material/styles";
+import StyledCircleFootprints, {
+    StyledButtonGray,
+    CustomButton,
+    StyledAppBarTop,
+    StyledSearchBar, StyledHamburgerButton, StyledLogoIcon, StyledLogoAvatar, StyledCircleBox
+} from "../../Styled Components/styledComponents";
+import logoNew from "../../Icons/logo-all-white.png";
+import Avatar from "@mui/material/Avatar";
+import {Image} from "@mui/icons-material";
+import TopMenuNew from "../../newComponents/TopMenuNew";
+import {StyledCircleReview} from "../../Styled Components/styledComponents";
 class AroundMe extends Component{
 render() {
     return(
         <fragment>
-            <CityCircleTheme>
-                <h1>h1</h1>
-                <h2>h2</h2>
-                <h3>h3</h3>
-            </CityCircleTheme>
             <div style={{paddingTop: "3.5rem"}}>
                 {/*<AppBar>*/}
                 {/*<Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText',p: 2}}>*/}
@@ -28,9 +35,15 @@ render() {
                 {/*    /!*</h1>*!/*/}
                 {/*</Box>*/}
                 {/*</AppBar>*/}
-                <FullWidthTabs/>
+                {/*<FullWidthTabs/>*/}
                 {/*<ResizableMap/>*/}
-
+                <ThemeProvider theme={theme}>
+                    <TopMenuNew/>
+                    <Box sx={{mt:10}}>
+                        <StyledCircleReview/>
+                        {/*<StyledCircleFootprints/>*/}
+                    </Box>
+                </ThemeProvider>
             </div>
         </fragment>
 

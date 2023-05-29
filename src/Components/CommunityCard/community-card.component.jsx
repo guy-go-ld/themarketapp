@@ -29,8 +29,6 @@ function GroupAvatars(business) {
 
 export default function CommunityCardComponent({business}) {
 
-
-
     return(
         <div style={{margin: "2px"}}>
             <ListItem alignItems="flex-start" style={{margin: "2px"}}>
