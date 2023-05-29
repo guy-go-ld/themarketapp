@@ -105,7 +105,12 @@ function ShowProfile(data_on_person)
                                         </Box>
                                     </Box>
                                 </Box></div></div>) :
-                    (<div style={{paddingTop: "5.0rem"}}> It's another one's page!</div>)
+                    (<div>
+                        {
+                        (auth?.currentUser?.uid !== null) ?
+                            (<div></div>) :
+                            (<div style={{paddingTop: "5.0rem"}}> It's another one's page!</div>)}
+                        </div>)
             }
         </div>
     );
