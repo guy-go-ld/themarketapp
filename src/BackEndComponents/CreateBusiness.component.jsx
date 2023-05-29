@@ -151,7 +151,7 @@ export default function CreateBusiness()
                 Pictures: newBusinessPictures,
 
                 LastVisits: newBusinessVisits,
-                userId: auth?.currentUser?.uid,
+                businessId: auth?.currentUser?.uid,
             });
             // let previewImg = document.getElementById("previewImg");
             // previewImg.remove();
