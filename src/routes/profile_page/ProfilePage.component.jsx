@@ -51,58 +51,60 @@ function ShowProfile(data_on_person)
     }, []);
 
     return(
-        <div style={{paddingTop: "5.0rem"}}>
-            <Box sx={{
-                paddingRight: '1rem',
-                paddingLeft: '1rem',
-                paddingTop: '6rem',
-                paddingBottom: '8rem',
-                backgroundColor: 'primary.light',
-                position: 'relative',
-                borderBottom: 8,
-                borderBottomColor: 'secondary.main'
-
-            }}>
-                <Box sx={{
-                    position: 'absolute',
-                    left: 0,
-                    right: 0,
-                    display: 'flex',
-                    marginTop: '-50px',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}>
-                    <Box sx={{flexDirection: 'column', margin: 'auto'}}>
-                        <Avatar sx={{
-                            color: "primary.main",
-                            width: 70,
-                            height: 70,
-                            margin: '0 50px',
-                            background: '#ffffff',
-                            boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'
-                        }}>
-                            <SupervisedUserCircleIcon sx={{width: 50, height: 50}}/>
-                        </Avatar>
-                        <Typography variant="h2" color="white" boxShadow="unset">
-                            {
-                                (user != null) ?
-                                    (<div> {user.FirstName} </div>) :
-                                    (<div> UserName </div>)
-                            }
-
-                        </Typography>
-                        <ProfileTabsBarComponent>
-
-                        </ProfileTabsBarComponent>
-
-                    </Box>
-                </Box>
-            </Box>
+        <div>
 
 
             {
                 (user != null && auth?.currentUser?.uid === user.id) ?
-                    (<div> It's your page!</div>) :
+                    (<div>
+
+                            <div style={{paddingTop: "5.0rem"}}>
+                                <Box sx={{
+                                    paddingRight: '1rem',
+                                    paddingLeft: '1rem',
+                                    paddingTop: '6rem',
+                                    paddingBottom: '8rem',
+                                    backgroundColor: 'primary.light',
+                                    position: 'relative',
+                                    borderBottom: 8,
+                                    borderBottomColor: 'secondary.main'
+
+                                }}>
+                                    <Box sx={{
+                                        position: 'absolute',
+                                        left: 0,
+                                        right: 0,
+                                        display: 'flex',
+                                        marginTop: '-50px',
+                                        alignItems: 'center',
+                                        justifyContent: 'center'
+                                    }}>
+                                        <Box sx={{flexDirection: 'column', margin: 'auto'}}>
+                                            <Avatar sx={{
+                                                color: "primary.main",
+                                                width: 70,
+                                                height: 70,
+                                                margin: '0 50px',
+                                                background: '#ffffff',
+                                                boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.50)'
+                                            }}>
+                                                <SupervisedUserCircleIcon sx={{width: 50, height: 50}}/>
+                                            </Avatar>
+                                            <Typography variant="h2" color="white" boxShadow="unset">
+                                                {
+                                                    (user != null) ?
+                                                        (<div> {user.FirstName} </div>) :
+                                                        (<div> UserName </div>)
+                                                }
+
+                                            </Typography>
+                                            <ProfileTabsBarComponent>
+
+                                            </ProfileTabsBarComponent>
+
+                                        </Box>
+                                    </Box>
+                                </Box></div></div>) :
                     (<div> It's another one's page!</div>)
             }
         </div>
