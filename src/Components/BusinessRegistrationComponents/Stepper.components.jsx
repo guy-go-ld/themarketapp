@@ -103,28 +103,17 @@ import FourthPageBusinessRegistration from './FourthPageBusinessRegistration';
 // import Button from '@mui/material/Button';
 // import Typography from '@mui/material/Typography';
 
-const steps = [
-    {label: 'Basic Details',
-        content: <FirstPageBusinessRegistration/>,
-    },
-    {label: 'Socials',
-        content: <SecondPageBusinessRegistration/>,
-    },
-    {label: 'More Details',
-        content: <ThirdPageBusinessRegistration/>,
-    },
-    {label: 'Approving',
-        content: <FourthPageBusinessRegistration/>,
-    },
-    // 'Basic Details': {firstPageBusinessRegistration},
-    // 'Socials': null,
-    // 'More details':  null,
-    // 'Approving':  null,
-];
+
 
 export default function BusinessStepper() {
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
+
+    const [firstPageData, setFirstPageData] =  React.useState(null);
+    const [secondPageData, setSecondPageData] =  React.useState(null);
+    const [thirdPageData, setThirdPageData] =  React.useState(null);
+    const [fourthPageData, setFourthPageData] =  React.useState(null);
+
 
     const isStepOptional = (step) => {
         return step === 1;
@@ -134,7 +123,7 @@ export default function BusinessStepper() {
         return skipped.has(step);
     };
 
-    const handleNext = () => {
+    const handleNext = (data) => {
         let newSkipped = skipped;
         if (isStepSkipped(activeStep)) {
             newSkipped = new Set(newSkipped.values());
@@ -143,6 +132,27 @@ export default function BusinessStepper() {
 
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
         setSkipped(newSkipped);
+
+        switch (activeStep) {
+            case 0:
+                setFirstPageData(data);
+                console.log(data);
+                break;
+            case 1:
+                setSecondPageData(data);
+                console.log(data);
+                break;
+            case 2:
+                setThirdPageData(data);
+                console.log(data);
+                break;
+            case 3:
+                setFourthPageData(data);
+                console.log(data);
+                break;
+            default:
+                break;
+        }
     };
 
     const handleBack = () => {
@@ -168,6 +178,29 @@ export default function BusinessStepper() {
         setActiveStep(0);
     };
 
+
+
+    const steps = [
+        {label: 'Basic Details',
+            content: <FirstPageBusinessRegistration onNext={handleNext}/>,
+
+        },
+        {label: 'Socials',
+            content: <SecondPageBusinessRegistration onNext={handleNext} onBack={handleBack}/>,
+        },
+        {label: 'More Details',
+            content: <ThirdPageBusinessRegistration onNext={handleNext} onBack={handleBack}/>,
+        },
+        {label: 'Approving',
+            content: <FourthPageBusinessRegistration onNext={handleNext} onBack={handleBack}/>,
+        },
+        // 'Basic Details': {firstPageBusinessRegistration},
+        // 'Socials': null,
+        // 'More details':  null,
+        // 'Approving':  null,
+    ];
+
+
     return (
         <Box sx={{ width: '100%' }}>
             <Stepper activeStep={activeStep}>
@@ -192,7 +225,7 @@ export default function BusinessStepper() {
             {activeStep === steps.length ? (
                 <React.Fragment>
                     <Typography sx={{ mt: 2, mb: 1 }}>
-                        All steps completed - you&apos;re finished
+                        All steps completed!
                     </Typography>
                     <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                         <Box sx={{ flex: '1 1 auto' }} />

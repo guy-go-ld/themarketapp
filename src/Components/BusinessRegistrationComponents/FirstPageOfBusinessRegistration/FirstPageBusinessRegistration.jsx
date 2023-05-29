@@ -14,9 +14,9 @@ import ToggleButton from "@mui/material/ToggleButton";
 import TextField from "@mui/material/TextField";
 
 // const businessTypes = ['cosmetics', 'nails', 'barber', 'hair', 'sport', 'art', 'lifestyle', 'music']
-export default function FirstPageBusinessRegistration() {
+export default function FirstPageBusinessRegistration({onNext}) {
     const [ newBusinessName, setNewBusinessName] = useState("");
-
+    const [businessTypes, setBusinessTypes] = useState(() => []);
 
     const [newPreviewUrl, setNewPreviewUrl] = useState([null]);
 
@@ -52,7 +52,7 @@ export default function FirstPageBusinessRegistration() {
     }, []);
 
 
-    const [businessTypes, setBusinessTypes] = useState(() => []);
+
     function BusinessTypesSelection(businesses_types) {
 
 
@@ -93,12 +93,13 @@ export default function FirstPageBusinessRegistration() {
             // console.log("Before find");
             // findLatLong();
             // console.log("After find");
+            onNext({newBusinessName, businessTypes });
+
             getBusinessesList();
         }catch (err)
         {
             console.log(err);
         }
-
     }
 
     return(
