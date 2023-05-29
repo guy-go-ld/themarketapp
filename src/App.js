@@ -18,6 +18,7 @@ class App extends Component{
         <div className="App">
             <ThemeProvider theme={Theme}>
             <Routes>
+                {/*<Route path="/" element={<NavigationLower/>} ></Route>*/}
                 <Route path="/" element={<NavigationComponent />}>
                     <Route index element={<HomePageComponent />} />
                     <Route path="ProfilePageComponent" element={<ProfilePageComponent/>}/>
