@@ -27,7 +27,7 @@ function ResponsiveDrawer(props) {
     };
 
     function sendToCreateBusiness() {
-        window.location.replace('/BusinessRegistration1');
+        window.location.replace('/BusinessRegistrationPage1');
     }
 
     const drawer = (
@@ -38,7 +38,7 @@ function ResponsiveDrawer(props) {
                 {['Add a new business', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                     <ListItem key={text} disablePadding>
 
-                        <ListItemButton onClick={sendToCreateBusiness}>
+                        <ListItemButton component={Link} to="/BusinessRegistrationPage1" >
                             <ListItemIcon>
                                 {index % 2 === 0 ? <AddBoxOutlinedIcon /> : <MailIcon />}
                             </ListItemIcon>
