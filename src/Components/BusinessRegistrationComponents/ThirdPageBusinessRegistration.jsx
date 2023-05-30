@@ -38,7 +38,7 @@ export default function SecondPageBusinessRegistration() {
             <BasicTextFields fieldName={'Friday'}/>
             <BasicTextFields fieldName={'Saturday'}/>
 
-            <Typography variant="h5">Picture</Typography>
+            <Typography variant="h5" textAlign="start">Picture</Typography>
             <button>upload here!</button>
 
         </div>

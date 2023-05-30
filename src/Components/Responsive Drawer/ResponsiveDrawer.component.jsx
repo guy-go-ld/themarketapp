@@ -13,6 +13,9 @@ import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import InboxIcon from "@mui/icons-material/Inbox";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
+import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
+import DraftsRoundedIcon from '@mui/icons-material/DraftsRounded';
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import {Link} from "react-router-dom";
 import BusinessRegistration1 from "../../routes/business_registratin_pages/BusinessRegistrationPage1";
 
@@ -30,19 +33,27 @@ function ResponsiveDrawer(props) {
         window.location.replace('/BusinessRegistrationPage1');
     }
 
+    const drawer_content = [
+        {text: 'Add a new business', path: "/BusinessRegistrationPage1", icon: <AddBoxOutlinedIcon />},
+        {text: 'Starred', path: "/", icon: <StarRoundedIcon />},
+        {text: 'Drafts', path: "/", icon: <DraftsRoundedIcon />},
+        {text: 'Send email', path: "/", icon: <EmailRoundedIcon />},
+            ];
+
     const drawer = (
         <div>
             <Toolbar />
             <Divider />
             <List>
-                {['Add a new business', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
+                {drawer_content.map((key, index) => (
+                    <ListItem key={key.text} disablePadding>
 
-                        <ListItemButton component={Link} to="/BusinessRegistrationPage1" >
+                        <ListItemButton component={Link} to={key.path} >
                             <ListItemIcon>
-                                {index % 2 === 0 ? <AddBoxOutlinedIcon /> : <MailIcon />}
+                                {/*{index % 2 === 0 ? <AddBoxOutlinedIcon /> : <MailIcon />}*/}
+                                {key.icon}
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemText primary={key.text} />
                         </ListItemButton>
                     </ListItem>
                 ))}

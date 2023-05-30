@@ -62,7 +62,12 @@ export default function FirstPageBusinessRegistration({onNext}) {
         };
 
         return (
-            <Box sx={{maxWidth: 600, bgcolor: "primary.light", borderColor: "secondary.main", border: 2, borderRadius: 2}}>
+            <Box sx={{
+                maxWidth: 600,
+                // bgcolor: "primary.light",
+                // borderColor: "secondary.main",
+                // border: 2,
+                borderRadius: 2}}>
             <ToggleButtonGroup
                 value={businessTypes}
                 onChange={handleTypes}
