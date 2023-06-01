@@ -1,9 +1,9 @@
-import {styled, ThemeProvider} from "@mui/material/styles";
+import {styled} from "@mui/material/styles";
 import {AppBar, Button, Icon, Input} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
-import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined';
-import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
+import Avatar from "@mui/material/Avatar";
+import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
 
 export const StyledButtonGray = styled(Button)(({ theme }) => ({
     backgroundColor:theme.palette.info.light,
@@ -58,6 +58,28 @@ export const StyledCircleBox = styled(Box)(({ theme })=> ({
     }
 }));
 
+export const StyledAvatarUserFeed = styled(Avatar)(({ theme })=> ({
+    boxShadow : "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    [theme.breakpoints.up('xs')]:{
+        width:"2.5rem",
+        height:"2.5rem"
+    }
+}));
 
+export const StyledSmallCirclesButton = styled(SupervisedUserCircleIcon)(({ theme })=> ({
+    color:theme.palette.primary.main,
+    [theme.breakpoints.up('xs')]:{
+        width:"1.25rem",
+        height:"1.25rem"
+    }
+}));
+
+export const StyledBusinessFeed = styled(Avatar)(({ theme })=> ({
+    boxShadow : "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    [theme.breakpoints.up('xs')]:{
+        width:"4rem",
+        height:"4rem"
+    }
+}));
 
 

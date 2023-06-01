@@ -21,6 +21,11 @@ import {Image} from "@mui/icons-material";
 import TopMenuNew from "../../newComponents/TopMenuNew";
 import StyledCircleReview from "../../Styled Components/StyledCircleReview";
 import StyledCircleFootprints from "../../Styled Components/StyledCircleFootprints";
+import {
+    StyledAvatarUserFeed,
+    StyledBusinessFeed,
+    StyledSmallCirclesButton
+} from "../../Styled Components/styledComponents";
 class AroundMe extends Component{
 render() {
     return(
@@ -42,6 +47,9 @@ render() {
                     <Box sx={{mt:10}}>
                         <StyledCircleReview/>
                         <StyledCircleFootprints/>
+                        <StyledAvatarUserFeed/>
+                        <StyledSmallCirclesButton/>
+                        <StyledBusinessFeed/>
                     </Box>
                 </ThemeProvider>
             </div>
