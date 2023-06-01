@@ -5,10 +5,10 @@ import {ReactComponent as FootprintsIcon} from "../Icons/footprints-svgrepo-com.
 export default function StyledCircleFootprint(){
     return(
         <StyledCircleBox>
-            <FootprintsIcon sx={{
-                fontSize:"3.5rem",
+            <FootprintsIcon width="3.5rem" height="3.5rem" sx={{
+                fontSize:"3rem",
                 margin:"auto",
-                color:"white",
+                fill:"white",
             }}/>
         </StyledCircleBox>
     );
