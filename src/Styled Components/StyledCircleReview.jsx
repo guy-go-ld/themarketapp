@@ -1,18 +1,24 @@
 import RateReviewOutlinedIcon from "@mui/icons-material/RateReviewOutlined";
-import {StyledCircleBox} from "./styledComponents";
+import {
+    StyledCircleBox,
+    StyledDialogInputBusiness,
+    StyledDialogReviewIcon,
+    StyledDialogSecondTitle, StyledDialogTextFieldReview,
+    StyledDialogTitle, StyledRating
+} from "./styledComponents";
 import {useState} from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
-import {Button, DialogActions, DialogContent, DialogContentText} from "@mui/material";
+import {Button, DialogActions, DialogContent, DialogContentText, Stack, Typography} from "@mui/material";
 import TextField from "@mui/material/TextField";
 import {auth, db} from "../config/firebase";
 import {doc, getDoc, setDoc, updateDoc} from "firebase/firestore";
+import Box from "@mui/material/Box";
+import theme from "../Theme/Theme";
 
 
-
-export default function StyledCircleReview({business_id = ""})
-{
-    const [open, setOpen] =  useState(false);
+export default function StyledCircleReview({business_id = ""}) {
+    const [open, setOpen] = useState(false);
     const [review, setReview] = useState("");
     let [businessData, setBusinessData] = useState(null);
     let docRef = doc(db, "Business", "P9cLIqC367iuRjeozkxq");
@@ -20,11 +26,7 @@ export default function StyledCircleReview({business_id = ""})
     // console.log(business_id);
     // console.log(auth?.currentUser.uid);
     const handleClickOpen = () => {
-
-
-
-        if (business_id !== "")
-        {
+        if (business_id !== "") {
             setOpen(true);
         }
     };
@@ -32,8 +34,7 @@ export default function StyledCircleReview({business_id = ""})
     const handleClose = () => {
         setOpen(false);
     };
-    const fetch = async () =>
-    {
+    const fetch = async () => {
         docSnap = await getDoc(docRef);
         // console.log(docSnap.get("Reviews") !== []);
         // if (docSnap.exists()){console.log("Document data:", docSnap.data());}
@@ -48,48 +49,71 @@ export default function StyledCircleReview({business_id = ""})
     const handleSend = async () => {
         docSnap = await getDoc(docRef);
         const uid = auth?.currentUser?.uid;
-        if (docSnap.exists())
-        {
+        if (docSnap.exists()) {
             console.log("SENDING");
             // await updateDoc(docRef, {[`Reviews.${uid}`] : review}, {merge: true});
         }
         handleClose();
     }
 
-    return(
-        <div>
-        <StyledCircleBox onClick={handleClickOpen}>
-            <RateReviewOutlinedIcon sx={{
-                fontSize:"3.5rem",
-                margin:"auto",
-                color:"white",
-                width:"3.125rem !important",
-                height:"3.125rem",
-            }}/>
-        </StyledCircleBox>
-        <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Subscribe</DialogTitle>
-            <DialogContent>
-                <DialogContentText>
-                    Cool! Thank you for adding review for the business: __business_name__
-                </DialogContentText>
-                <TextField
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    label="Your Awesome Review"
-                    type="email"
-                    fullWidth
-                    variant="standard"
-                    value = {review}
-                    onChange={e=> setReview(e.target.value)}
-                />
-            </DialogContent>
-            <DialogActions>
-                <Button onClick={handleClose}>Cancel</Button>
-                <Button onClick={handleSend}>Send Review</Button>
-            </DialogActions>
-        </Dialog>
-        </div>
+    return (
+        <Box>
+            <StyledCircleBox onClick={handleClickOpen}>
+                <RateReviewOutlinedIcon sx={{
+                    fontSize: "3.5rem",
+                    margin: "auto",
+                    color: "white",
+                    width: "3.125rem !important",
+                    height: "3.125rem",
+                }}/>
+            </StyledCircleBox>
+
+            <Dialog open={open} onClose={handleClose}>
+                <DialogContent sx={{
+                    backgroundColor: `${theme.palette.primary.main}`,
+                    border: `0.2rem solid ${theme.palette.secondary.main}`
+                }}>
+                    <Stack direction="column" spacing={2}>
+                        <Stack direction="row"
+                               justifyContent="center"
+                               alignItems="center"
+                               spacing={1}>
+                            <StyledDialogReviewIcon/>
+                            <StyledDialogTitle>New Review</StyledDialogTitle>
+                        </Stack>
+                        <Stack direction="column">
+                            <StyledDialogSecondTitle>I went to..</StyledDialogSecondTitle>
+                            <StyledDialogInputBusiness placeholder={"where did you go???!"}/>
+                        </Stack>
+                        <Stack direction="column">
+                            <StyledDialogSecondTitle>It was..</StyledDialogSecondTitle>
+                            <StyledRating/>
+                        </Stack>
+                        <Stack direction="column">
+                            <StyledDialogSecondTitle>And I thought it was..</StyledDialogSecondTitle>
+                            <StyledDialogTextFieldReview
+                                multiline
+                                rows={4}
+                                id="name"
+                                label="Your Awesome Review"
+                                type="email"
+                                fullWidth
+                                variant="standard"
+                                value={review}
+                                onChange={e => setReview(e.target.value)}
+                            />
+                        </Stack>
+                        <Stack direction="row" spacing={2} justifyContent="center" alignItems="center">
+                            <DialogActions>
+                                <Button onClick={handleClose}
+                                        sx={{backgroundColor: `${theme.palette.secondary.main}`}}>Cancel</Button>
+                                <Button onClick={handleSend} sx={{backgroundColor: `${theme.palette.secondary.main}`}}>Send
+                                    Review</Button>
+                            </DialogActions>
+                        </Stack>
+                    </Stack>
+                </DialogContent>
+            </Dialog>
+        </Box>
     );
 }

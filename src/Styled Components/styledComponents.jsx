@@ -1,9 +1,12 @@
 import {styled} from "@mui/material/styles";
-import {AppBar, Button, Input, Rating, Typography} from "@mui/material";
+import {AppBar, Button, DialogContentText, Input, Rating, Typography} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
+import DialogTitle from "@mui/material/DialogTitle";
+import RateReviewOutlinedIcon from "@mui/icons-material/RateReviewOutlined";
+import TextField from "@mui/material/TextField";
 
 export const StyledButtonGray = styled(Button)(({ theme }) => ({
     backgroundColor:theme.palette.info.light,
@@ -47,6 +50,7 @@ export const StyledHamburgerButton = styled(MenuIcon)(({ theme })=> ({
 
 export const StyledCircleBox = styled(Box)(({ theme })=> ({
     borderRadius:"50%",
+    boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px',
     border:`0.65rem solid ${theme.palette.secondary.main}`,
     backgroundColor:theme.palette.primary.main,
     display: 'flex',
@@ -107,6 +111,54 @@ export const StyledTypographyReview = styled(Typography)(({ theme })=> ({
         // padding: '0 0.5em',
         // background: 'white',
     },
+    [theme.breakpoints.up('xs')]:{
+    }
+}));
+
+/*Dialog Components*/
+export const StyledDialogTitle = styled(DialogTitle)(({ theme })=> ({
+    ...theme.typography.h1,
+    color:"white",
+    padding:"1rem 0.5rem",
+    [theme.breakpoints.up('xs')]:{
+    }
+}));
+
+export const StyledDialogReviewIcon = styled(RateReviewOutlinedIcon)(({ theme })=> ({
+color:"white",
+    [theme.breakpoints.up('xs')]:{
+        width: "3rem",
+        height:"3rem",
+    }
+}));
+
+export const StyledDialogSecondTitle = styled(DialogContentText)(({ theme })=> ({
+    ...theme.typography.h2,
+    color:"white",
+    textAlign:"left",
+    [theme.breakpoints.up('xs')]:{
+    }
+}));
+
+export const StyledDialogInputBusiness = styled(Input)(({ theme })=> ({
+    backgroundColor: 'white',
+    ...theme.typography.p,
+    color: 'gray',
+    padding: '0.1rem',
+    borderRadius: '15px',
+    [theme.breakpoints.up('xs')]:{
+    }
+}));
+
+export const StyledDialogTextFieldReview = styled(TextField)(({ theme })=> ({
+    backgroundColor: 'white',
+    ...theme.typography.p,
+    color: 'gray',
+    padding: '0.5rem',
+    borderRadius: '15px',
+    width: '100%',
+    wordWrap: 'break-word',
+    whiteSpace: 'pre-wrap',
     [theme.breakpoints.up('xs')]:{
     }
 }));
