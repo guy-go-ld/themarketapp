@@ -1,5 +1,5 @@
 import {styled} from "@mui/material/styles";
-import {AppBar, Button, Icon, Input} from "@mui/material";
+import {AppBar, Button, Input, Rating, Typography} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
@@ -7,12 +7,12 @@ import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
 
 export const StyledButtonGray = styled(Button)(({ theme }) => ({
     backgroundColor:theme.palette.info.light,
-    color:theme.palette.info.main,
-    padding:'10px',
+    color:"black",
+    padding:'0.5rem',
     boxShadow : '0px 4px 4px rgba(0, 0, 0, 0.25)',
-    borderRadius: '10px',
+    borderRadius: '15px',
     [theme.breakpoints.up('xs')]: {
-        fontSize:'1.25rem',
+        fontSize:'0.8rem',
     },
     [theme.breakpoints.up('md')]: {
         fontSize:'2.5rem',
@@ -77,9 +77,36 @@ export const StyledSmallCirclesButton = styled(SupervisedUserCircleIcon)(({ them
 export const StyledBusinessFeed = styled(Avatar)(({ theme })=> ({
     boxShadow : "0px 4px 4px rgba(0, 0, 0, 0.25)",
     [theme.breakpoints.up('xs')]:{
-        width:"4rem",
-        height:"4rem"
+        width:"4.5rem",
+        height:"4.5rem"
     }
 }));
 
+export const StyledRating = styled(Rating)(({ theme })=> ({
+    color:theme.palette.secondary.dark,
+    "&:hover": {
+        color: theme.palette.secondary.main,
+    },
+    [theme.breakpoints.up('xs')]:{
+    }
+}));
 
+export const StyledTypographyReview = styled(Typography)(({ theme })=> ({
+    maxWidth: "100%",
+    textAlign: "left",
+    maxHeight:"3.2rem",
+    textOverflow:"ellipsis",
+    overflow: "hidden",
+    overflowWrap: "break-word",
+    variant:"p",
+    "&:after": {
+        content: "'...'",
+        // position: 'absolute',
+        // right: 0,
+        // bottom: 0,
+        // padding: '0 0.5em',
+        // background: 'white',
+    },
+    [theme.breakpoints.up('xs')]:{
+    }
+}));

@@ -23,9 +23,10 @@ import StyledCircleReview from "../../Styled Components/StyledCircleReview";
 import StyledCircleFootprints from "../../Styled Components/StyledCircleFootprints";
 import {
     StyledAvatarUserFeed,
-    StyledBusinessFeed,
+    StyledBusinessFeed, StyledRating,
     StyledSmallCirclesButton
 } from "../../Styled Components/styledComponents";
+import StyledFeedItem from "../../Styled Components/StyledFeedItem";
 class AroundMe extends Component{
 render() {
     return(
@@ -50,6 +51,7 @@ render() {
                         <StyledAvatarUserFeed/>
                         <StyledSmallCirclesButton/>
                         <StyledBusinessFeed/>
+                        <StyledFeedItem/>
                     </Box>
                 </ThemeProvider>
             </div>

@@ -13,12 +13,21 @@ let theme = createTheme({
         },
         h3: {
             fontSize:'2.5rem',
-            fontWeight:'medium'
+            fontWeight:'600'
+        },
+        h4:{
+            fontSize:'1.5rem',
+            fontWeight:'500',
+        },
+        h5:{
+            fontSize:'1',
+            fontWeight:'300',
         },
         p:{
-            fontSize:'2rem'
+            fontSize:'1.25rem',
+            fontWeight:'400',
         },
-        fontFamily:"PoppinsBold",
+        fontFamily:"Poppins",
         fontWeightLight: 400,
         fontWeightRegular: 600,
         fontWeightMedium: 700,
