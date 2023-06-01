@@ -40,7 +40,7 @@ render() {
                 <ThemeProvider theme={theme}>
                     <TopMenuNew/>
                     <Box sx={{mt:10}}>
-                        <StyledCircleReview/>
+                        <StyledCircleReview business_id={"P9cLIqC367iuRjeozkxq"}/>
                         <StyledCircleFootprints/>
                     </Box>
                 </ThemeProvider>

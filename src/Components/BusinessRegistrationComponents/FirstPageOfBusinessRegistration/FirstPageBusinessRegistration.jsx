@@ -39,8 +39,8 @@ export default function FirstPageBusinessRegistration({onNext}) {
                 ({...doc.data(), id: doc.id,})
             );
             setBusinessList(filteredData);
-            console.log(filteredData[0]["Name"]);
-            console.log(filteredData);
+            // console.log(filteredData[0]["Name"]);
+            // console.log(filteredData);
         } catch (err){
             console.error(err);
         }
@@ -58,7 +58,7 @@ export default function FirstPageBusinessRegistration({onNext}) {
 
         const handleTypes = (event, newFormats) => {
             setBusinessTypes(newFormats);
-            console.log(businessTypes);
+            // console.log(businessTypes);
         };
 
         return (

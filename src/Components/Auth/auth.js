@@ -11,7 +11,7 @@ export const Auth = () =>
     const [password, setPassword] = useState("");
 
     const usersCollectionRef = collection(db, "Users");
-    console.log(auth?.currentUser?.email);
+    // console.log(auth?.currentUser?.email);
     const signIn = async ()=>{
         try
         {
