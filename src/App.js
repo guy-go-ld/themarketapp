@@ -10,7 +10,7 @@ import AroundMeComponent from "./routes/Around Me/AroundMe.component";
 import NotificationsComponent from "./routes/notifications/Notifications.component";
 import BusinessRegistrationPage1 from "./routes/business_registratin_pages/BusinessRegistrationPage1";
 import CommunityComponent from "./routes/Community/Community.component";
-import Theme from "./Components/Theme/Theme";
+import Theme from "./Theme/Theme";
 import {ThemeProvider} from "@mui/material/styles";
 
 class App extends Component{
