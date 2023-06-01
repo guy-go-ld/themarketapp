@@ -36,11 +36,6 @@ export default function StyledCircleReview({business_id = ""}) {
     };
     const fetch = async () => {
         docSnap = await getDoc(docRef);
-        // console.log(docSnap.get("Reviews") !== []);
-        // if (docSnap.exists()){console.log("Document data:", docSnap.data());}
-        // else { // docSnap.data() will be undefined in this case
-        //     console.log("No such document!");}
-
         setBusinessData(docSnap.data());
     }
     // Getting the document from the database
