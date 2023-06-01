@@ -3,6 +3,7 @@ import {AppBar, Button, Icon, Input} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
 import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined';
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 
 export const StyledButtonGray = styled(Button)(({ theme }) => ({
     backgroundColor:theme.palette.info.light,
@@ -57,14 +58,6 @@ export const StyledCircleBox = styled(Box)(({ theme })=> ({
     }
 }));
 
-export function StyledCircleReview(){
-    return(
-      <StyledCircleBox>
-          <RateReviewOutlinedIcon sx={{
-              fontSize:"3.5rem",
-              margin:"auto",
-              color:"white",
-          }}/>
-      </StyledCircleBox>
-    );
-}
+
+
+
