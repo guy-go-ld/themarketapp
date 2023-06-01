@@ -1,9 +1,6 @@
 import {styled, ThemeProvider} from "@mui/material/styles";
 import {AppBar, Button, Icon, Input} from "@mui/material";
-import theme from "../Theme/Theme";
 import MenuIcon from "@mui/icons-material/Menu";
-import logoNew from "../Icons/logo-all-white.png";
-import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined';
 
