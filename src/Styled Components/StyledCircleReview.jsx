@@ -6,7 +6,7 @@ import {
     StyledDialogSecondTitle, StyledDialogTextFieldReview,
     StyledDialogTitle, StyledRating
 } from "./styledComponents";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import {Button, DialogActions, DialogContent, DialogContentText, Stack, Typography} from "@mui/material";
@@ -15,6 +15,8 @@ import {auth, db} from "../config/firebase";
 import {doc, getDoc, setDoc, updateDoc} from "firebase/firestore";
 import Box from "@mui/material/Box";
 import theme from "../Theme/Theme";
+// import User from "../Classes";
+// import getUserById from "../Classes";
 
 
 export default function StyledCircleReview({business_id = ""}) {
@@ -41,13 +43,19 @@ export default function StyledCircleReview({business_id = ""}) {
     // Getting the document from the database
     fetch();
 
-    const handleSend = async () => {
+    const HandleSend = async () => {
         docSnap = await getDoc(docRef);
-        const uid = auth?.currentUser?.uid;
-        if (docSnap.exists()) {
-            console.log("SENDING");
-            // await updateDoc(docRef, {[`Reviews.${uid}`] : review}, {merge: true});
-        }
+        useEffect(() => {
+            const uid = auth?.currentUser?.uid;
+            const user = auth?.currentUser;
+            if (docSnap.exists()) {
+                // const user = getUserById(uid);
+                user.addBusinessReview('PHVzalLwhzSNUaIrUZsIeEC8yoP2', review)
+                console.log("SENDING");
+                // await updateDoc(docRef, {[`Reviews.${uid}`] : review}, {merge: true});
+            }
+        }, [])
+
         handleClose();
     }
 
@@ -102,7 +110,7 @@ export default function StyledCircleReview({business_id = ""}) {
                             <DialogActions>
                                 <Button onClick={handleClose}
                                         sx={{backgroundColor: `${theme.palette.secondary.main}`}}>Cancel</Button>
-                                <Button onClick={handleSend} sx={{backgroundColor: `${theme.palette.secondary.main}`}}>Send
+                                <Button onClick={HandleSend} sx={{backgroundColor: `${theme.palette.secondary.main}`}}>Send
                                     Review</Button>
                             </DialogActions>
                         </Stack>

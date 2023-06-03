@@ -3,6 +3,9 @@ import {addDoc, collection, deleteDoc, doc, getDocs, updateDoc} from "firebase/f
 import {auth, db, storage} from "../config/firebase";
 import {ref, uploadBytes} from "firebase/storage";
 import {onSubmitUser} from "./SubmitUser";
+import User from "../Classes";
+
+
 export default function CreateUser()
 {
     // New User States
@@ -45,6 +48,7 @@ export default function CreateUser()
     }, []);
     const onSubmitUser = async () => {
         try {
+
             await addDoc(usersCollectionRef, {
                 Age: newUserAge,
                 FirstName: newUserFirstName,
