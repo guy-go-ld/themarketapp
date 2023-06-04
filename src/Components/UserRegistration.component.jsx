@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import User from "../Classes";
+import {signOut} from "firebase/auth";
+import {auth} from "../config/firebase";
 
 
 // export default function userRegistration(){
@@ -13,7 +15,14 @@ import User from "../Classes";
             const user = new User(name, email, password);
             user.signIn();
         };
-
+        const logout = async() =>{
+            try
+            {
+                await signOut(auth);
+            } catch (err) {
+                console.error(err);
+            }
+        }
         return (
             <form onSubmit={handleSubmit}>
                 <input
@@ -35,6 +44,8 @@ import User from "../Classes";
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <button type="submit">Register</button>
+                <button onClick={logout}>Log out</button>
+
             </form>
         );
 

@@ -15,6 +15,7 @@ import {auth, db} from "../config/firebase";
 import {doc, getDoc, setDoc, updateDoc} from "firebase/firestore";
 import Box from "@mui/material/Box";
 import theme from "../Theme/Theme";
+import {getUserById} from "../Classes";
 // import User from "../Classes";
 // import getUserById from "../Classes";
 
@@ -45,16 +46,14 @@ export default function StyledCircleReview({business_id = ""}) {
 
     const HandleSend = async () => {
         docSnap = await getDoc(docRef);
-        useEffect(() => {
-            const uid = auth?.currentUser?.uid;
-            const user = auth?.currentUser;
-            if (docSnap.exists()) {
-                // const user = getUserById(uid);
-                user.addBusinessReview('PHVzalLwhzSNUaIrUZsIeEC8yoP2', review)
-                console.log("SENDING");
-                // await updateDoc(docRef, {[`Reviews.${uid}`] : review}, {merge: true});
-            }
-        }, [])
+        const user = await getUserById(auth?.currentUser?.uid);
+
+        if (docSnap.exists()) {
+            // const user = getUserById(uid);
+            await user.addBusinessReview('PHVzalLwhzSNUaIrUZsIeEC8yoP2', review)
+            // await updateDoc(docRef, {[`Reviews.${uid}`] : review}, {merge: true});
+        }
+
 
         handleClose();
     }

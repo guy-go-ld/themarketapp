@@ -32,12 +32,12 @@ function ShowProfile(data_on_person)
             const filteredData = data.docs.map((doc) =>
                 ({...doc.data(), id: doc.id,})
             );
-            console.log(filteredData);
+            // console.log(filteredData);
             // TODO make this shit better
             const userData = filteredData.filter((document) =>
                 (document.id === data_on_person)
             );
-            console.log(userData);
+            // console.log(userData);
             setUser(userData[0]);
 
         } catch (err){
