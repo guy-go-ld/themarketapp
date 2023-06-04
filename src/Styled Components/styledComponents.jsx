@@ -6,6 +6,7 @@ import Avatar from "@mui/material/Avatar";
 import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
 import DialogTitle from "@mui/material/DialogTitle";
 import RateReviewOutlinedIcon from "@mui/icons-material/RateReviewOutlined";
+import {ReactComponent as FootprintsIcon} from "../Icons/footprints-svgrepo-com.svg";
 import TextField from "@mui/material/TextField";
 
 export const StyledButtonGray = styled(Button)(({ theme }) => ({
@@ -129,6 +130,14 @@ color:"white",
     [theme.breakpoints.up('xs')]:{
         width: "3rem",
         height:"3rem",
+    }
+}));
+
+export const StyledDialogFootprintIcon = styled(FootprintsIcon)(({ theme })=> ({
+    color:"white",
+    [theme.breakpoints.up('xs')]:{
+        width: "4rem",
+        height:"4rem",
     }
 }));
 
