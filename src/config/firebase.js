@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import {getFirestore} from "firebase/firestore";
 import {getStorage} from "firebase/storage";
+import { Timestamp } from "firebase/firestore";
 // import {getFunctions} from "firebase/functions";
 // import {getAnalytics, setUserProperties} from "firebase/analytics";
 // import { getAnalytics } from "firebase/analytics"; // TODO if we want analytics
@@ -31,3 +32,5 @@ export const db = getFirestore(app);
 export const storage = getStorage(app);
 
 // export const functions = getFunctions(app);
+
+export const timestamp = Timestamp;

@@ -1,4 +1,4 @@
-import {auth, db, storage} from "./config/firebase";
+import {auth, db, storage, timestamp} from "./config/firebase";
 import "firebase/auth";
 import {createUserWithEmailAndPassword} from "firebase/auth";
 import {doc, getDoc, setDoc} from "firebase/firestore";
@@ -40,7 +40,7 @@ export default class User
         const review = {
             businessID: businessID,
             content: reviewContent,
-            // timestamp: timestamp,
+            timestamp: timestamp.now().toDate(),
         };
         this.reviews.push(review);
         console.log("Review added: ", review);
