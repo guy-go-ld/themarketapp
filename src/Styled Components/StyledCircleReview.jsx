@@ -15,7 +15,7 @@ import {auth, db} from "../config/firebase";
 import {doc, getDoc, setDoc, updateDoc} from "firebase/firestore";
 import Box from "@mui/material/Box";
 import theme from "../Theme/Theme";
-import {getUserById} from "../Classes";
+import {getUserById} from "../Classes/UserClass";
 // import User from "../Classes";
 // import getUserById from "../Classes";
 

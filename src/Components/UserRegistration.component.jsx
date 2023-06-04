@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import User from "../Classes";
+import User from "../Classes/UserClass";
 import {signOut} from "firebase/auth";
 import {auth} from "../config/firebase";
 

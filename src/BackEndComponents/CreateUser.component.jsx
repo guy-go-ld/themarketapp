@@ -3,7 +3,7 @@ import {addDoc, collection, deleteDoc, doc, getDocs, updateDoc} from "firebase/f
 import {auth, db, storage} from "../config/firebase";
 import {ref, uploadBytes} from "firebase/storage";
 import {onSubmitUser} from "./SubmitUser";
-import User from "../Classes";
+import User from "../Classes/UserClass";
 
 
 export default function CreateUser()
