@@ -11,97 +11,7 @@ import FirstPageBusinessRegistration from './FirstPageOfBusinessRegistration/Fir
 import SecondPageBusinessRegistration from './SecondPageBusinessRegistration';
 import ThirdPageBusinessRegistration from './ThirdPageBusinessRegistration';
 import FourthPageBusinessRegistration from './FourthPageBusinessRegistration';
-
-
-// const steps = [
-//     {label: 'Basic Details',
-//     content: <FirstPageBusinessRegistration/>,
-//     },
-//     {label: 'Socials',
-//         content: null,
-//     },
-//     {label: 'More Details',
-//         content: null,
-//     },
-//     {label: 'Approving',
-//         content: null,
-//     },
-//     // 'Basic Details': {firstPageBusinessRegistration},
-//     // 'Socials': null,
-//     // 'More details':  null,
-//     // 'Approving':  null,
-// ];
-
-
-// export default function BusinessStepper() {
-//     const [activeStep, setActiveStep] = React.useState(0);
-//
-//     const handleNext = () => {
-//         setActiveStep((prevActiveStep) => prevActiveStep + 1);
-//     };
-//
-//     const handleBack = () => {
-//         setActiveStep((prevActiveStep) => prevActiveStep - 1);
-//     };
-//
-//     const handleReset = () => {
-//         setActiveStep(0);
-//     };
-//
-//     return (
-//         <Box sx={{ width: 'auto' }}>
-//             <Stepper alternativeLabel activeStep={activeStep} orientation="horizontal">
-//                 {steps.map((step, index) => (
-//                     <Step key={step.label}>
-//                         <StepLabel>{step.label}</StepLabel>
-//                         <StepContent>
-//                             <div>
-//                                 {/*<FirstPageBusinessRegistration/>*/}
-//                                 {step.content}
-//                             </div>
-//                             <Box sx={{ mb: 2 }}>
-//                                 <div>
-//                                     <Button
-//                                         variant="contained"
-//                                         onClick={handleNext}
-//                                         sx={{ mt: 1, mr: 1 }}
-//                                     >
-//                                         {index === steps.length - 1 ? 'Finish' : 'Continue'}
-//                                     </Button>
-//                                     <Button
-//                                         disabled={index === 0}
-//                                         onClick={handleBack}
-//                                         sx={{ mt: 1, mr: 1 }}
-//                                     >
-//                                         Back
-//                                     </Button>
-//                                 </div>
-//                             </Box>
-//                         </StepContent>
-//                     </Step>
-//                 ))}
-//             </Stepper>
-//             {activeStep === steps.length && (
-//                 <Paper square elevation={0} sx={{ p: 3 }}>
-//                     <Typography>All steps completed - you&apos;re finished</Typography>
-//                     <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-//                         Reset
-//                     </Button>
-//                 </Paper>
-//             )}
-//         </Box>
-//     );
-// }
-
-/////////////////////////////
-
-// import * as React from 'react';
-// import Box from '@mui/material/Box';
-// import Stepper from '@mui/material/Stepper';
-// import Step from '@mui/material/Step';
-// import StepLabel from '@mui/material/StepLabel';
-// import Button from '@mui/material/Button';
-// import Typography from '@mui/material/Typography';
+import Business from '../../Classes/BusinessClass';
 
 
 
@@ -132,24 +42,20 @@ export default function BusinessStepper() {
 
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
         setSkipped(newSkipped);
-
         switch (activeStep) {
             case 0:
                 setFirstPageData(data);
-                console.log(data);
+                // console.log(data);
                 break;
             case 1:
                 setSecondPageData(data);
-                console.log(data);
+                // console.log(data);
                 break;
             case 2:
                 setThirdPageData(data);
-                console.log(data);
+                // console.log(data);
                 break;
-            case 3:
-                setFourthPageData(data);
-                console.log(data);
-                break;
+
             default:
                 break;
         }
@@ -178,6 +84,17 @@ export default function BusinessStepper() {
         setActiveStep(0);
     };
 
+    const handleMakeBusiness = async () =>
+    {
+        let b = await Business.makeBusiness(
+            firstPageData[0], // Name
+            firstPageData[1], // Type
+            thirdPageData[0], // address
+            thirdPageData.slice(1), // openingHours
+            secondPageData,
+        );
+        console.log(b);
+    }
 
 
     const steps = [
@@ -194,10 +111,6 @@ export default function BusinessStepper() {
         {label: 'Approving',
             content: <FourthPageBusinessRegistration onNext={handleNext} onBack={handleBack}/>,
         },
-        // 'Basic Details': {firstPageBusinessRegistration},
-        // 'Socials': null,
-        // 'More details':  null,
-        // 'Approving':  null,
     ];
 
 
@@ -252,9 +165,13 @@ export default function BusinessStepper() {
                             </Button>
                         )}
 
-                        <Button onClick={handleNext}>
-                            {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                        </Button>
+                        {activeStep === steps.length-1 ?
+                            (<Button onClick={handleMakeBusiness}>
+                            Finish
+                        </Button>) : (<div></div>)}
+                        {/*<Button onClick={handleNext}>*/}
+                        {/*    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}*/}
+                        {/*</Button>*/}
                     </Box>
                 </React.Fragment>
             )}

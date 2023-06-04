@@ -12,9 +12,9 @@ class Notifications extends Component{
         return(
             <div style={{paddingTop: "10rem"}}>
             {/*<Auth/>*/}
-                <UserRegistrationForm/>
+            {/*    <UserRegistrationForm/>*/}
             {/*<CreateUser/>*/}
-            {/*<CreateBusiness/>*/}
+            <CreateBusiness/>
             </div>
         )
     }

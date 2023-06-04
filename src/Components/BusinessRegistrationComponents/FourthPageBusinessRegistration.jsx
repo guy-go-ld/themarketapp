@@ -32,7 +32,7 @@ function ControlledCheckbox() {
     );
 }
 
-export default function FourthPageBusinessRegistration() {
+export default function FourthPageBusinessRegistration({data}) {
 
     return(
         <div>

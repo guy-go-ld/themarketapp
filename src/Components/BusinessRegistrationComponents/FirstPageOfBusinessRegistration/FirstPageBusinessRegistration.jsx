@@ -12,14 +12,15 @@ import {ref, uploadBytes} from "firebase/storage";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import ToggleButton from "@mui/material/ToggleButton";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 // const businessTypes = ['cosmetics', 'nails', 'barber', 'hair', 'sport', 'art', 'lifestyle', 'music']
 export default function FirstPageBusinessRegistration({onNext}) {
     const [ newBusinessName, setNewBusinessName] = useState("");
     const [businessTypes, setBusinessTypes] = useState(() => []);
 
-    const [newPreviewUrl, setNewPreviewUrl] = useState([null]);
-
+    const [newPreviewUrl, setNewPreviewUrl] = useState("");
+    const [ownerName, setOwnerName] = useState("");
 
     // Update Business Name State
     // const [businessName, setBusinessName] = useState(""); // TODO: in the future- need to make edit component
@@ -29,27 +30,27 @@ export default function FirstPageBusinessRegistration({onNext}) {
     const [businessList, setBusinessList] = useState([]);
     const businessesCollectionRef = collection(db, "Business");
 
-    const getBusinessesList = async () => {
-        // READ THE DATA
-        // SET THE MOVIE LIST
-        try
-        {
-            const data = await getDocs(businessesCollectionRef);
-            const filteredData = data.docs.map((doc) =>
-                ({...doc.data(), id: doc.id,})
-            );
-            setBusinessList(filteredData);
-            // console.log(filteredData[0]["Name"]);
-            // console.log(filteredData);
-        } catch (err){
-            console.error(err);
-        }
-    }
-
-    useEffect(()=>{
-
-        getBusinessesList();
-    }, []);
+    // const getBusinessesList = async () => {
+    //     // READ THE DATA
+    //     // SET THE MOVIE LIST
+    //     try
+    //     {
+    //         const data = await getDocs(businessesCollectionRef);
+    //         const filteredData = data.docs.map((doc) =>
+    //             ({...doc.data(), id: doc.id,})
+    //         );
+    //         setBusinessList(filteredData);
+    //         // console.log(filteredData[0]["Name"]);
+    //         // console.log(filteredData);
+    //     } catch (err){
+    //         console.error(err);
+    //     }
+    // }
+    //
+    // useEffect(()=>{
+    //
+    //     getBusinessesList();
+    // }, []);
 
 
 
@@ -98,13 +99,16 @@ export default function FirstPageBusinessRegistration({onNext}) {
             // console.log("Before find");
             // findLatLong();
             // console.log("After find");
-            onNext({newBusinessName, businessTypes });
+            onNext([newBusinessName, businessTypes, newPreviewUrl, ownerName]);
 
-            getBusinessesList();
+            // getBusinessesList();
         }catch (err)
         {
             console.log(err);
         }
+    }
+    const handleOnNext = () => {
+        onNext([newBusinessName, businessTypes, newPreviewUrl, ownerName]);
     }
 
     return(
@@ -112,25 +116,23 @@ export default function FirstPageBusinessRegistration({onNext}) {
             <Box sx={{margin: "1rem"}}>
             <Typography variant="h4" textAlign="start">Category</Typography>
                 {BusinessTypesSelection(['cosmetics', 'nails', 'barber', 'hair', 'sport', 'art', 'lifestyle', 'music'])}
-            {/*<BusinessTypesSelection*/}
-            {/*    businesses_types={['cosmetics', 'nails', 'barber', 'hair', 'sport', 'art', 'lifestyle', 'music']}*/}
-            {/*    // style={{flexWrap: "wrap", display: "flex", justifyContent: "center"}}*/}
-            {/*/>*/}
             </Box>
             <Stack direction="column" alignItems="start" margin="0.5rem">
                 <Typography variant="h4">Business Name</Typography>
                 <TextField id="outlined-basic" label="Business Name" variant="outlined" onChange={(e) => setNewBusinessName(e.target.value)} />
 
-                {/*<BasicTextFields fieldName={'Business Name'} onChange={(e) => setNewBusinessName(e.target.value)}/>*/}
                 <Typography variant="h4">Owner Name</Typography>
-                <BasicTextFields fieldName={'Owner Name'}/>
+                <TextField fieldName={'Owner Name'} onChange={(e) => setOwnerName(e.target.value)}/>
+
                 <Typography variant="h4">I’ve added businesses in the past</Typography>
                 <RowRadioButtonsGroup/>
                 <Typography variant="h4">Business owner facebook profile link:</Typography>
-                <BasicTextFields fieldName={'my profile page'}/>
+                <TextField fieldName={'my profile page'} onChange={(e) => setNewPreviewUrl(e.target.value)}/>
             </Stack>
             <button onClick={onSubmitBusiness}> Sign In!</button>
-
+            <Button onClick={handleOnNext}>
+                {'Next'}
+            </Button>
         </div>
     )
 }

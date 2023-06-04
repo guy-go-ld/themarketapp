@@ -16,29 +16,39 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import LanguageIcon from '@mui/icons-material/Language';
+import Button from "@mui/material/Button";
 
-export default function SecondPageBusinessRegistration() {
+export default function SecondPageBusinessRegistration({onNext}) {
 
+    const [insta, setInsta] = useState("");
+    const [face, setFace] = useState("");
+    const [linkedin, setLinkedin] = useState("");
+    const [web, setWeb] = useState("");
+    const handleOnNext = () => {
+        onNext([insta, face, linkedin, web]);
+    }
     return(
         <div>
             <Typography variant="h4">Socials (if exists..)</Typography>
             <Stack direction="row">
                 <InstagramIcon sx={{fontSize: 56, alignSelf: "center"}}/>
-                <BasicTextFields fieldName={'@example'}/>
+                <TextField fieldName={'@example'} onChange={(e) => setInsta(e.target.value)}/>
             </Stack>
             <Stack direction="row">
                 <FacebookIcon sx={{fontSize: 56, alignSelf: "center"}}/>
-                <BasicTextFields fieldName={'facebook page'}/>
+                <TextField fieldName={'facebook page'} onChange={(e) => setFace(e.target.value)}/>
             </Stack>
             <Stack direction="row">
                 <LinkedInIcon sx={{fontSize: 56, alignSelf: "center"}}/>
-                <BasicTextFields fieldName={'linkedin page'}/>
+                <TextField fieldName={'linkedin page'} onChange={(e) => setLinkedin(e.target.value)}/>
             </Stack>
             <Stack direction="row">
                 <LanguageIcon sx={{fontSize: 56, alignSelf: "center"}}/>
-                <BasicTextFields fieldName={'website URL'}/>
+                <TextField fieldName={'website URL'} onChange={(e) => setWeb(e.target.value)}/>
             </Stack>
-
+            <Button onClick={handleOnNext}>
+                {'Next'}
+            </Button>
         </div>
     )
 }
