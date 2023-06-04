@@ -23,9 +23,9 @@ import StyledCircleReview from "../../Styled Components/StyledCircleReview";
 import StyledCircleFootprints from "../../Styled Components/StyledCircleFootprints";
 import {
     StyledAvatarUserFeed,
-    StyledBusinessFeed, StyledRating,
-    StyledSmallCirclesButton
+    StyledBusinessFeed, StyledRating
 } from "../../Styled Components/styledComponents";
+import StyledSmallCircleButton from "../../Styled Components/StyledSmallCirclesButton";
 import StyledFeedItem from "../../Styled Components/StyledFeedItem";
 class AroundMe extends Component{
 render() {
@@ -49,13 +49,17 @@ render() {
                         <StyledCircleReview/>
                         <StyledCircleFootprints/>
                         <StyledAvatarUserFeed/>
-                        <StyledSmallCirclesButton/>
+                        {/* TODO: add dialog box with user circles*/}
+                        {/*<StyledSmallCircleButton userID={"uQZzCkeczqPI4X1SL02HeC71QCy1"}/>*/}
+
                         <StyledBusinessFeed/>
+
                         <StyledFeedItem user_name={"Yuval Lavie"} profile_photo_url={"https://lh3.googleusercontent.com/a/AAcHTtewmeRi-bILTOrRfsI9IBdm7kXJEYXJjz9VOyKB_Q=s96-c"}
                         circles ={["CoolStuff", "DaBoiz", "DaGirlz"]} time={"10 minutes"}
                         business_name={"Falafel_Mama"} business_photo_url={"none"}
                         rating={4.5} url_to_business={""} review={"Mama mia! it was fantastic and very parent-like."}
                         review_address={""}/>
+
                     </Box>
                 </ThemeProvider>
             </div>
