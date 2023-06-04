@@ -36,10 +36,11 @@ export default class User
         return "the user name is: "+this.name_ + ", the user ID is: " + this.userID_;
     }
 
-    async addBusinessReview(businessID, reviewContent) {
+    async addBusinessReview(businessID, reviewContent, rating) {
         const review = {
             businessID: businessID,
             content: reviewContent,
+            rating: rating,
             timestamp: timestamp.now().toDate(),
         };
         this.reviews.push(review);
@@ -105,43 +106,4 @@ const userConverter = {
     },
 };
 
-// export function addBusinessReview(businessID, reviewContent, user) {
-//     const review = {
-//         businessID: businessID,
-//         content: reviewContent,
-//         // timestamp: timestamp,
-//     };
-//     user.reviews.push(review);
-//     console.log("Review added: ", review);
-// }
 
-// export const getUserById = (userId) => {
-//
-//     const usersRef = db.collection("Users");
-//
-//     return usersRef
-//         .doc(userId)
-//         .get()
-//         .then((doc) => {
-//             if (doc.exists) {
-//                 const userData = doc.data();
-//                 return {
-//                     id: doc.id,
-//                     ...userData,
-//                 };
-//             } else {
-//                 console.log("user not found")
-//                 return null; // User not found
-//             }
-//         })
-//         .catch((error) => {
-//             console.error("Error getting user:", error);
-//             return null;
-//         });
-// };
-
-
-// class Business_
-// {
-//
-// }

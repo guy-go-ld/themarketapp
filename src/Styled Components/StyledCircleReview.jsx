@@ -20,10 +20,12 @@ import {getUserById} from "../Classes/UserClass";
 // import getUserById from "../Classes";
 
 
-export default function StyledCircleReview({business_id = ""}) {
+export default function StyledCircleReview() {
     const [open, setOpen] = useState(false);
     const [review, setReview] = useState("");
+    const [rating, setRating] = useState(0);
     let [businessData, setBusinessData] = useState(null);
+    let business_id = "P9cLIqC367iuRjeozkxq";
     let docRef = doc(db, "Business", "P9cLIqC367iuRjeozkxq");
     let docSnap = null;
     // console.log(business_id);
@@ -47,11 +49,8 @@ export default function StyledCircleReview({business_id = ""}) {
     const HandleSend = async () => {
         docSnap = await getDoc(docRef);
         const user = await getUserById(auth?.currentUser?.uid);
-
         if (docSnap.exists()) {
-            // const user = getUserById(uid);
-            await user.addBusinessReview('PHVzalLwhzSNUaIrUZsIeEC8yoP2', review)
-            // await updateDoc(docRef, {[`Reviews.${uid}`] : review}, {merge: true});
+            await user.addBusinessReview('PHVzalLwhzSNUaIrUZsIeEC8yoP2', review, rating)
         }
 
 
@@ -89,7 +88,12 @@ export default function StyledCircleReview({business_id = ""}) {
                         </Stack>
                         <Stack direction="column">
                             <StyledDialogSecondTitle>It was..</StyledDialogSecondTitle>
-                            <StyledRating/>
+                            <StyledRating
+                                value = {rating}
+                                onChange={(event, newValue) => {
+                                setRating(newValue);
+                            }}
+                            />
                         </Stack>
                         <Stack direction="column">
                             <StyledDialogSecondTitle>And I thought it was..</StyledDialogSecondTitle>
