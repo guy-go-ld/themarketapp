@@ -1,4 +1,4 @@
-import {auth, db, storage, timestamp} from "../config/firebase";
+import {auth, db, timestamp} from "../config/firebase";
 import "firebase/auth";
 import {createUserWithEmailAndPassword} from "firebase/auth";
 import {doc, getDoc, setDoc} from "firebase/firestore";
@@ -7,7 +7,7 @@ import {doc, getDoc, setDoc} from "firebase/firestore";
 export default class User
 {
     // TODO as little as I can
-    constructor(name, email, password, userID_ = auth?.currentUser?.uid, review = []) {
+    constructor(name, email, password, userID_ = auth?.currentUser?.uid, review = [], footprint = [], circles = []) {
 
         this.name_ = name;
         this.email_ = email;
@@ -16,8 +16,9 @@ export default class User
         // this.circles = [];
         // this.b_day = "";
         this.userID_ = userID_;
-        this.reviews = review // TODO: list of dictionaries that contains the fields - businessID, timestamp, reviewContent
-
+        this.reviews = review; // TODO: list of dictionaries that contains the fields - businessID, timestamp, reviewContent
+        this.footprints = footprint;
+        this.circles = circles;
     }
 
     signIn = async () => {
@@ -47,10 +48,24 @@ export default class User
         console.log("Review added: ", review);
         await this.saveToFirebase();
     }
+
+    async addBusinessFootprint(businessID, rating) {
+        const footprint = {
+            businessID: businessID,
+            rating: rating,
+            timestamp: timestamp.now().toDate(),
+        };
+        this.footprints.push(footprint);
+        console.log("footprint added: ", footprint);
+        await this.saveToFirebase();
+    }
+
     async saveToFirebase() {
         const ref = doc(db, "Users", this.userID_).withConverter(userConverter);
         await setDoc(ref, this);
     }
+
+
 
 }
 
@@ -68,6 +83,15 @@ export async function getUserById(id) {
     }
 
 }
+
+export async function getUserCircles(id) {
+    const user = getUserById(id);
+    console.log(user.circles);
+    return user.circles
+
+
+}
+
 const signIn = async (name, email, password)=>{
     try
     {
@@ -79,7 +103,9 @@ const signIn = async (name, email, password)=>{
                     email: email,
                     password: password,
                     userID: cred.user.uid,
-                    reviews: []
+                    reviews: [],
+                    footprints: [],
+                    circles: []
                 });
             // console.log("id: ", this.userID_, "name: ", this.name_);
 
@@ -97,12 +123,14 @@ const userConverter = {
             email: user.email_,
             password: user.password_,
             userID: user.userID_,
-            reviews: user.reviews
+            reviews: user.reviews,
+            footprints: user.footprints,
+            circles: user.circles
         };
     },
     fromFirestore(snapshot, options) {
         const data = snapshot.data(options);
-        return new User(data.FirstName, data.email, data.password, data.userID, data.reviews);
+        return new User(data.FirstName, data.email, data.password, data.userID, data.reviews, data.footprints, data.circles);
     },
 };
 
