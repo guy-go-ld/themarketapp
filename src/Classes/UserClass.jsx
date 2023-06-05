@@ -45,7 +45,7 @@ export default class User
             timestamp: timestamp.now().toDate(),
         };
         this.reviews.push(review);
-        console.log("Review added: ", review);
+        // console.log("Review added: ", review);
         await this.saveToFirebase();
     }
 
@@ -68,6 +68,8 @@ export default class User
 
 
 }
+
+
 
 export async function getUserById(id) {
     const ref = doc(db, "Users", id).withConverter(userConverter);

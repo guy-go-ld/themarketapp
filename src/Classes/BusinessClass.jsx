@@ -1,14 +1,25 @@
 import User from "./UserClass";
 import {createUserWithEmailAndPassword} from "firebase/auth";
-import {auth, db} from "../config/firebase";
-import {doc, setDoc} from "firebase/firestore";
+import {auth, db, timestamp} from "../config/firebase";
+import {collection, doc, setDoc, getDocs, getDoc} from "firebase/firestore";
 
 export default class Business
 {
+    static async getAllBusinesses()
+    {
+        let lst = [];
+        const querySnapshot = await getDocs(collection(db, "Business"));
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            // console.log(doc.id, " => ", doc.data());
+            lst.push({label: doc.data().name});
+        });
+        return lst;
+    }
 
     static async makeBusiness(name, type, address, openingHours,
                                      contact, social = [], profilePic = "",
-                                     pictures = [])
+                                     pictures = [],rating = [0,0], last_visited =[], reviews = [])
     {
         let coord= await Business.handleGeocode(address);
         if (coord === undefined)
@@ -17,15 +28,15 @@ export default class Business
         }
         let new_business = new Business(name, type, address, coord, openingHours,
             contact, social, profilePic,
-            pictures);
+            pictures, rating, last_visited, reviews);
         await new_business.signIn();
         return new_business;
     }
 
 
     constructor(name, type, address, coord, openingHours,
-                      contact, social = [], profilePic = "",
-                      pictures = []) {
+                contact, social = [], profilePic = "",
+                pictures = [], rating = [0,0], last_visited =[], reviews =[]) {
         this.name = name;
         this.type = type;
         this.address = address;
@@ -35,10 +46,10 @@ export default class Business
         this.profilePic = profilePic;
         this.pictures = pictures;
 
-
-        this.rating = [0, 0];
+        this.reviews = reviews;
+        this.rating = rating;
         this.coord = coord;
-        this.last_visited = [];
+        this.last_visited = last_visited;
     }
     signIn = async () => {
         try {
@@ -52,7 +63,21 @@ export default class Business
     {
         return "Business name: " + this.name_ + "\nBusiness address: " + this.address + "Coord: "+this.coord;
     }
-
+    async addUserReview(userID, reviewContent, rating)
+    {
+        const review = {
+            businessID: userID,
+            content: reviewContent,
+            rating: rating,
+            timestamp: timestamp.now().toDate(),
+        };
+        this.reviews.push(review);
+        await this.saveToFirebase();
+    }
+    async saveToFirebase() {
+        const ref = doc(db, "Business", this.name).withConverter(businessConverter);
+        await setDoc(ref, this);
+    }
     static async handleGeocode(address) {
         try {
             const response = await fetch(
@@ -73,6 +98,8 @@ export default class Business
         }
         return [0,0];
     };
+
+
 }
 
 
@@ -88,13 +115,28 @@ const businessConverter = {
             profilePic : business.profilePic,
             pictures : business.pictures,
             rating: business.rating,
-            coord: business.coord,
-            last_visited: business.last_visited
+            coord: business.coord, //.map((coo) => coo),
+            last_visited: business.last_visited,
+            reviews: business.reviews
         };
     },
     fromFirestore(snapshot, options) {
         const data = snapshot.data(options);
-        return new User(data.name, data.type, data.address, data.openingHours, data.contact,
-            data.social, data.profilePic, data.pictures, data.rating, data.coord, data.last_visited);
+        return new Business(data.name, data.type, data.address, data.coord,data.openingHours, data.contact,
+            data.social, data.profilePic, data.pictures, data.rating, data.last_visited, data.reviews);
     },
 };
+
+export async function getBusinessByName(name)
+{
+    const ref = doc(db, "Business", name).withConverter(businessConverter);
+    const docSnap = await getDoc(ref);
+    if (docSnap.exists()) {
+        // Convert to Business object
+        const business = docSnap.data();
+        return business;
+    } else {
+        console.log("No such document!");
+        return null;
+    }
+}
