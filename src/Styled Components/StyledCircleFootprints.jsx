@@ -4,7 +4,7 @@ import {
     StyledDialogInputBusiness,
     StyledDialogReviewIcon, StyledDialogFootprintIcon,
     StyledDialogSecondTitle, StyledDialogTextFieldReview,
-    StyledDialogTitle, StyledRating
+    StyledDialogTitle, StyledRating, StyledAutoComplete
 } from "./styledComponents";
 import {ReactComponent as FootprintsIcon} from "../Icons/footprints-svgrepo-com.svg";
 import Box from "@mui/material/Box";
@@ -18,7 +18,7 @@ import {getUserById} from "../Classes/UserClass";
 import Business, {getBusinessByName} from "../Classes/BusinessClass";
 import TextField from "@mui/material/TextField";
 
-export default function StyledCircleFootprint(){
+export default function StyledCircleFootprint({closeSmallDialog= ()=>{}}){
 
     const [open, setOpen] = useState(false);
     const [rating, setRating] = useState(0);
@@ -45,6 +45,7 @@ export default function StyledCircleFootprint(){
 
     const handleClose = () => {
         setOpen(false);
+        closeSmallDialog();
     };
 
     const HandleSend = async () => {
@@ -88,11 +89,11 @@ export default function StyledCircleFootprint(){
                             <StyledDialogFootprintIcon/>
                             <StyledDialogTitle>New Footprint</StyledDialogTitle>
                         </Stack>
-                        <Stack direction="column">
+                        <Stack direction="column" spacing={1}>
                             <StyledDialogSecondTitle>I went to..</StyledDialogSecondTitle>
                             {/*<StyledDialogInputBusiness placeholder={"Business Name"}/>*/}
                             {/*TODO change front*/}
-                            <Autocomplete
+                            <StyledAutoComplete
                                 disablePortal
                                 inputValue={chosenBusiness}
                                 onInputChange={(event, newInputValue) => {
@@ -100,7 +101,7 @@ export default function StyledCircleFootprint(){
                                 }}
                                 id="combo-box-demo"
                                 options={lstBusiness}
-                                sx={{ width: 300 }}
+                                // sx={{ width: 300 }}
                                 renderInput={(params) => <TextField
                                     {...params}
                                     label="Business"
@@ -108,13 +109,6 @@ export default function StyledCircleFootprint(){
                             />
                         </Stack>
                         <Stack direction="column">
-                            <StyledDialogSecondTitle>It was..</StyledDialogSecondTitle>
-                            <StyledRating
-                                value = {rating}
-                                onChange={(event, newValue) => {
-                                    setRating(newValue);
-                                }}
-                            />
                         </Stack>
                         {/*<Stack direction="column">*/}
                         {/*    <StyledDialogSecondTitle>And I thought it was..</StyledDialogSecondTitle>*/}
