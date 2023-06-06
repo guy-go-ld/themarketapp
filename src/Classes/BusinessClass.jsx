@@ -19,7 +19,8 @@ export default class Business
 
     static async makeBusiness(name, type, address, openingHours,
                                      contact, social = [], profilePic = "",
-                                     pictures = [],rating = [0,0], last_visited =[], reviews = [])
+                                     pictures = [],rating = [0,0], last_visited =[], reviews = [],
+                              footprints = [])
     {
         let coord= await Business.handleGeocode(address);
         if (coord === undefined)
@@ -28,7 +29,7 @@ export default class Business
         }
         let new_business = new Business(name, type, address, coord, openingHours,
             contact, social, profilePic,
-            pictures, rating, last_visited, reviews);
+            pictures, rating, last_visited, reviews, footprints);
         await new_business.signIn();
         return new_business;
     }
@@ -36,7 +37,8 @@ export default class Business
 
     constructor(name, type, address, coord, openingHours,
                 contact, social = [], profilePic = "",
-                pictures = [], rating = [0,0], last_visited =[], reviews =[]) {
+                pictures = [], rating = [0,0], last_visited =[], reviews =[],
+                footprints = []) {
         this.name = name;
         this.type = type;
         this.address = address;
@@ -50,6 +52,7 @@ export default class Business
         this.rating = rating;
         this.coord = coord;
         this.last_visited = last_visited;
+        this.footprints = footprints;
     }
     signIn = async () => {
         try {
@@ -72,6 +75,20 @@ export default class Business
             timestamp: timestamp.now().toDate(),
         };
         this.reviews.push(review);
+        this.rating[0] += rating;
+        this.rating[1] += 1;
+        await this.saveToFirebase();
+    }
+
+    async addUserFootprint(userID, rating)
+    {
+        const footprint =
+            {
+                userID: userID,
+                rating: rating,
+                timestamp: timestamp.now().toDate(),
+            }
+        this.footprints.push(footprint);
         this.rating[0] += rating;
         this.rating[1] += 1;
         await this.saveToFirebase();
@@ -119,13 +136,14 @@ const businessConverter = {
             rating: business.rating,
             coord: business.coord, //.map((coo) => coo),
             last_visited: business.last_visited,
-            reviews: business.reviews
+            reviews: business.reviews,
+            footprints: business.footprints,
         };
     },
     fromFirestore(snapshot, options) {
         const data = snapshot.data(options);
         return new Business(data.name, data.type, data.address, data.coord,data.openingHours, data.contact,
-            data.social, data.profilePic, data.pictures, data.rating, data.last_visited, data.reviews);
+            data.social, data.profilePic, data.pictures, data.rating, data.last_visited, data.reviews, data.footprints);
     },
 };
 

@@ -7,7 +7,7 @@ import {doc, getDoc, setDoc} from "firebase/firestore";
 export default class User
 {
     // TODO as little as I can
-    constructor(name, email, password, userID_ = auth?.currentUser?.uid, review = [], footprint = [], circles = []) {
+    constructor(name, email, password, userID_ = auth?.currentUser?.uid, review = [], footprint = [], circles = [], friends = []) {
 
         this.name_ = name;
         this.email_ = email;
@@ -19,6 +19,7 @@ export default class User
         this.reviews = review; // TODO: list of dictionaries that contains the fields - businessID, timestamp, reviewContent
         this.footprints = footprint;
         this.circles = circles;
+        this.friends = friends;
     }
 
     signIn = async () => {
@@ -65,8 +66,39 @@ export default class User
         await setDoc(ref, this);
     }
 
-
-
+    static async getUserFriendsById(id)
+    {
+        const user = await getUserById(id);
+        return user?.friends;
+    }
+    static async getFriendsReviews(userID)
+    {
+        const friends_id = await User.getUserFriendsById(userID);
+        let listOfReviews = [];
+        if (friends_id.length > 0)
+        {
+            for (const friend_id of friends_id) {
+                const friend = await getUserById(friend_id);
+                if (friend !== null)
+                {
+                    friend.reviews.forEach((review) => listOfReviews.push(review));
+                }
+                else
+                {
+                    console.error("Error getting friend from database!");
+                    return listOfReviews;
+                }
+            }
+        }
+        else{
+            console.log("Ain't got no friends!");
+        }
+        return listOfReviews;
+    }
+    static feedItemConverter(user, review)
+    {
+        return {user_name: user.name_, user}
+    }
 }
 
 
@@ -75,10 +107,8 @@ export async function getUserById(id) {
     const ref = doc(db, "Users", id).withConverter(userConverter);
     const docSnap = await getDoc(ref);
     if (docSnap.exists()) {
-        // Convert to User object
-        const user = docSnap.data();
-        // Use a City instance method
-        return user;
+        // Convert to User object and return it
+        return docSnap.data();
     } else {
         console.log("No such document!");
         return null;
@@ -87,8 +117,7 @@ export async function getUserById(id) {
 }
 
 export async function getUserCircles(id) {
-    const user = getUserById(id);
-    console.log(user.circles);
+    const user = await getUserById(id);
     return user.circles
 
 
@@ -127,12 +156,13 @@ const userConverter = {
             userID: user.userID_,
             reviews: user.reviews,
             footprints: user.footprints,
-            circles: user.circles
+            circles: user.circles,
+            friends: user.friends
         };
     },
     fromFirestore(snapshot, options) {
         const data = snapshot.data(options);
-        return new User(data.FirstName, data.email, data.password, data.userID, data.reviews, data.footprints, data.circles);
+        return new User(data.FirstName, data.email, data.password, data.userID, data.reviews, data.footprints, data.circles, data.friends);
     },
 };
 

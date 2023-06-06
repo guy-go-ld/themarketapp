@@ -8,28 +8,39 @@ import {
 } from "./styledComponents";
 import {ReactComponent as FootprintsIcon} from "../Icons/footprints-svgrepo-com.svg";
 import Box from "@mui/material/Box";
-import {Button, DialogActions, DialogContent, Stack} from "@mui/material";
+import {Autocomplete, Button, DialogActions, DialogContent, Stack} from "@mui/material";
 import theme from "../Theme/Theme";
 import Dialog from "@mui/material/Dialog";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {doc, getDoc} from "firebase/firestore";
 import {auth, db} from "../config/firebase";
 import {getUserById} from "../Classes/UserClass";
+import Business, {getBusinessByName} from "../Classes/BusinessClass";
+import TextField from "@mui/material/TextField";
 
 export default function StyledCircleFootprint(){
 
     const [open, setOpen] = useState(false);
-    // const [review, setReview] = useState("");
     const [rating, setRating] = useState(0);
-    let [businessData, setBusinessData] = useState(null);
-    let business_id = "P9cLIqC367iuRjeozkxq";
-    let docRef = doc(db, "Business", "P9cLIqC367iuRjeozkxq");
-    let docSnap = null;
+    const [chosenBusiness, setChosenBusiness] = useState("");
+
+    useEffect(() => {
+        getBusinesses()
+    }, [])
+
+    const [lstBusiness, setLstBusiness] = useState([]);
+
+    const getBusinesses = ()=> {
+        Business.getAllBusinesses().then((lst) => {
+            setLstBusiness(lst);
+            // console.log(lstBusiness);
+        }).catch((error) => {
+            console.error(error);
+        });
+    }
 
     const handleClickOpen = () => {
-        if (business_id !== "") {
-            setOpen(true);
-        }
+        setOpen(true);
     };
 
     const handleClose = () => {
@@ -37,14 +48,22 @@ export default function StyledCircleFootprint(){
     };
 
     const HandleSend = async () => {
-        docSnap = await getDoc(docRef);
-        const user = await getUserById(auth?.currentUser?.uid);
-        if (docSnap.exists()) {
-            await user.addBusinessFootprint('PHVzalLwhzSNUaIrUZsIeEC8yoP2', rating)
-        }
-        handleClose();
-    }
+        if (chosenBusiness !== "")
+        {
+            const business = await getBusinessByName(chosenBusiness);
 
+            const user = await getUserById(auth?.currentUser?.uid);
+            if (business !== null) {
+                await user.addBusinessFootprint(chosenBusiness, rating)
+            }
+
+            if (business !== null)
+            {
+                await business.addUserFootprint(auth?.currentUser?.uid, rating);
+            }
+            handleClose();
+        }
+    }
 
     return(
         <Box>
@@ -71,7 +90,22 @@ export default function StyledCircleFootprint(){
                         </Stack>
                         <Stack direction="column">
                             <StyledDialogSecondTitle>I went to..</StyledDialogSecondTitle>
-                            <StyledDialogInputBusiness placeholder={"Business Name"}/>
+                            {/*<StyledDialogInputBusiness placeholder={"Business Name"}/>*/}
+                            {/*TODO change front*/}
+                            <Autocomplete
+                                disablePortal
+                                inputValue={chosenBusiness}
+                                onInputChange={(event, newInputValue) => {
+                                    setChosenBusiness(newInputValue);
+                                }}
+                                id="combo-box-demo"
+                                options={lstBusiness}
+                                sx={{ width: 300 }}
+                                renderInput={(params) => <TextField
+                                    {...params}
+                                    label="Business"
+                                />}
+                            />
                         </Stack>
                         <Stack direction="column">
                             <StyledDialogSecondTitle>It was..</StyledDialogSecondTitle>
