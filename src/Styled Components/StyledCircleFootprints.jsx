@@ -44,8 +44,8 @@ export default function StyledCircleFootprint({closeSmallDialog= ()=>{}}){
     };
 
     const handleClose = () => {
-        setOpen(false);
         closeSmallDialog();
+        setOpen(false);
     };
 
     const HandleSend = async () => {

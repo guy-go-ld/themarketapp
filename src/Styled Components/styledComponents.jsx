@@ -35,9 +35,8 @@ export const StyledButtonGray = styled(Button)(({theme}) => ({
 export const StyledAppBarTop = styled(AppBar)(({theme}) => ({
     backgroundColor: theme.palette.primary.main,
     borderBottom: `0.65rem solid ${theme.palette.secondary.main}`,
-    position: "fixed",
+    position: "static",
     [theme.breakpoints.up('xs')]: {
-        height: '6.5rem',
     }
 }));
 export const StyledSearchBar = styled(Input)(({theme}) => ({
@@ -205,7 +204,9 @@ export const StyledBottomNavigationAction = styled(BottomNavigationAction)(({the
 }));
 
 export const StyledBottomNavigation = styled(BottomNavigation)(({theme}) => ({
-
+    position:"fixed",
+    bottom:"0",
+    width:"100%",
     [theme.breakpoints.up('xs')]: {
         height: "4.5rem"
     },

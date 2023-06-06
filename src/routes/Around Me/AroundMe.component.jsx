@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import {ThemeProvider} from "@mui/material/styles";
 
 
-import TopMenuNew from "../../newComponents/TopMenuNew";
+import StyledTopMenuNew from "../../Styled Components/StyledTopMenuNew";
 import StyledCircleReview from "../../Styled Components/StyledCircleReview";
 import StyledCircleFootprints from "../../Styled Components/StyledCircleFootprints";
 import {
@@ -35,7 +35,7 @@ render() {
                 {/*<FullWidthTabs/>*/}
                 {/*<ResizableMap/>*/}
                 <ThemeProvider theme={theme}>
-                    <TopMenuNew/>
+                    <StyledTopMenuNew/>
                     <Box sx={{mt:10}}>
                         {/*<StyledCircleReview/>*/}
                         {/*<StyledCircleFootprints/>*/}

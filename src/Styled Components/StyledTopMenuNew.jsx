@@ -1,8 +1,8 @@
 import {Stack} from "@mui/material";
-import {StyledAppBarTop, StyledHamburgerButton, StyledSearchBar} from "../Styled Components/styledComponents";
+import {StyledAppBarTop, StyledHamburgerButton, StyledSearchBar} from "./styledComponents";
 import logoNew from "../Icons/logo-all-white.png";
 
-function TopMenuNew(){
+function StyledTopMenuNew(){
     return(
         <StyledAppBarTop>
             <Stack direction = "row" alignItems="center" spacing={1}   justifyContent="space-evenly">
@@ -28,4 +28,4 @@ function TopMenuNew(){
     );
 }
 
-export default TopMenuNew;
+export default StyledTopMenuNew;
