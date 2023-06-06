@@ -11,10 +11,11 @@ class Notifications extends Component{
     render() {
         return(
             <div style={{paddingTop: "10rem"}}>
-            {/*<Auth/>*/}
+            <Auth/>
             {/*    <UserRegistrationForm/>*/}
             {/*<CreateUser/>*/}
-            <CreateBusiness/>
+            {/*<CreateBusiness/>*/}
+
             </div>
         )
     }

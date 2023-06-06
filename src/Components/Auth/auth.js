@@ -1,5 +1,5 @@
 import {auth, db, googleProvider} from "../../config/firebase";
-import {createUserWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth";
 import {useState} from "react";
 import {getAnalytics, setUserProperties} from "firebase/analytics";
 import {doc, setDoc, collection} from "firebase/firestore";
@@ -29,7 +29,20 @@ export const Auth = () =>
         }
         // handleRefresh();
     };
-
+    const LogIn = async() => {
+        try
+        {
+            await signInWithEmailAndPassword(auth, email, password).then((userCredential)=>
+            {
+                // Signed in
+                const user = userCredential.user;
+                console.log(user);
+                // ...
+            })
+        } catch (err) {
+            console.error(err);
+        }
+    };
     const signInWithGoogle = async ()=>{
         try
         {
@@ -81,6 +94,7 @@ export const Auth = () =>
                 placeholder="Password..."
                 onChange={(e)=> setPassword(e.target.value)}/>
             <button onClick={signIn}>Sign In</button>
+            <button onClick={LogIn}>Log In</button>
             <button onClick={signInWithGoogle}>Sign In With Google</button>
             <button onClick={logout}>Log out</button>
             <p>{auth?.currentUser?.email}</p>
