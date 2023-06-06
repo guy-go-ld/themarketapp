@@ -66,12 +66,14 @@ export default class Business
     async addUserReview(userID, reviewContent, rating)
     {
         const review = {
-            businessID: userID,
+            userID: userID,
             content: reviewContent,
             rating: rating,
             timestamp: timestamp.now().toDate(),
         };
         this.reviews.push(review);
+        this.rating[0] += rating;
+        this.rating[1] += 1;
         await this.saveToFirebase();
     }
     async saveToFirebase() {

@@ -159,14 +159,12 @@ export default function StyledCircleReview() {
         getBusinesses()
     }, [])
 
-    let [businessData, setBusinessData] = useState(null);
-    let business_id = "Misparafi";
-    let docSnap = null;
+
     const [lstBusiness, setLstBusiness] = useState([]);
     const getBusinesses = ()=> {
         Business.getAllBusinesses().then((lst) => {
             setLstBusiness(lst);
-            console.log(lstBusiness);
+            // console.log(lstBusiness);
         }).catch((error) => {
             console.error(error);
         });
