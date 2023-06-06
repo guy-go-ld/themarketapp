@@ -17,6 +17,7 @@ import {
 import StyledSmallCircleButton from "../../Styled Components/StyledSmallCirclesButton";
 import StyledFeedItem from "../../Styled Components/StyledFeedItem";
 import FeedItemPage from "../../Styled Components/FeedItemPage";
+import StyledBottomNavigationBar from "../../Styled Components/StyledBottomNavigationBar";
 class AroundMe extends Component{
 render() {
     return(
@@ -37,19 +38,21 @@ render() {
                     <CityCircleLogoLogIn/>
                     <TopMenuNew/>
                     <Box sx={{mt:10}}>
-                        <StyledCircleReview/>
-                        <StyledCircleFootprints/>
+                        {/*<StyledCircleReview/>*/}
+                        {/*<StyledCircleFootprints/>*/}
                         {/*<StyledAvatarUserFeed/>*/}
                         {/* TODO: add dialog box with user circles*/}
-                        <StyledSmallCircleButton userID={"m5UUdxwDFEgDCohPQdKYy6rdjtp1"}/>
+                        {/*<StyledSmallCircleButton userID={"m5UUdxwDFEgDCohPQdKYy6rdjtp1"}/>*/}
 
                         {/*<StyledBusinessFeed/>*/}
-                        <StyledFeedItem user_name={"Yuval Lavie"} profile_photo_url={"https://lh3.googleusercontent.com/a/AAcHTtewmeRi-bILTOrRfsI9IBdm7kXJEYXJjz9VOyKB_Q=s96-c"}
-                        circles ={["CoolStuff", "DaBoiz", "DaGirlz"]} time={"10 minutes"}
-                        business_name={"Falafel_Mama"} business_photo_url={"none"}
-                        rating={4.5} url_to_business={""} review={"Mama mia! it was fantastic and very parent-like."}
-                        review_address={""}/>
-                        {/*<FeedItemPage/>*/}
+                        {/*<StyledFeedItem user_name={"Yuval Lavie"} profile_photo_url={"https://lh3.googleusercontent.com/a/AAcHTtewmeRi-bILTOrRfsI9IBdm7kXJEYXJjz9VOyKB_Q=s96-c"}*/}
+                        {/*circles ={["CoolStuff", "DaBoiz", "DaGirlz"]} time={"10 minutes"}*/}
+                        {/*business_name={"Falafel_Mama"} business_photo_url={"none"}*/}
+                        {/*rating={4.5} url_to_business={""} review={"Mama mia! it was fantastic and very parent-like."}*/}
+                        {/*review_address={""}/>*/}
+                        <FeedItemPage/>
+
+                        <StyledBottomNavigationBar/>
                     </Box>
                 </ThemeProvider>
             </div>

@@ -1,5 +1,6 @@
 import RateReviewOutlinedIcon from "@mui/icons-material/RateReviewOutlined";
 import {
+    StyledAutoComplete,
     StyledCircleBox,
     StyledDialogInputBusiness,
     StyledDialogReviewIcon,
@@ -20,7 +21,7 @@ import Business, {getBusinessByName} from "../Classes/BusinessClass";
 
 
 
-export default function StyledCircleReview() {
+export default function StyledCircleReview({closeSmallDialog= ()=>{}}) {
     const [open, setOpen] = useState(false);
     const [review, setReview] = useState("");
     const [rating, setRating] = useState(0);
@@ -48,6 +49,7 @@ export default function StyledCircleReview() {
     };
 
     const handleClose = () => {
+        closeSmallDialog();
         setOpen(false);
     };
     // const fetch = async () => {
@@ -102,10 +104,10 @@ export default function StyledCircleReview() {
                             <StyledDialogReviewIcon/>
                             <StyledDialogTitle>New Review</StyledDialogTitle>
                         </Stack>
-                        <Stack direction="column">
+                        <Stack direction="column" spacing={1}>
                             <StyledDialogSecondTitle>I went to..</StyledDialogSecondTitle>
                             {/*TODO change front*/}
-                            <Autocomplete
+                            <StyledAutoComplete
                                 disablePortal
                                 inputValue={chosenBusiness}
                                 onInputChange={(event, newInputValue) => {
@@ -113,7 +115,6 @@ export default function StyledCircleReview() {
                                 }}
                                 id="combo-box-demo"
                                 options={lstBusiness}
-                                sx={{ width: 300 }}
                                 renderInput={(params) => <TextField
                                     {...params}
                                     label="Business"
@@ -130,12 +131,13 @@ export default function StyledCircleReview() {
                             }}
                             />
                         </Stack>
-                        <Stack direction="column">
+                        <Stack direction="column" spacing={1}>
                             <StyledDialogSecondTitle>And I thought it was..</StyledDialogSecondTitle>
                             <StyledDialogTextFieldReview
                                 multiline
                                 rows={4}
                                 id="name"
+                                width = "unset"
                                 label="Your Awesome Review"
                                 type="email"
                                 fullWidth
