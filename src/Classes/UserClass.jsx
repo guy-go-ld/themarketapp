@@ -2,17 +2,19 @@ import {auth, db, timestamp} from "../config/firebase";
 import "firebase/auth";
 import {createUserWithEmailAndPassword} from "firebase/auth";
 import {doc, getDoc, setDoc} from "firebase/firestore";
+import {getBusinessByName} from "./BusinessClass";
 // import {auth} from "./config/firebase";
 
 export default class User
 {
     // TODO as little as I can
-    constructor(name, email, password, userID_ = auth?.currentUser?.uid, review = [], footprint = [], circles = [], friends = []) {
+    constructor(name, email, password, userID_ = auth?.currentUser?.uid, review = [],
+                footprint = [], circles = [], friends = [], profile_pic="") {
 
         this.name_ = name;
         this.email_ = email;
         this.password_= password;
-        // this.profile_  = "";
+        this.profile_pic  = "";
         // this.circles = [];
         // this.b_day = "";
         this.userID_ = userID_;
@@ -81,7 +83,11 @@ export default class User
                 const friend = await getUserById(friend_id);
                 if (friend !== null)
                 {
-                    friend.reviews.forEach((review) => listOfReviews.push(review));
+                    for (const review of friend.reviews)
+                    {
+                        const business = await getBusinessByName(review.businessID);
+                        listOfReviews.push(User.feedItemConverter(friend, review, business));
+                    }
                 }
                 else
                 {
@@ -95,9 +101,15 @@ export default class User
         }
         return listOfReviews;
     }
-    static feedItemConverter(user, review)
+    static feedItemConverter(user, review, business)
     {
-        return {user_name: user.name_, user}
+
+        return {user_name: user.name_, profile_photo_url: user.profile_pic,
+            circles: user.circles, time: review.timestamp.toDate(),
+            business_name: business.name, business_photo_url: business.profilePic,
+            rating: (business.rating[0]/ business.rating[1]),
+            url_to_business: business.id, review:review.content,
+            review_address: review.content}
     }
 }
 
