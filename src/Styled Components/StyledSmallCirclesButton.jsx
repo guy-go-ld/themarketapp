@@ -9,14 +9,20 @@ import Box from "@mui/material/Box";
 import {DialogContent, Stack} from "@mui/material";
 import theme from "../Theme/Theme";
 
-export default function StyledSmallCircleButton({userID}) {
+export default function StyledSmallCircleButton({userID, circles_ = []}) {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
-        getUserCirclesHelper(userID)
+        if (circles !== [])
+        {
+            setCircles(circles_);
+        }
+        else{
+            getUserCirclesHelper(userID)
+        }
     }, [])
 
-    const [circles, setCircles] = useState([]);
+    const [circles, setCircles] = useState(circles_);
 
     const getUserCirclesHelper = (id) => {
         getUserCircles(id).then((lst) => {
@@ -28,12 +34,9 @@ export default function StyledSmallCircleButton({userID}) {
     const handleClickOpen = () => {
         setOpen(true);
     };
-
     const handleClose = () => {
         setOpen(false);
     };
-
-    const userCirclesList = getUserCircles(userID);
 
 
     return (

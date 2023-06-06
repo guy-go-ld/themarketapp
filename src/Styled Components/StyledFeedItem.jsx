@@ -10,6 +10,7 @@ import StyledGrayButtonFullReview from "./StyledGrayButtonFullReview";
 import StyledGrayButtonVisitBusiness from "./StyledGrayButtonVisitBusiness";
 import {useState} from "react";
 import {timestamp} from "../config/firebase"
+import StyledSmallCircleButton from "./StyledSmallCirclesButton";
 
 
 function calculateTime(time)
@@ -52,7 +53,6 @@ export default function StyledFeedItem({user_name="name", profile_photo_url="",
     const handleClose = () => {
         setOpen(false);
     };
-
     return (
         <box>
             <Stack direction="column" spacing={2} sx={{padding:"0.4rem", boxShadow: '0 2px 5px rgba(0, 0, 0, 0.3)', borderBottom: '0.1rem solid #C3ED5B'}}>
@@ -73,7 +73,7 @@ export default function StyledFeedItem({user_name="name", profile_photo_url="",
                             </Stack>
                         </item>
                         <item>
-                            <StyledSmallCirclesButton/>
+                            <StyledSmallCircleButton userID={user_name} circles_={circles} />
                         </item>
                     </Stack>
                 </item>
