@@ -7,15 +7,16 @@ import UserRegistrationForm from "../../Components/UserRegistration.component";
 // import CreateUser from "../../BackEndComponents/CreateUser.component";
 // import BusinessStepper from "../../Components/BusinessRegistrationComponents/Stepper.components";
 import LogInPage from "../../Styled Components/styledLogInPage";
-
+import SignupPage from "../../routes/SignUpPage";
 
 class Notifications extends Component{
     render() {
         return(
             <div style={{paddingTop: "5rem"}}>
-            <Auth/>
-                <LogInPage/>
-                <UserRegistrationForm/>
+            {/*<Auth/>*/}
+            {/*    <LogInPage/>*/}
+                <SignupPage/>
+                {/*<UserRegistrationForm/>*/}
 
             {/*    <UserRegistrationForm/>*/}
             {/*<CreateUser/>*/}

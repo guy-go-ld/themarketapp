@@ -50,12 +50,13 @@ export const StyledPurpleBox = styled(AppBar)(({ theme })=> ({
     }
 }));
 
-export const StyledSearchBar = styled(Input)(({ theme })=> ({
-    backgroundColor:"white",
-    color:theme.palette.info.dark,
-    marginLeft:"auto",
-    marginRight:"auto",
-    borderRadius:"10px",
+// export const StyledSearchBar = styled(Input)(({ theme })=> ({
+//     backgroundColor: "white",
+//     color: theme.palette.info.dark,
+//     marginLeft: "auto",
+//     marginRight: "auto",
+//     borderRadius: "10px",
+// }));
 export const StyledSearchBar = styled(Input)(({theme}) => ({
     backgroundColor: "white",
     color: theme.palette.info.dark,
@@ -108,13 +109,13 @@ export const StyledAvatarUserFeed = styled(Avatar)(({ theme })=> ({
     [theme.breakpoints.up('xs')]:{
         width:"2.5rem",
         height:"2.5rem"
-export const StyledAvatarUserFeed = styled(Avatar)(({theme}) => ({
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-    [theme.breakpoints.up('xs')]: {
-        width: "2.5rem",
-        height: "2.5rem"
-    }
-}));
+// export const StyledAvatarUserFeed = styled(Avatar)(({theme}) => ({
+//     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+//     [theme.breakpoints.up('xs')]: {
+//         width: "2.5rem",
+//         height: "2.5rem"
+//     }
+}}));
 
 export const StyledSmallCirclesButton = styled(SupervisedUserCircleIcon)(({theme}) => ({
     color: theme.palette.primary.main,

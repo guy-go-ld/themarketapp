@@ -6,6 +6,8 @@ import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
 import StyledBottomNavigationPlus from "./StyledBottomNavigationPlus";
 
+
+
 export default function StyledBottomNavigationBar() {
     return (
         <StyledBottomNavigation
