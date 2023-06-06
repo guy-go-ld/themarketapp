@@ -6,15 +6,19 @@ import CreateBusiness from "../../BackEndComponents/CreateBusiness.component";
 import UserRegistrationForm from "../../Components/UserRegistration.component";
 // import CreateUser from "../../BackEndComponents/CreateUser.component";
 // import BusinessStepper from "../../Components/BusinessRegistrationComponents/Stepper.components";
+import LogInPage from "../../Styled Components/styledLogInPage";
+
 
 class Notifications extends Component{
     render() {
         return(
-            <div style={{paddingTop: "10rem"}}>
+            <div style={{paddingTop: "5rem"}}>
             {/*<Auth/>*/}
-            {/*    <UserRegistrationForm/>*/}
+                <LogInPage/>
+                <UserRegistrationForm/>
+
             {/*<CreateUser/>*/}
-            <CreateBusiness/>
+            {/*<CreateBusiness/>*/}
             </div>
         )
     }
