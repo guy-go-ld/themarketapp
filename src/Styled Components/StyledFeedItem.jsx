@@ -93,7 +93,7 @@ export default function StyledFeedItem({user_name="name", profile_photo_url="",
                                 </item>
                                 <item>
                                     <Stack direction = "row" spacing = {0.5}>
-                                        <StyledGrayButtonFullReview/>
+                                        <StyledGrayButtonFullReview content={review}/>
                                         <StyledGrayButtonVisitBusiness/>
                                     </Stack>
                                 </item>

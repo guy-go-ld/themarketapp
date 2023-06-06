@@ -6,7 +6,7 @@ import StyledCircleReview from "./StyledCircleReview";
 import StyledCircleFootprint from "./StyledCircleFootprints";
 import Dialog from "@mui/material/Dialog";
 
-const StyledGrayButtonFullReview = () => {
+const StyledGrayButtonFullReview = ({content}) => {
     const [clicked, setClicked] = useState(false);
     const [openDialog, setOpenDialog] = useState(false);
 
@@ -40,7 +40,7 @@ const StyledGrayButtonFullReview = () => {
                     <Typography variant = "h1">
                         Review
                     </Typography>
-                    <Typography variant="h4">review
+                    <Typography variant="h4">{content}
                     </Typography>
                 </DialogContent>
             </Dialog>
