@@ -32,21 +32,21 @@ export default function StyledFeedItem({user_name="name", profile_photo_url="",
 
 
     const [userName, setUserName] = useState("default name");
-    const userRef = doc(db, "Users", auth?.currentUser?.uid);
-    const fetch = async () =>
-    {
-        const userSnap = await getDoc(userRef);
-        if (userSnap.exists())
-        {
-            // console.log(userSnap.data());
-            setUserName(userSnap.get("FirstName"));
-        }
-        else{
-            console.log("err");
-        }
-    }
+    // const userRef = doc(db, "Users", auth?.currentUser?.uid);
+    // const fetch = async () =>
+    // {
+    //     const userSnap = await getDoc(userRef);
+    //     if (userSnap.exists())
+    //     {
+    //         // console.log(userSnap.data());
+    //         setUserName(userSnap.get("FirstName"));
+    //     }
+    //     else{
+    //         console.log("err");
+    //     }
+    // }
     // Getting the document from the database
-    fetch();
+    // fetch();
 
     return (
         <box>
