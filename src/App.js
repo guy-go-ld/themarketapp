@@ -12,6 +12,7 @@ import BusinessRegistrationPage1 from "./routes/business_registratin_pages/Busin
 import CommunityComponent from "./routes/Community/Community.component";
 import Theme from "./Theme/Theme";
 import {ThemeProvider} from "@mui/material/styles";
+import NewNavigation from "./routes/navigation/NewNavigation";
 
 class App extends Component{
     render(){
@@ -21,15 +22,18 @@ class App extends Component{
             <Routes>
                 {/*<Route path="/" element={<NavigationLower/>} ></Route>*/}
                 <Route path="/" element={<NavigationComponent />}>
-                    <Route index element={<HomePageComponent />} />
-                    <Route path="ProfilePageComponent" element={<ProfilePageComponent/>}/>
+                <Route index element={<HomePageComponent />} />
+                <Route path="ProfilePageComponent" element={<ProfilePageComponent/>}/>
                     <Route path="BusinessPageComponent" element={<BusinessPageComponent/>}/>
                     <Route path="AroundMeComponent" element={<AroundMeComponent/>}/>
                     <Route path="NotificationsComponent" element={<NotificationsComponent/>}/>
                     <Route path="CommunityComponent" element={<CommunityComponent/>}/>
                     <Route path="BusinessRegistrationPage1" element={<BusinessRegistrationPage1/>}/>
                 </Route>
-                <Route path="SearchPageComponent" element={<SearchPageComponent />} />
+                {/*<Route path="SearchPageComponent" element={<SearchPageComponent />} />*/}
+                <Route path="Navigation" element={<NewNavigation />} >
+                    <Route path="SearchPageComponent" element={<SearchPageComponent />} />
+                </Route>
             </Routes>
             </ThemeProvider>
 
