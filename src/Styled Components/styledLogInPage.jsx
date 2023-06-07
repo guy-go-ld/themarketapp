@@ -1,4 +1,4 @@
-import StyledLogoLogIn from "./styledCityCircleLogoLogIn";
+import {StyledLogoLogIn} from "./styledCityCircleLogoLogIn";
 import {StyledButtonGray} from "./styledComponents";
 import Box from "@mui/material/Box";
 import {StyledPurpleBox, StyledDialogTextFieldReview} from "./styledComponents";
@@ -90,8 +90,7 @@ export default function UserRegistrationForm () {
                 <StyledButtonGray onClick={handleSignUp}>
                         Register
                 </StyledButtonGray>
-                <StyledButtonGray onClick={LogIn(email, password)}>
-Log In                </StyledButtonGray>
+                <StyledButtonGray onClick={LogIn(email, password)}>Log In</StyledButtonGray>
             </Stack>
 
         </>
