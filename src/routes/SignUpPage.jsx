@@ -11,7 +11,7 @@ import TextField from "@mui/material/TextField";
 import {useState} from "react";
 import {CityCircleSmallLogoLogIn} from "../Styled Components/styledCityCircleLogoLogIn";
 import Box from "@mui/material/Box";
-
+import {BottomBoxWithLogo} from "../Styled Components/StyledBoxWithLogo";
 
 
 export default function SignupPage() {
@@ -98,7 +98,7 @@ export default function SignupPage() {
                 />
             </Stack>
 
-            <Stack direction="column" margin="1rem" alignItems="start" >
+            <Stack direction="column" margin="1rem" alignItems="start" marginBottom={5}>
                 <Typography variant="h4" textAlign="start">Your hobby is.. (for now, you can change it later :))</Typography>
                 <StyledAutoComplete
                     disablePortal
@@ -115,14 +115,12 @@ export default function SignupPage() {
                     />}
                 />
             </Stack>
+            <BottomBoxWithLogo/>
 
-            <Box sx={{position: 'relative'}}>
-                <br/>
-                <br/>
-                <StyledRotatePurpleBox sx={{alignItems: "center", top:-100}}>
-                    <CityCircleSmallLogoLogIn sx={{alignSelf: "center", position: "relative"}}/>
-                </StyledRotatePurpleBox>
-            </Box>
+            {/*<Box sx={{position: 'relative'}}>*/}
+            {/*    <br/>*/}
+            {/*    <br/>*/}
+            {/*</Box>*/}
 
             <br/>
             <br/>

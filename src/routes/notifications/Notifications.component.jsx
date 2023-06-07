@@ -8,6 +8,8 @@ import UserRegistrationForm from "../../Components/UserRegistration.component";
 // import BusinessStepper from "../../Components/BusinessRegistrationComponents/Stepper.components";
 import LogInPage from "../../Styled Components/styledLogInPage";
 import SignupPage from "../../routes/SignUpPage";
+import {BottomBoxWithLogo, TopBoxWithLogo} from "../../Styled Components/StyledBoxWithLogo";
+import Box from "@mui/material/Box";
 
 class Notifications extends Component{
     render() {
@@ -17,7 +19,9 @@ class Notifications extends Component{
             {/*    <LogInPage/>*/}
                 <SignupPage/>
                 {/*<UserRegistrationForm/>*/}
-
+                {/*<TopBoxWithLogo/>*/}
+                {/*<Box sx={{height: 300}}></Box>*/}
+                {/*<BottomBoxWithLogo/>*/}
             {/*    <UserRegistrationForm/>*/}
             {/*<CreateUser/>*/}
             {/*<CreateBusiness/>*/}
