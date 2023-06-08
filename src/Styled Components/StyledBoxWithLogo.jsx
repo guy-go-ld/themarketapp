@@ -1,9 +1,9 @@
-import {StyledRotatePurpleBox, StyledSmallLogoBox} from "./styledComponents";
+import {StyledLightCircleBox, StyledRotatePurpleBox, StyledSmallLogoBox} from "./styledComponents";
 import {CityCircleSmallLogoLogIn} from "./styledCityCircleLogoLogIn";
 import Box from "@mui/material/Box";
 import * as React from "react";
 import {styled} from "@mui/material/styles";
-import {AppBar} from "@mui/material";
+import {AppBar, Typography} from "@mui/material";
 import CityCircleLogo from "../Icons/logo-new.png";
 
 
@@ -31,10 +31,10 @@ const PurpleBox = styled(AppBar)(({ theme })=> ({
 const SmallLogoBox = styled(Box)(({ theme })=> ({
     borderRadius:"50%",
     boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px',
-    border:`0.65rem solid ${theme.palette.secondary.main}`,
+    border:`0.5rem solid ${theme.palette.secondary.main}`,
     backgroundColor:'white',
     position: "absolute",
-    top : '-2.8rem',
+    top : '-3.3rem',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -48,7 +48,7 @@ const SmallLogoBox = styled(Box)(({ theme })=> ({
 const SmallLogoBoxBottom = styled(Box)(({ theme })=> ({
     borderRadius:"50%",
     boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px',
-    border:`0.65rem solid ${theme.palette.secondary.main}`,
+    border:`0.5rem solid ${theme.palette.secondary.main}`,
     backgroundColor:'white',
     position: "absolute",
     bottom : '-2.8rem',
@@ -63,12 +63,13 @@ const SmallLogoBoxBottom = styled(Box)(({ theme })=> ({
 }));
 
 
-export function BottomBoxWithLogo() {
+export function BottomBoxWithLogo({children}) {
     return (
         <RotatePurpleBox>
             <SmallLogoBox>
                 <img src={CityCircleLogo} alt="logo" width="80rem" height="80rem"/>
             </SmallLogoBox>
+            <Box margin="auto">{children}</Box>
         </RotatePurpleBox>
     );
 }

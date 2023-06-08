@@ -1,4 +1,4 @@
-import {StyledPurpleBox, StyledDialogTextFieldReview, StyledAutoComplete, StyledRotatePurpleBox} from "../Styled Components/styledComponents";
+import {StyledPurpleBox, StyledLightCircleBox, StyledDialogTextFieldReview, StyledAutoComplete, StyledRotatePurpleBox} from "../Styled Components/styledComponents";
 import {Stack, Typography} from "@mui/material";
 import {palette} from "@mui/system";
 import * as React from 'react';
@@ -115,7 +115,29 @@ export default function SignupPage() {
                     />}
                 />
             </Stack>
-            <BottomBoxWithLogo/>
+
+            <BottomBoxWithLogo>
+                <Stack direction="row" spacing={2} justifyContent="center">
+                    <StyledLightCircleBox>
+                        <Typography variant="h5" color="black">
+                            {chosenSchool === "" ? 'School' : chosenSchool}
+                        </Typography>
+                    </StyledLightCircleBox>
+                    <StyledLightCircleBox>
+                        <Typography variant="h5" color="black">
+                            {chosenNeighborhood === "" ? 'Neighborhood' : chosenNeighborhood}
+                        </Typography>
+                    </StyledLightCircleBox>
+                    <StyledLightCircleBox>
+                        <Typography variant="h5" color="black">
+                            {chosenHobby === "" ? 'Hobby' : chosenHobby}
+                        </Typography>
+                    </StyledLightCircleBox>
+                </Stack>
+            </BottomBoxWithLogo>
+
+
+
 
             {/*<Box sx={{position: 'relative'}}>*/}
             {/*    <br/>*/}

@@ -98,6 +98,20 @@ export const StyledCircleBox = styled(Box)(({theme}) => ({
     }
 }));
 
+export const StyledLightCircleBox = styled(Box)(({theme}) => ({
+    borderRadius: "50%",
+    boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px',
+    border: `0.65rem solid ${theme.palette.secondary.main}`,
+    backgroundColor: theme.palette.primary.light,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    [theme.breakpoints.up('xs')]: {
+        width: "6rem",
+        height: "6rem",
+    }
+}));
+
 export const StyledLogoBox = styled(Box)(({ theme })=> ({
     borderRadius:"50%",
     boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px',
