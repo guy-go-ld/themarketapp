@@ -9,6 +9,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import HttpsOutlinedIcon from '@mui/icons-material/HttpsOutlined';
 import React, {useState} from "react";
 import User from "../Classes/UserClass";
+import {SignIn} from "../Classes/UserClass";
 import {signOut} from "firebase/auth";
 import {auth} from "../config/firebase";
 import {LogIn} from "../Components/Auth/auth";
@@ -21,13 +22,15 @@ export default function FirstPageLogIn () {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSignUp = (e) => {
+    const handleSignUp = async (e) => {
         e.preventDefault();
-        console.log("before user")
-        const user = new User(name, email, password);
-        user.signIn();
-        console.log("after user")
-        window.location.replace('/SignupPage');
+        console.log("before user");
+        // const user = new User(email, password);
+        // await user.signIn();
+        await SignIn({email}, {password});
+        console.log("after user");
+        console.log(auth?.currentUser?.uid)
+        await window.location.replace('/SignupPage');
     };
     const logout = async() =>{
         try

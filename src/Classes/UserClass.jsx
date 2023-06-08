@@ -1,14 +1,14 @@
 import {auth, db, timestamp} from "../config/firebase";
 import "firebase/auth";
 import {createUserWithEmailAndPassword} from "firebase/auth";
-import {doc, getDoc, setDoc} from "firebase/firestore";
+import {addDoc, collection, doc, getDoc, setDoc} from "firebase/firestore";
 import {getBusinessByName} from "./BusinessClass";
 // import {auth} from "./config/firebase";
 
 export default class User
 {
     // TODO as little as I can
-    constructor(name, email, password, userID_ = auth?.currentUser?.uid, review = [],
+    constructor( email, password, name="", userID_ = auth?.currentUser?.uid, review = [],
                 footprint = [], circles = [], friends = [], profile_pic="") {
 
         this.name_ = name;
@@ -27,10 +27,11 @@ export default class User
 
     signIn = async () => {
         try {
-            await createUserWithEmailAndPassword(auth, this.email_, this.password_, this.name_).then(async cred => {
+            await createUserWithEmailAndPassword(auth, this.email_, this.password_).then(async cred => {
                 this.userID_ = cred.user.uid;
                 const ref = doc(db, "Users", cred.user.uid).withConverter(userConverter);
                 await setDoc(ref, this);
+                console.log("id is: ",this.userID_)
             });
         } catch (err) {
             console.error(err);
@@ -149,23 +150,30 @@ export async function getUserCircles(id) {
 
 }
 
-const signIn = async (name, email, password)=>{
+export const SignIn = async ({email}, {password})=>{
+    // const ref = doc(collection(db, "Users")).withConverter(userConverter);
+
     try
     {
-        await createUserWithEmailAndPassword(auth, email, password, name).then(async cred => {
+        await createUserWithEmailAndPassword(auth, email, password).then(async cred => {
+
             // Adds a user with the same uid
-            await setDoc(doc(db, "Users", cred.user.uid),
-                {
-                    FirstName: name,
-                    email: email,
-                    password: password,
-                    userID: cred.user.uid,
-                    reviews: [],
-                    footprints: [],
-                    circles: [],
-                    // birthday: null
-                });
-            // console.log("id: ", this.userID_, "name: ", this.name_);
+            const data = {
+                name: "",
+                email: email,
+                password: password,
+                userID: cred.user.uid,
+                reviews: [],
+                footprints: [],
+                circles: [],
+                // birthday: null
+                profile_pic: "",
+                friends: [],
+            }
+            console.log(cred.user.uid)
+            const ref = await addDoc(collection(db, "Users", cred.user.uid), data);
+
+            // await setDoc(ref, data);
 
         });
     } catch (err) {
@@ -190,7 +198,7 @@ const userConverter = {
     },
     fromFirestore(snapshot, options) {
         const data = snapshot.data(options);
-        return new User(data.FirstName, data.email, data.password, data.userID, data.reviews, data.footprints, data.circles, data.friends,
+        return new User(data.email, data.password, data.FirstName, data.userID, data.reviews, data.footprints, data.circles, data.friends,
             // data.birthday
         );
     },
