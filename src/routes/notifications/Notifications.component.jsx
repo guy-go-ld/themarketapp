@@ -10,6 +10,9 @@ import LogInPage from "../../Styled Components/styledLogInPage";
 import SignupPage from "../../routes/SignUpPage";
 import {BottomBoxWithLogo, TopBoxWithLogo} from "../../Styled Components/StyledBoxWithLogo";
 import Box from "@mui/material/Box";
+import FirstPage from "../LogInPage";
+import CreateUser from "../../BackEndComponents/CreateUser.component";
+
 
 class Notifications extends Component{
     render() {
@@ -17,7 +20,8 @@ class Notifications extends Component{
             <div style={{paddingTop: "5rem"}}>
             {/*<Auth/>*/}
             {/*    <LogInPage/>*/}
-                <SignupPage/>
+                <FirstPage/>
+            {/*    <SignupPage/>*/}
                 {/*<UserRegistrationForm/>*/}
                 {/*<TopBoxWithLogo/>*/}
                 {/*<Box sx={{height: 300}}></Box>*/}

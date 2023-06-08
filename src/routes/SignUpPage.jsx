@@ -1,5 +1,13 @@
-import {StyledPurpleBox, StyledLightCircleBox, StyledDialogTextFieldReview, StyledAutoComplete, StyledRotatePurpleBox} from "../Styled Components/styledComponents";
+import {
+    StyledPurpleBox,
+    StyledLightCircleBox,
+    StyledDialogTextFieldReview,
+    StyledAutoComplete,
+    StyledRotatePurpleBox,
+    StyledButtonGray
+} from "../Styled Components/styledComponents";
 import {Stack, Typography} from "@mui/material";
+import {auth} from "../config/firebase";
 import {palette} from "@mui/system";
 import * as React from 'react';
 import dayjs from 'dayjs';
@@ -12,9 +20,12 @@ import {useState} from "react";
 import {CityCircleSmallLogoLogIn} from "../Styled Components/styledCityCircleLogoLogIn";
 import Box from "@mui/material/Box";
 import {BottomBoxWithLogo} from "../Styled Components/StyledBoxWithLogo";
+import User, {getUserById} from "../Classes/UserClass";
 
 
 export default function SignupPage() {
+    const userID = auth?.currentUser?.uid;
+    const [name, setName] = useState("")
     const [value, setValue] = React.useState(dayjs('2022-04-17'));
     const [chosenSchool, setChosenSchool] = useState("");
     const [chosenNeighborhood, setChosenNeighborhood] = useState("");
@@ -24,6 +35,14 @@ export default function SignupPage() {
     const NeighborhoodLst = ['Rehavia', 'City Center', 'Nahlaot', 'Ramot', 'Talabia', 'Beit Hakerem', 'Resko', 'Katamon', 'Gilo'];
     const HobbyLst = ['Sport', 'Art', 'Cooking', 'Travel', 'Music', 'Gaming', 'Design', 'Reading'];
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log(auth?.currentUser?.uid)
+        const user = await getUserById(auth?.currentUser?.uid);
+        await user.AddUserMoreInfo(name, chosenSchool, chosenNeighborhood, chosenHobby);
+        // console.log("after user")
+        window.location.replace('/');
+    };
 
     return(
         <>
@@ -46,7 +65,7 @@ export default function SignupPage() {
             <Typography variant="h4">
                 Your Name Is..
             </Typography>
-            <StyledDialogTextFieldReview/>
+            <StyledDialogTextFieldReview value={name} onChange={(event) => {setName(event.target.value)}}/>
             </Stack>
             <Stack direction="column" alignItems="start" margin="1rem">
                 <Typography variant="h4">
@@ -136,6 +155,8 @@ export default function SignupPage() {
                 </Stack>
             </BottomBoxWithLogo>
 
+            <StyledButtonGray onClick={handleSubmit}>Finish!</StyledButtonGray>
+
 
 
 
@@ -144,6 +165,9 @@ export default function SignupPage() {
             {/*    <br/>*/}
             {/*</Box>*/}
 
+            <br/>
+            <br/>
+            <br/>
             <br/>
             <br/>
             <br/>

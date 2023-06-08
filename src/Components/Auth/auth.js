@@ -106,7 +106,9 @@ export const Auth = () =>
     )
 }
 
-export const LogIn = async(email, password) => {
+export const LogIn = async({email}, {password}) => {
+    console.log("this is email", email)
+    console.log("this is password", password)
     try
     {
         await signInWithEmailAndPassword(auth, email, password).then((userCredential)=>
@@ -114,6 +116,7 @@ export const LogIn = async(email, password) => {
             // Signed in
             const user = userCredential.user;
             console.log(user);
+            window.location.replace("/")
             // ...
         })
     } catch (err) {

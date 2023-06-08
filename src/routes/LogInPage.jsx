@@ -1,7 +1,7 @@
-import {StyledLogoLogIn} from "./styledCityCircleLogoLogIn";
-import {StyledButtonGray} from "./styledComponents";
+import {StyledLogoLogIn} from "../Styled Components/styledCityCircleLogoLogIn";
+import {StyledButtonGray} from "../Styled Components/styledComponents";
 import Box from "@mui/material/Box";
-import {StyledPurpleBox, StyledDialogTextFieldReview} from "./styledComponents";
+import {StyledPurpleBox, StyledDialogTextFieldReview} from "../Styled Components/styledComponents";
 import {Stack, Typography} from "@mui/material";
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import TextField from "@mui/material/TextField";
@@ -13,17 +13,20 @@ import {signOut} from "firebase/auth";
 import {auth} from "../config/firebase";
 import {LogIn} from "../Components/Auth/auth";
 import SignupPage from "../routes/SignUpPage";
+import {Link} from "react-router-dom";
 
 
-export default function UserRegistrationForm () {
+export default function FirstPageLogIn () {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSignUp = (e) => {
         e.preventDefault();
+        console.log("before user")
         const user = new User(name, email, password);
         user.signIn();
+        console.log("after user")
         window.location.replace('/SignupPage');
     };
     const logout = async() =>{
@@ -45,9 +48,9 @@ export default function UserRegistrationForm () {
             </Typography>
             <Stack direction="column" spacing={5} marginBottom={4} marginTop={4}>
                 <Stack direction="column" spacing={1}>
-                <Typography variant="h4">
-                    Email
-                </Typography>
+                    <Typography variant="h4">
+                        Email
+                    </Typography>
                     <TextField
                         type={"email"}
                         sx={{width:' 50%', alignSelf: "center"}}
@@ -66,32 +69,37 @@ export default function UserRegistrationForm () {
                     />
                 </Stack>
                 <Stack direction="column" spacing={1}>
-                <Typography variant="h4">
-                    Password
-                </Typography>
-                <TextField
-                    type={"password"}
-                    sx={{width:' 50%', alignSelf: "center"}}
-                    id="input-with-icon-textfield"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    // label="TextField"
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <HttpsOutlinedIcon />
-                            </InputAdornment>
-                        ),
-                    }}
-                    variant="standard"
-                />
+                    <Typography variant="h4">
+                        Password
+                    </Typography>
+                    <TextField
+                        type={"password"}
+                        sx={{width:' 50%', alignSelf: "center"}}
+                        id="input-with-icon-textfield"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        // label="TextField"
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <HttpsOutlinedIcon />
+                                </InputAdornment>
+                            ),
+                        }}
+                        variant="standard"
+                    />
                 </Stack>
             </Stack>
             <Stack direction="row" justifyContent="center" spacing={3} marginTop={5 }>
+
                 <StyledButtonGray onClick={handleSignUp}>
-                        Register
+                    Register
                 </StyledButtonGray>
-                <StyledButtonGray onClick={LogIn(email, password)}>Log In</StyledButtonGray>
+
+                {/*<StyledButtonGray component={Link} to={'/SignupPage'}>*/}
+                {/*    Register*/}
+                {/*</StyledButtonGray>*/}
+                <StyledButtonGray onClick={LogIn({email}, {password})}>Log In</StyledButtonGray>
             </Stack>
 
         </>

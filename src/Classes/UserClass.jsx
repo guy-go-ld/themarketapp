@@ -22,6 +22,7 @@ export default class User
         this.footprints = footprint;
         this.circles = circles;
         this.friends = friends;
+        // this.birthday = birthday;
     }
 
     signIn = async () => {
@@ -60,6 +61,19 @@ export default class User
         };
         this.footprints.push(footprint);
         console.log("footprint added: ", footprint);
+        await this.saveToFirebase();
+    }
+
+    async AddUserMoreInfo(name, school, neighborhood, hobby) {
+        const circlesLst = {
+            school: school,
+            neighborhood: neighborhood,
+            hobby: hobby,
+        };
+        this.circles.push(circlesLst);
+        this.name_ = name;
+        // this.birthday = birthday;
+        // console.log("footprint added: ", footprint);
         await this.saveToFirebase();
     }
 
@@ -148,7 +162,8 @@ const signIn = async (name, email, password)=>{
                     userID: cred.user.uid,
                     reviews: [],
                     footprints: [],
-                    circles: []
+                    circles: [],
+                    // birthday: null
                 });
             // console.log("id: ", this.userID_, "name: ", this.name_);
 
@@ -169,12 +184,15 @@ const userConverter = {
             reviews: user.reviews,
             footprints: user.footprints,
             circles: user.circles,
-            friends: user.friends
+            friends: user.friends,
+            // birthday: user.birthday
         };
     },
     fromFirestore(snapshot, options) {
         const data = snapshot.data(options);
-        return new User(data.FirstName, data.email, data.password, data.userID, data.reviews, data.footprints, data.circles, data.friends);
+        return new User(data.FirstName, data.email, data.password, data.userID, data.reviews, data.footprints, data.circles, data.friends,
+            // data.birthday
+        );
     },
 };
 
