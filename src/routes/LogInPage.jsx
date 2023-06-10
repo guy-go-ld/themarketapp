@@ -24,20 +24,17 @@ export default function FirstPageLogIn () {
 
     const handleSignUp = async (e) => {
         e.preventDefault();
-        // console.log("before user");
-        // const user = new User(email, password);
-        // await user.signIn();
+
         let check_sign_up = await SignIn({email}, {password});
-        // console.log("after user");
-        // console.log(auth?.currentUser?.uid);
-        // if (check_sign_up)
-        // {
-        await window.location.replace('/SignupPage');
-        // }
-        // else
-        // {
-        //     console.log("ERROR");
-        // }
+
+        if (check_sign_up)
+        {
+            await window.location.replace('/SignupPage');
+        }
+        else
+        {
+            console.log("ERROR");
+        }
     };
     const logout = async() =>{
         try

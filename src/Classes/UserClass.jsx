@@ -173,10 +173,12 @@ export const SignIn = async ({email}, {password})=>{
             await setDoc(doc(db, "Users", cred.user.uid), data);
             return true;
         });
-    } catch (err) {
+    }
+    catch (err) {
         console.error(err);
         return false;
     }
+    return true;
     // handleRefresh();
 };
 
