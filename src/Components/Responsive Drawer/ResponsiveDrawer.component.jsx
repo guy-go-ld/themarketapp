@@ -18,7 +18,9 @@ import DraftsRoundedIcon from '@mui/icons-material/DraftsRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import {Link} from "react-router-dom";
 import BusinessRegistration1 from "../../routes/business_registratin_pages/BusinessRegistrationPage1";
-
+import LogoutIcon from '@mui/icons-material/Logout';
+import {signOut} from "firebase/auth";
+import {auth} from "../../config/firebase";
 
 const drawerWidth = '35%';
 function ResponsiveDrawer(props) {
@@ -28,6 +30,15 @@ function ResponsiveDrawer(props) {
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+
+    const logout = async() =>{
+        try
+        {
+            await signOut(auth);
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
     function sendToCreateBusiness() {
         window.location.replace('/BusinessRegistrationPage1');
@@ -60,16 +71,24 @@ function ResponsiveDrawer(props) {
             </List>
             <Divider />
             <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
+                <ListItem disablePadding>
+                    <ListItemButton onClick={logout}>
+                        <ListItemIcon>
+                            <LogoutIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary='Log-Out' />
+                    </ListItemButton>
+                </ListItem>
+                {/*{['All mail', 'Trash', 'Spam'].map((text, index) => (*/}
+                {/*    <ListItem key={text} disablePadding>*/}
+                {/*        <ListItemButton>*/}
+                {/*            <ListItemIcon>*/}
+                {/*                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}*/}
+                {/*            </ListItemIcon>*/}
+                {/*            <ListItemText primary={text} />*/}
+                {/*        </ListItemButton>*/}
+                {/*    </ListItem>*/}
+                {/*))}*/}
             </List>
         </div>
     );

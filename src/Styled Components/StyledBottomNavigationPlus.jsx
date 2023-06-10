@@ -8,6 +8,8 @@ import PersonIcon from "@mui/icons-material/Person";
 import StyledCircleReview from "./StyledCircleReview";
 import StyledCircleFootprint from "./StyledCircleFootprints";
 import theme from "../Theme/Theme";
+import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
+
 
 export default function StyledBottomNavigationPlus() {
     const [openDialog, setOpenDialog] = useState(false);
@@ -21,7 +23,7 @@ export default function StyledBottomNavigationPlus() {
     };
     return (
         <>
-            <StyledBottomNavigationAction label = "add" icon={<AddIcon
+            <AddCircleOutlineRoundedIcon label = "add" icon={<AddIcon
                 sx={{
                     color:theme.palette.secondary.main,
                     border:`0.3rem solid ${theme.palette.secondary.main}`,

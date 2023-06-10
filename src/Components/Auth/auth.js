@@ -105,3 +105,21 @@ export const Auth = () =>
         </div>
     )
 }
+
+export const LogIn = async({email}, {password}) => {
+    console.log("this is email", email)
+    console.log("this is password", password)
+    try
+    {
+        await signInWithEmailAndPassword(auth, email, password).then((userCredential)=>
+        {
+            // Signed in
+            const user = userCredential.user;
+            console.log(user);
+            window.location.replace("/")
+            // ...
+        })
+    } catch (err) {
+        console.error(err);
+    }
+};

@@ -40,6 +40,32 @@ export const StyledAppBarTop = styled(AppBar)(({theme}) => ({
         height: '6.5rem',
     }
 }));
+
+export const StyledPurpleBox = styled(AppBar)(({ theme })=> ({
+    backgroundColor:theme.palette.primary.main,
+    borderBottom:`0.65rem solid ${theme.palette.secondary.main}`,
+    // position:"fixed",
+    [theme.breakpoints.up('xs')]: {
+        height:'16rem',
+    }
+}));
+
+export const StyledRotatePurpleBox = styled(AppBar)(({ theme })=> ({
+    backgroundColor:theme.palette.primary.main,
+    borderTop:`0.65rem solid ${theme.palette.secondary.main}`,
+    // position:"fixed",
+    [theme.breakpoints.up('xs')]: {
+        height:'16rem',
+    }
+}));
+
+// export const StyledSearchBar = styled(Input)(({ theme })=> ({
+//     backgroundColor: "white",
+//     color: theme.palette.info.dark,
+//     marginLeft: "auto",
+//     marginRight: "auto",
+//     borderRadius: "10px",
+// }));
 export const StyledSearchBar = styled(Input)(({theme}) => ({
     backgroundColor: "white",
     color: theme.palette.info.dark,
@@ -72,13 +98,60 @@ export const StyledCircleBox = styled(Box)(({theme}) => ({
     }
 }));
 
-export const StyledAvatarUserFeed = styled(Avatar)(({theme}) => ({
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+export const StyledLightCircleBox = styled(Box)(({theme}) => ({
+    borderRadius: "50%",
+    boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px',
+    border: `0.65rem solid ${theme.palette.secondary.main}`,
+    backgroundColor: theme.palette.primary.light,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     [theme.breakpoints.up('xs')]: {
-        width: "2.5rem",
-        height: "2.5rem"
+        width: "6rem",
+        height: "6rem",
     }
 }));
+
+export const StyledLogoBox = styled(Box)(({ theme })=> ({
+    borderRadius:"50%",
+    boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px',
+    border:`0.65rem solid ${theme.palette.secondary.main}`,
+    backgroundColor:'white',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    [theme.breakpoints.up('xs')]:{
+        width:"9.5rem",
+        height:"9.5rem",
+    }
+}));
+
+export const StyledSmallLogoBox = styled(Box)(({ theme })=> ({
+    borderRadius:"50%",
+    boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px',
+    border:`0.65rem solid ${theme.palette.secondary.main}`,
+    backgroundColor:'white',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    [theme.breakpoints.up('xs')]:{
+        width:"5.5rem",
+        height:"5.5rem",
+    }
+}));
+
+export const StyledAvatarUserFeed = styled(Avatar)(({ theme })=> ({
+    boxShadow : "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    [theme.breakpoints.up('xs')]:{
+        width:"2.5rem",
+        height:"2.5rem"
+// export const StyledAvatarUserFeed = styled(Avatar)(({theme}) => ({
+//     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+//     [theme.breakpoints.up('xs')]: {
+//         width: "2.5rem",
+//         height: "2.5rem"
+//     }
+}}));
 
 export const StyledSmallCirclesButton = styled(SupervisedUserCircleIcon)(({theme}) => ({
     color: theme.palette.primary.main,

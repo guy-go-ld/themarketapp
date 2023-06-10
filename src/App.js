@@ -12,6 +12,8 @@ import BusinessRegistrationPage1 from "./routes/business_registratin_pages/Busin
 import CommunityComponent from "./routes/Community/Community.component";
 import Theme from "./Theme/Theme";
 import {ThemeProvider} from "@mui/material/styles";
+import SignupPage from "./routes/SignUpPage";
+import FirstPageLogIn from "./routes/LogInPage";
 
 class App extends Component{
     render(){
@@ -28,6 +30,8 @@ class App extends Component{
                     <Route path="NotificationsComponent" element={<NotificationsComponent/>}/>
                     <Route path="CommunityComponent" element={<CommunityComponent/>}/>
                     <Route path="BusinessRegistrationPage1" element={<BusinessRegistrationPage1/>}/>
+                    <Route path="SignInPage" element={<FirstPageLogIn/>}/>
+                    <Route path="SignupPage" element={<SignupPage/>}/>
                 </Route>
                 <Route path="SearchPageComponent" element={<SearchPageComponent />} />
             </Routes>

@@ -1,7 +1,7 @@
 import './AroundMe.styles.css';
 import {Component} from "react";
 import FullWidthTabs from "../../Components/AroundMeTab/TabAroundMe"
-
+import {StyledLogoLogIn} from "../../Styled Components/styledCityCircleLogoLogIn";
 import theme from "../../Theme/Theme";
 import Box from "@mui/material/Box";
 import {ThemeProvider} from "@mui/material/styles";
@@ -35,6 +35,7 @@ render() {
                 {/*<FullWidthTabs/>*/}
                 {/*<ResizableMap/>*/}
                 <ThemeProvider theme={theme}>
+                    <StyledLogoLogIn/>
                     <TopMenuNew/>
                     <Box sx={{mt:10}}>
                         {/*<StyledCircleReview/>*/}

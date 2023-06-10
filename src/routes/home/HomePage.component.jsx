@@ -1,7 +1,7 @@
 import {Component} from "react";
 import './HomePage.styles.css';
 import {Typography} from "@mui/material";
-
+import {auth} from "../../config/firebase";
 
 import ResizableMap from '../../Components/updatable-map/ResizableMap'
 import Divider from "@mui/material/Divider";
@@ -15,7 +15,7 @@ class HomePageComponent extends Component{
 
     render(){
         // const position = [31.777587, 35.215094]; //[this.state.location.lat, this.state.location.lng];
-
+        console.log(auth?.currentUser?.email)
         return(
             <div className="All-Home-Page" style={{
                 marginTop: "7rem",
