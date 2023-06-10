@@ -12,7 +12,7 @@ import User from "../Classes/UserClass";
 import {SignIn} from "../Classes/UserClass";
 import {signOut} from "firebase/auth";
 import {auth} from "../config/firebase";
-import {LogIn} from "../Components/Auth/auth";
+import {LogIn} from "../Classes/UserClass";
 import SignupPage from "../routes/SignUpPage";
 import {Link} from "react-router-dom";
 
@@ -24,13 +24,20 @@ export default function FirstPageLogIn () {
 
     const handleSignUp = async (e) => {
         e.preventDefault();
-        console.log("before user");
+        // console.log("before user");
         // const user = new User(email, password);
         // await user.signIn();
-        await SignIn({email}, {password});
-        console.log("after user");
-        console.log(auth?.currentUser?.uid)
+        let check_sign_up = await SignIn({email}, {password});
+        // console.log("after user");
+        // console.log(auth?.currentUser?.uid);
+        // if (check_sign_up)
+        // {
         await window.location.replace('/SignupPage');
+        // }
+        // else
+        // {
+        //     console.log("ERROR");
+        // }
     };
     const logout = async() =>{
         try
@@ -102,7 +109,7 @@ export default function FirstPageLogIn () {
                 {/*<StyledButtonGray component={Link} to={'/SignupPage'}>*/}
                 {/*    Register*/}
                 {/*</StyledButtonGray>*/}
-                <StyledButtonGray onClick={LogIn({email}, {password})}>Log In</StyledButtonGray>
+                {/*<StyledButtonGray onClick={LogIn({email}, {password})}>Log In</StyledButtonGray>*/}
             </Stack>
 
         </>

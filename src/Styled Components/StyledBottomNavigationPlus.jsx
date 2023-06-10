@@ -9,8 +9,6 @@ import StyledCircleReview from "./StyledCircleReview";
 import StyledCircleFootprint from "./StyledCircleFootprints";
 import theme from "../Theme/Theme";
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
-
-
 export default function StyledBottomNavigationPlus() {
     const [openDialog, setOpenDialog] = useState(false);
 
@@ -23,17 +21,17 @@ export default function StyledBottomNavigationPlus() {
     };
     return (
         <>
-            <AddCircleOutlineRoundedIcon label = "add" icon={<AddIcon
+
+            <AddCircleOutlineRoundedIcon label = "add"
                 sx={{
                     color:theme.palette.secondary.main,
-                    border:`0.3rem solid ${theme.palette.secondary.main}`,
+                    // border:`0.3rem solid ${theme.palette.secondary.main}`,
                     borderRadius:"50%",
                     fontSize: {
                         xs: "3rem",
                         sm: "5rem"
                     }
                 }}
-            />}
                 onClick={handleClick}
             />
             <Dialog open={openDialog} onClose={handleCloseSmallDialog}>

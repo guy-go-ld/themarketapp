@@ -1,6 +1,6 @@
 import {auth, db, timestamp} from "../config/firebase";
 import "firebase/auth";
-import {createUserWithEmailAndPassword} from "firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
 import {addDoc, collection, doc, getDoc, setDoc} from "firebase/firestore";
 import {getBusinessByName} from "./BusinessClass";
 // import {auth} from "./config/firebase";
@@ -170,14 +170,12 @@ export const SignIn = async ({email}, {password})=>{
                 profile_pic: "",
                 friends: [],
             }
-            console.log(cred.user.uid)
-            const ref = await addDoc(collection(db, "Users", cred.user.uid), data);
-
-            // await setDoc(ref, data);
-
+            await setDoc(doc(db, "Users", cred.user.uid), data);
+            return true;
         });
     } catch (err) {
         console.error(err);
+        return false;
     }
     // handleRefresh();
 };
@@ -204,4 +202,20 @@ const userConverter = {
     },
 };
 
-
+export const LogIn = async({email}, {password}) => {
+    console.log("this is email", email)
+    console.log("this is password", password)
+    try
+    {
+        await signInWithEmailAndPassword(auth, email, password).then((userCredential)=>
+        {
+            // Signed in
+            const user = userCredential.user;
+            console.log(user);
+            window.location.replace("/")
+            // ...
+        })
+    } catch (err) {
+        console.error(err);
+    }
+};

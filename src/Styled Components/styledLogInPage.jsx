@@ -11,7 +11,7 @@ import React, {useState} from "react";
 import User from "../Classes/UserClass";
 import {signOut} from "firebase/auth";
 import {auth} from "../config/firebase";
-import {LogIn} from "../Components/Auth/auth";
+import {LogIn} from "../Classes/UserClass";
 import SignupPage from "../routes/SignUpPage";
 
 
